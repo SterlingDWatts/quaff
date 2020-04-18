@@ -1,0 +1,29 @@
+.SubNavBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0 16px 16px;
+  line-height: 1;
+  background-color: #4e0d3a;
+  color: white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 49.6px;
+}
+
+.SubNavBar a {
+  color: white;
+  text-decoration: none;
+}
+
+.SubNavBarPill,
+.SubNavBarPill--active {
+  padding: 4px 20px;
+  border-radius: 20px;
+  border: 2px solid #4e0d3a;
+}
+
+.SubNavBarPill--active {
+  border: 2px solid white;
+}

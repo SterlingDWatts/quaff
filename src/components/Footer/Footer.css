@@ -1,0 +1,8 @@
+.Footer__container {
+  padding: 16px;
+  width: 100%;
+  max-width: 944px;
+  background-color: #4e0d3a;
+  font-size: 16px;
+  min-height: 48px;
+}

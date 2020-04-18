@@ -1,0 +1,14 @@
+.Landing {
+  min-height: 100%;
+}
+
+.Landing .QuaffSquare__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 400;
+  font-family: "Merriweather", serif;
+  line-height: 1;
+}

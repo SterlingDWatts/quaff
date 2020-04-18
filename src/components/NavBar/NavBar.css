@@ -1,0 +1,102 @@
+.NavBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #4e0d3a;
+  color: white;
+  overflow: hidden;
+  z-index: 10;
+  height: 50px;
+}
+
+.NavBar__container {
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Merriweather", serif;
+  padding: 16px;
+  width: 100%;
+  max-width: 944px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.NavBar__hamburger {
+  background-color: rgb(0, 0, 0, 0);
+  border: none;
+  padding: 0;
+  color: white;
+  margin-right: 16px;
+}
+
+.NavBar a {
+  color: white;
+  text-decoration: none;
+}
+
+.SideNav__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 20;
+}
+
+@keyframes shadow {
+  0% {
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0, 0.5);
+  }
+
+  1% {
+    left: -100vw;
+    right: 100vw;
+    background-color: rgb(0, 0, 0, 0.5);
+  }
+
+  50% {
+    left: -100vw;
+    right: 100vw;
+    background-color: rgb(0, 0, 0, 0.25);
+  }
+
+  100% {
+    left: -100vw;
+    right: 100vw;
+    background-color: rgb(0, 0, 0, 0);
+  }
+}
+
+.SideNav__overlay.SideNav--hidden {
+  animation-name: shadow;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.SideNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition-property: left;
+  transition-duration: 0.25s;
+  transition-timing-function: linear;
+  bottom: 0;
+  width: 85%;
+  background-color: #4e0d3a;
+  padding: 44px 16px 16px 44px;
+  display: grid;
+  grid-template-columns: repeat(2, 56px);
+  grid-template-rows: repeat(5, 60px);
+  font-family: "Merriweather", serif;
+}
+
+.SideNav--hidden .SideNav {
+  left: -100vw;
+}

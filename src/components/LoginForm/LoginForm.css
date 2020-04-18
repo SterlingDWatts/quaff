@@ -1,0 +1,34 @@
+.LoginForm {
+  margin: auto;
+}
+
+.LoginForm h2 {
+  margin: 32px 0px 0px;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.LoginForm .hint {
+  margin: 0px 0px 32px;
+  text-align: center;
+}
+
+.LoginForm__buttons {
+  max-width: 288px;
+  margin: 0px auto;
+}
+
+.LoginForm__other_links {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.LoginForm__other_links a {
+  color: #2d8cfb;
+}
+
+.LoginForm--error {
+  margin-bottom: 8px;
+}
