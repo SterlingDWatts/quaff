@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuizForm Component renders the UI as expected 1`] = `
+<form
+  className="QuizForm"
+  onSubmit={[Function]}
+>
+  <div
+    className="QuizForm--loading"
+  />
+</form>
+`;

@@ -19,8 +19,7 @@
   border-bottom-right-radius: 16px;
 }
 
-.NextUp__module,
-.NextUp__quiz {
+.NextUp__container {
   height: 150px;
   display: flex;
   flex-direction: column;

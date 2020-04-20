@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import LoginForm from "./LoginForm";
 
-describe("App Component", () => {
+describe("LoginForm Comoponent", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <BrowserRouter>
-        <App />
+        <LoginForm />
       </BrowserRouter>,
       div
     );
@@ -20,7 +20,7 @@ describe("App Component", () => {
     const tree = renderer
       .create(
         <BrowserRouter>
-          <App />
+          <LoginForm />
         </BrowserRouter>
       )
       .toJSON();

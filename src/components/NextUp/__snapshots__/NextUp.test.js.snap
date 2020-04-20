@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NextUp Component renders the UI as expected 1`] = `
+<div
+  className="NextUp"
+>
+  <div
+    className="NextUp__learn-loading"
+  >
+    <div
+      className="NextUp__header"
+    >
+      Learn
+    </div>
+    <div
+      className="NextUp__container"
+    >
+      Loading
+    </div>
+  </div>
+  <div
+    className="NextUp__study-loading"
+  >
+    <div
+      className="NextUp__header"
+    >
+      Learn
+    </div>
+    <div
+      className="NextUp__container"
+    >
+      Loading
+    </div>
+  </div>
+  <div
+    className="NextUp__study-loading"
+  >
+    <div
+      className="NextUp__header"
+    >
+      Learn
+    </div>
+    <div
+      className="NextUp__container"
+    >
+      Loading
+    </div>
+  </div>
+  <div
+    className="NextUp__study-loading"
+  >
+    <div
+      className="NextUp__header"
+    >
+      Learn
+    </div>
+    <div
+      className="NextUp__container"
+    >
+      Loading
+    </div>
+  </div>
+</div>
+`;

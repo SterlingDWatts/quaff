@@ -107,15 +107,28 @@ input:active {
   border-radius: 8px;
   box-shadow: 0 1px 10px 3px rgba(0, 0, 0, 0.15),
     0 1px 4px 1px rgba(0, 0, 0, 0.15);
-  background-image: url(https://picsum.photos/800/200?random=1);
-  background-position: center;
-  background-size: cover;
   overflow: hidden;
   color: #e30425;
   font-family: "Lekton", sans-serif;
+  position: relative;
+  background-image: url("https://picsum.photos/800/200?random=1");
+  background-position: center;
+  background-size: cover;
 }
 
-.TopicSquare_container {
+.TopicSquare__picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.TopicSquare__container {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -124,4 +137,8 @@ input:active {
   padding: 8px;
   text-align: center;
   background-color: white;
+}
+
+.TopicSquare .fa-lock {
+  color: #e30425;
 }

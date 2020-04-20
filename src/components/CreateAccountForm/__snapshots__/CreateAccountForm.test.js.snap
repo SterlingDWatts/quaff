@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateAccountForm Comonent renders the UI as expected 1`] = `
+<form
+  className="CreateAccountForm"
+>
+  <h2>
+    Create Account
+  </h2>
+  <div
+    className="hint"
+  >
+    <span
+      className="Required "
+    >
+      *
+    </span>
+     required fields
+  </div>
+  <div
+    className="LabelGroup CreateAccountForm__first_name"
+  >
+    <label
+      className="Label "
+      htmlFor="first_name"
+    >
+      First Name 
+      <span
+        className="Required "
+      >
+        *
+      </span>
+    </label>
+    <input
+      className="Input "
+      id="first_name"
+      name="first_name"
+      required={true}
+      type="text"
+    />
+    <div
+      className="NoError"
+    >
+       
+    </div>
+  </div>
+  <div
+    className="LabelGroup CreateAccountForm__last_name"
+  >
+    <label
+      className="Label "
+      htmlFor="last_name"
+    >
+      Last Name 
+      <span
+        className="Required "
+      >
+        *
+      </span>
+    </label>
+    <input
+      className="Input "
+      id="last_name"
+      name="last_name"
+      required={true}
+      type="text"
+    />
+    <div
+      className="NoError"
+    >
+       
+    </div>
+  </div>
+  <div
+    className="LabelGroup CreateAccountForm__username"
+  >
+    <label
+      className="Label "
+      htmlFor="username"
+    >
+      Username 
+      <span
+        className="Required "
+      >
+        *
+      </span>
+    </label>
+    <input
+      className="Input "
+      id="username"
+      name="username"
+      required={true}
+      type="text"
+    />
+    <div
+      className="NoError"
+    >
+       
+    </div>
+  </div>
+  <div
+    className="LabelGroup CreateAccountForm__email"
+  >
+    <label
+      className="Label "
+      htmlFor="email"
+    >
+      Email 
+      <span
+        className="Required "
+      >
+        *
+      </span>
+    </label>
+    <input
+      className="Input "
+      id="email"
+      name="email"
+      required={true}
+      type="email"
+    />
+    <div
+      className="NoError"
+    >
+       
+    </div>
+  </div>
+  <div
+    className="LabelGroup CreateAccountForm__repeat_email"
+  >
+    <label
+      className="Label "
+      htmlFor="repeat_email"
+    >
+      Repeat Email 
+      <span
+        className="Required "
+      >
+        *
+      </span>
+    </label>
+    <input
+      className="Input "
+      id="repeat_email"
+      name="repeat_email"
+      required={true}
+      type="email"
+    />
+    <div
+      className="NoError"
+    >
+       
+    </div>
+  </div>
+  <div
+    className="LabelGroup CreateAccountForm__password"
+  >
+    <label
+      className="Label "
+      htmlFor="password"
+    >
+      Password 
+      <span
+        className="Required "
+      >
+        *
+      </span>
+    </label>
+    <input
+      className="Input "
+      id="password"
+      name="password"
+      required={true}
+      type="password"
+    />
+    <div
+      className="NoError"
+    >
+       
+    </div>
+  </div>
+  <div
+    className="LabelGroup CreateAccountForm__repeat_password"
+  >
+    <label
+      className="Label "
+      htmlFor="repeat_password"
+    >
+      Repeat Password 
+      <span
+        className="Required "
+      >
+        *
+      </span>
+    </label>
+    <input
+      className="Input "
+      id="repeat_password"
+      name="repeat_password"
+      required={true}
+      type="password"
+    />
+    <div
+      className="NoError"
+    >
+       
+    </div>
+  </div>
+  <div
+    className="CreateAccountForm--error"
+  >
+    <div
+      className="NoError"
+    >
+       
+    </div>
+  </div>
+  <div
+    className="CreateAccountForm__buttons"
+  >
+    <button
+      className="Button form__button"
+      type="submit"
+    >
+      Create Account
+    </button>
+  </div>
+  <div
+    className="CreateAccountForm__other_links"
+  >
+    Already have an account? 
+    <a
+      href="/login"
+      onClick={[Function]}
+    >
+      Login
+    </a>
+  </div>
+</form>
+`;

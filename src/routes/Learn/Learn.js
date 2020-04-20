@@ -1,45 +1,34 @@
 import React, { Component } from "react";
 import SubNavBar from "../../components/SubNavBar/SubNavBar";
 import { ExploreSquare, TopicSquare } from "../../components/Utils/Utils";
+import QuizListContext from "../../contexts/QuizListContext";
 import "./Learn.css";
 
 class Learn extends Component {
+  static contextType = QuizListContext;
+
+  renderModules = () => {
+    const modules = this.context.quizList.map((module) => {
+      const address = module.unlocked ? module.id : "";
+      return (
+        <TopicSquare
+          key={module.id}
+          to={`/learn/${address}`}
+          label={module.name}
+          picture={module.picture}
+          unlocked={module.unlocked}
+        />
+      );
+    });
+    return modules;
+  };
+
   render() {
+    const modules = this.renderModules();
     return (
       <div className="Learn">
         <SubNavBar />
-        <ExploreSquare>
-          <TopicSquare
-            to="/learn/viticulture"
-            label="Viticulture"
-            picture="https://sterlingdwatts.github.io/quaff_quizz/images/viticulture2.jpg"
-          />
-          <TopicSquare
-            to="/learn/winemaking"
-            label="Winemaking"
-            picture="https://sterlingdwatts.github.io/quaff_quizz/images/winemaking2.jpg"
-          />
-          <TopicSquare
-            to="/learn/california"
-            label="California"
-            picture="https://sterlingdwatts.github.io/quaff_quizz/images/california2.jpg"
-          />
-          <TopicSquare
-            to="/learn/bordeaux"
-            label="Bordeaux"
-            picture="https://sterlingdwatts.github.io/quaff_quizz/images/france2.jpg"
-          />
-          <TopicSquare
-            to="/learn/viticulture"
-            label="Viticulture"
-            picture="https://sterlingdwatts.github.io/quaff_quizz/images/viticulture2.jpg"
-          />
-          <TopicSquare
-            to="/learn/winemaking"
-            label="Winemaking"
-            picture="https://sterlingdwatts.github.io/quaff_quizz/images/winemaking2.jpg"
-          />
-        </ExploreSquare>
+        <ExploreSquare>{modules && modules}</ExploreSquare>
       </div>
     );
   }

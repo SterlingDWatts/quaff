@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLock, faCircle } from "@fortawesome/free-solid-svg-icons";
 import "./Utils.css";
 
 export function QuaffSquare({ className, ...props }) {
@@ -7,6 +9,12 @@ export function QuaffSquare({ className, ...props }) {
     <div className={["QuaffSquare", className].join(" ")} {...props}>
       <div className="QuaffSquare__container">{props.children}</div>
     </div>
+  );
+}
+
+export function UnderSquare({ className, ...props }) {
+  return (
+    <div className={["UnderSquare", className].join(" ")} {...props}></div>
   );
 }
 
@@ -55,14 +63,32 @@ export function ExploreSquare({ className, ...props }) {
   );
 }
 
-export function TopicSquare({ to, label, picture }) {
+export function TopicSquare({
+  to,
+  label,
+  picture,
+  className,
+  unlocked = false,
+}) {
   return (
     <Link
       to={to}
-      className="TopicSquare"
+      className={["TopicSquare", className].join(" ")}
       style={{ backgroundImage: "url(" + picture + ")" }}
     >
-      <div className="TopicSquare_container">{label}</div>
+      <div className="TopicSquare__picture">
+        {!unlocked ? (
+          <FontAwesomeIcon
+            icon={faLock}
+            mask={faCircle}
+            size="7x"
+            transform="shrink-5"
+          />
+        ) : (
+          <></>
+        )}
+        <div className="TopicSquare__container">{label}</div>
+      </div>
     </Link>
   );
 }

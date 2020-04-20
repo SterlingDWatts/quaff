@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Quiz Component renders the UI as expected 1`] = `
+<div
+  className="Quiz"
+>
+  <div
+    className="QuaffSquare "
+  >
+    <div
+      className="QuaffSquare__container"
+    >
+      <div
+        className="Quiz--loading"
+      />
+    </div>
+  </div>
+</div>
+`;

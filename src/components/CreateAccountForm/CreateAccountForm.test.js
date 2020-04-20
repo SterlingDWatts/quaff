@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import CreateAccountForm from "./CreateAccountForm";
 
-describe("App Component", () => {
+describe("CreateAccountForm Comonent", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <BrowserRouter>
-        <App />
+        <CreateAccountForm />
       </BrowserRouter>,
       div
     );
@@ -20,7 +20,7 @@ describe("App Component", () => {
     const tree = renderer
       .create(
         <BrowserRouter>
-          <App />
+          <CreateAccountForm />
         </BrowserRouter>
       )
       .toJSON();

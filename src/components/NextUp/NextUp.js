@@ -1,62 +1,99 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import QuizListContext from "../../contexts/QuizListContext";
 import "./NextUp.css";
 
 class NextUp extends Component {
-  render() {
-    return (
-      <div className="NextUp">
-        <Link to="/learn/viticulture">
-          <div className="NextUp__header">Learn</div>
-          <div
-            className="NextUp__module"
-            style={{
-              backgroundImage:
-                "url(https://sterlingdwatts.github.io/quaff_quizz/images/viticulture2.jpg)",
-            }}
-          >
-            Viticulture
-          </div>
-        </Link>
-        <Link to="/study/winemaking">
-          <div className="NextUp__header">Study</div>
-          <div
-            className="NextUp__quiz"
-            style={{
-              backgroundImage:
-                "url(https://sterlingdwatts.github.io/quaff_quizz/images/winemaking2.jpg)",
-            }}
-          >
-            Winemaking
-          </div>
-        </Link>
-        <Link to="/study/california">
-          <div className="NextUp__header">Study</div>
-          <div
-            className="NextUp__quiz"
-            style={{
-              backgroundImage:
-                "url(https://sterlingdwatts.github.io/quaff_quizz/images/california2.jpg)",
-            }}
-          >
-            California
-          </div>
-        </Link>
-        <Link to="/study/bordeaux">
-          <div className="NextUp__header">Study</div>
-          <div
-            className="NextUp__quiz"
-            style={{
-              backgroundImage:
-                "url(https://sterlingdwatts.github.io/quaff_quizz/images/france2.jpg)",
-            }}
-          >
-            Bordeaux
-          </div>
-        </Link>
-      </div>
+  static contextType = QuizListContext;
+
+  renderNextModule = () => {
+    let nextModule = this.context.quizList.findIndex(
+      (quiz) => quiz.unlocked === false
     );
+    nextModule = nextModule ? nextModule - 1 : this.context.quizList.length - 1;
+    nextModule = this.context.quizList[nextModule];
+    return (
+      <NextUpItem
+        id={nextModule.id}
+        label={nextModule.name}
+        type={"Learn"}
+        picture={nextModule.picture}
+      />
+    );
+  };
+
+  renderStudyTopics = () => {
+    let topicList = this.context.topicList.sort(
+      (a, b) => a.mastery - b.mastery
+    );
+    topicList = topicList.slice(0, 3);
+    return topicList.map((topic) => {
+      return (
+        <NextUpItem
+          key={topic.id}
+          id={topic.id}
+          label={topic.name}
+          type={"Study"}
+          picture={topic.picture}
+        />
+      );
+    });
+  };
+
+  renderLoading = () => {
+    return (
+      <>
+        <div className="NextUp__learn-loading">
+          <div className="NextUp__header">Learn</div>
+          <div className="NextUp__container">Loading</div>
+        </div>
+        <div className="NextUp__study-loading">
+          <div className="NextUp__header">Learn</div>
+          <div className="NextUp__container">Loading</div>
+        </div>
+        <div className="NextUp__study-loading">
+          <div className="NextUp__header">Learn</div>
+          <div className="NextUp__container">Loading</div>
+        </div>
+        <div className="NextUp__study-loading">
+          <div className="NextUp__header">Learn</div>
+          <div className="NextUp__container">Loading</div>
+        </div>
+      </>
+    );
+  };
+
+  render() {
+    const { error, topicList } = this.context;
+    let content;
+    if (error) {
+      content = <p className="NextUp--error">There was an error</p>;
+    } else if (topicList.length < 1) {
+      content = this.renderLoading();
+    } else {
+      content = (
+        <>
+          {this.renderNextModule()}
+          {this.renderStudyTopics()}
+        </>
+      );
+    }
+    return <div className="NextUp">{content}</div>;
   }
+}
+
+function NextUpItem({ id, label, picture, type }) {
+  return (
+    <Link to={`/${type.toLowerCase()}/${id}`}>
+      <div className="NextUp__header">{type}</div>
+      <div
+        className="NextUp__container"
+        style={{ backgroundImage: `url(${picture})` }}
+      >
+        {label}
+      </div>
+    </Link>
+  );
 }
 
 export default NextUp;

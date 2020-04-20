@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component render the UI as expected 1`] = `
+<div
+  className="Footer"
+>
+  <div
+    className="Footer__container"
+  >
+     
+  </div>
+</div>
+`;

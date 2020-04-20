@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Component renders the UI as expected 1`] = `
+<div
+  className="Login"
+>
+  <form
+    className="LoginForm"
+  >
+    <h2>
+      Login
+    </h2>
+    <div
+      className="hint"
+    >
+      <span
+        className="Required "
+      >
+        *
+      </span>
+       required fields
+    </div>
+    <div
+      className="LabelGroup LoginForm__username"
+    >
+      <label
+        className="Label "
+        htmlFor="username"
+      >
+        Username 
+        <span
+          className="Required "
+        >
+          *
+        </span>
+      </label>
+      <input
+        className="Input "
+        id="username"
+        name="username"
+        type="text"
+      />
+      <div
+        className="NoError"
+      >
+         
+      </div>
+    </div>
+    <div
+      className="LabelGroup LoginForm__password"
+    >
+      <label
+        className="Label "
+        htmlFor="password"
+      >
+        Password 
+        <span
+          className="Required "
+        >
+          *
+        </span>
+      </label>
+      <input
+        className="Input "
+        id="password"
+        name="password"
+        type="password"
+      />
+    </div>
+    <div
+      className="LoginForm--error"
+    >
+      <div
+        className="NoError"
+      >
+         
+      </div>
+    </div>
+    <div
+      className="LoginForm__buttons"
+    >
+      <button
+        className="Button form__button"
+        type="submit"
+      >
+        Login
+      </button>
+    </div>
+    <div
+      className="LoginForm__other_links"
+    >
+      Don't have an account yet?
+       
+      <a
+        href="/create-account"
+        onClick={[Function]}
+      >
+        Create Account
+      </a>
+    </div>
+  </form>
+</div>
+`;
