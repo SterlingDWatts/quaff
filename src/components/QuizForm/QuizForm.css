@@ -1,9 +1,13 @@
 .QuizForm {
   height: 100%;
-  padding: 8px;
+  padding: 16px;
 }
 
 .QuizForm fieldset {
+  height: 100%;
+}
+
+.QuizForm fieldset > div {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -12,4 +16,18 @@
 
 .QuizForm input {
   margin: 3px 5px 0 0;
+}
+
+.QuizForm__icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.QuizForm .fa-check {
+  color: rgb(103, 201, 90);
+}
+
+.QuizForm .fa-times {
+  color: rgb(253, 151, 38);
 }

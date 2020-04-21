@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Quiz Component renders the UI as expected 1`] = `
+exports[`Test Component renders the UI as expected 1`] = `
 <div
-  className="Quiz"
+  className="Test"
 >
   <div
     className="QuaffSquare "
@@ -11,7 +11,7 @@ exports[`Quiz Component renders the UI as expected 1`] = `
       className="QuaffSquare__container"
     >
       <div
-        className="Quiz--loading"
+        className="Test--loading"
       />
     </div>
   </div>

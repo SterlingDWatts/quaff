@@ -35,9 +35,9 @@ export class QuizListProvider extends Component {
     this.setState({ quizList });
   };
 
-  unLockModule = (moduleId) => {
+  unlockModule = (moduleId) => {
     const updatedQuizList = this.state.quizList.map((quiz) => {
-      return quiz.id === moduleId ? { ...quiz, locked: false } : quiz;
+      return quiz.id === moduleId ? { ...quiz, unlocked: true } : quiz;
     });
     this.setState({ quizList: updatedQuizList });
   };
@@ -67,7 +67,7 @@ export class QuizListProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       setQuizList: this.setQuizList,
-      unLockModule: this.unLockModule,
+      unlockModule: this.unlockModule,
       setTopicList: this.setTopicList,
       addTopic: this.addTopic,
       updateMastery: this.updateMastery,

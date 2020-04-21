@@ -64,7 +64,15 @@ export class QuizProvider extends Component {
   setQuiz = (quiz) => {
     const shuffledQuiz = this.shuffleQuiz(quiz);
     const answerId = this.setAnswerId(shuffledQuiz[0].answers);
-    this.setState({ quiz: shuffledQuiz, answerId, numQuestions: quiz.length });
+    this.setState({
+      quiz: shuffledQuiz,
+      answerId,
+      numQuestions: quiz.length,
+      progress: 0,
+      numCorrect: 0,
+      selectedId: null,
+      showAnswer: false,
+    });
   };
 
   revealAnswer = (selectedId) => {

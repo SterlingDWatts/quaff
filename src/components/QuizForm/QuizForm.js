@@ -7,16 +7,26 @@ import "./QuizForm.css";
 class QuizForm extends Component {
   static contextType = QuizContext;
 
+  renderIcon = (answer) => {
+    const { selectedId, showAnswer } = this.context;
+    if ((answer.id !== selectedId && !answer.correct) || !showAnswer) {
+      return <div className="QuizForm__icon"> </div>;
+    } else {
+      const correct = answer.correct ? faCheck : faTimes;
+      return (
+        <div className="QuizForm__icon">
+          <FontAwesomeIcon icon={correct} />
+        </div>
+      );
+    }
+  };
+
   renderAnswers = (answers) => {
     return answers.map((answer) => {
-      let correct = answer.correct ? faCheck : faTimes;
-      let icon = this.context.showAnswer ? (
-        <FontAwesomeIcon icon={correct} />
-      ) : (
-        <></>
-      );
+      const icon = this.renderIcon(answer);
       return (
         <div className="QuizForm__label_group" key={answer.id}>
+          {icon}
           <input
             type="radio"
             name="answer"
@@ -25,9 +35,7 @@ class QuizForm extends Component {
             required
             disabled={this.context.showAnswer}
           />
-          <label htmlFor={`ans_${answer.id}`}>
-            {answer.answer} {icon}
-          </label>
+          <label htmlFor={`ans_${answer.id}`}>{answer.answer}</label>
         </div>
       );
     });
@@ -55,11 +63,13 @@ class QuizForm extends Component {
       const answers = this.renderAnswers(question.answers);
       content = (
         <fieldset>
-          <legend className="QuizForm__question">{question.question}</legend>
-          {answers}
-          <button className="QuizForm__button" type="submit">
-            {showAnswer ? "Next" : "Submit"}
-          </button>
+          <div>
+            <legend className="QuizForm__question">{question.question}</legend>
+            <div>{answers}</div>
+            <button className="QuizForm__button" type="submit">
+              {showAnswer ? "Next" : "Submit"}
+            </button>
+          </div>
         </fieldset>
       );
     }

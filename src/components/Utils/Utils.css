@@ -14,6 +14,10 @@
   bottom: 0;
 }
 
+.UnderSquare {
+  padding: 16px;
+}
+
 .Label {
   position: relative;
   width: max-content;
