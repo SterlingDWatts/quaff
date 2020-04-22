@@ -9,7 +9,7 @@ class Footer extends Component {
     const { progress, numQuestions, numCorrect } = this.context;
     return (
       <div className="Footer__progress">
-        <div>Material Covered: {`${progress}/${numQuestions}`}</div>
+        <div>Complete: {`${progress}/${numQuestions}`}</div>
         <div>Correct: {`${numCorrect}/${numQuestions}`}</div>
       </div>
     );

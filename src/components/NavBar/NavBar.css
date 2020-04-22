@@ -5,14 +5,14 @@
   right: 0;
   background-color: #4e0d3a;
   color: white;
-  overflow: hidden;
+  overflow: visible;
   z-index: 10;
-  height: 50px;
+  height: 56.2px;
 }
 
 .NavBar__container {
   line-height: 1;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 600;
   font-family: "Merriweather", serif;
   padding: 16px;
@@ -84,6 +84,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  font-size: 22px;
   transition-property: left;
   transition-duration: 0.25s;
   transition-timing-function: linear;
@@ -92,7 +93,7 @@
   background-color: #4e0d3a;
   padding: 44px 16px 16px 44px;
   display: grid;
-  grid-template-columns: 56px 125px;
+  grid-template-columns: 50px 170px;
   grid-template-rows: repeat(6, 60px);
   font-family: "Merriweather", serif;
 }

@@ -41,8 +41,8 @@ class QuizForm extends Component {
             disabled={this.context.showAnswer}
           />
           <label htmlFor={`ans_${answer.id}`}>
-            {answer.answer}
             {icon}
+            {answer.answer}
           </label>
         </div>
       );

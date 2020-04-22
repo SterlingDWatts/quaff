@@ -26,11 +26,11 @@
 }
 
 .QuizForm input {
-  margin: 3px 5px 0 0;
+  margin: 3px 3px 0 0;
 }
 
 .QuizForm__icon {
-  padding-left: 8px;
+  padding-right: 8px;
   display: inline-block;
   width: 16px;
   height: 16px;

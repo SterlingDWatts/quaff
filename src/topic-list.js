@@ -13,7 +13,7 @@ export default [
     picture:
       "https://sterlingdwatts.github.io/quaff_quizz/images/winemaking2.jpg",
     mastery: 0,
-    questionIds: [1, 2, 3, 4, 5, 11],
+    questionIds: [1, 2, 3, 4, 5],
   },
   {
     id: 3,

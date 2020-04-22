@@ -41,10 +41,7 @@
   font-weight: 600;
 }
 
-.Module a {
-  padding: 8px 16px;
-  background-color: #e30425;
-  color: white;
-  text-decoration: none;
-  border-radius: 16px;
+.Module__buttons {
+  display: flex;
+  justify-content: center;
 }

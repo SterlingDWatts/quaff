@@ -182,27 +182,6 @@ export default [
     moduleId: 3,
     topicId: 3,
   },
-
-  {
-    id: 11,
-    question: "What is the primary role of sulfur dioxide in winemaking?",
-    answers: [
-      { id: 41, answer: "To protect wine from oxygen.", correct: true },
-      { id: 42, answer: "To kill unwanted bacteria.", correct: false },
-      { id: 43, answer: "To precipitate out solids.", correct: false },
-      {
-        id: 44,
-        answer: "To prevent malolactic fermentation.",
-        correct: false,
-      },
-    ],
-    explanation:
-      "Sulfur dioxide is added at various points during the winemaking process, most often during fermentation and maturation, and before bottling. Sulfur has the preservative qualities needed to protect wine from oxygen. But too much SO2 may result in excess hydrogen sulfide, which leads to a rotten egg aroma. This can be so intense in a young wine that decanting is warranted. Avoiding sulfur usage entirely, however, which is common among natural wine proponents, can lead to premature spoilage.",
-    seenCount: 0,
-    correctCount: 0,
-    moduleId: 2,
-    topicId: 2,
-  },
   {
     id: 12,
     question: "Name the three most important red grape varieties in Bordeaux.",

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "../../components/Utils/Utils";
 import "./Module.css";
 
 class Module extends Component {
@@ -202,7 +203,11 @@ class Module extends Component {
           Most growers will trim, or prune, shoots and canes each winter. If
           canes are not pruned, they will become cordons.
         </p>
-        <Link to={`/test/${this.props.match.params.moduleId}`}>Test</Link>
+        <div className="Module__buttons">
+          <Link to={`/test/${this.props.match.params.moduleId}`}>
+            <Button className="form__button">Test</Button>
+          </Link>
+        </div>
       </div>
     );
   };

@@ -26,6 +26,10 @@ class Quiz extends Component {
     this.context.setQuiz(questions);
   }
 
+  componentWillUnmount() {
+    this.context.clearQuiz();
+  }
+
   renderAnswer = () => {
     const { answerId, selectedId, quiz, progress } = this.context;
     const correct = selectedId === answerId ? "Correct" : "Incorrect";

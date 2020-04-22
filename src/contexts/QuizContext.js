@@ -12,6 +12,7 @@ const QuizContext = createContext({
   setError: () => {},
   clearError: () => {},
   setQuiz: () => {},
+  clearQuiz: () => {},
   revealAnswer: () => {},
   updateProgress: () => {},
 });
@@ -75,6 +76,18 @@ export class QuizProvider extends Component {
     });
   };
 
+  clearQuiz = () => {
+    this.setState({
+      quiz: [],
+      progress: 0,
+      numCorrect: 0,
+      numQuestions: 0,
+      answerId: -1,
+      selectedId: null,
+      showAnswer: false,
+    });
+  };
+
   revealAnswer = (selectedId) => {
     let correct = selectedId === this.state.answerId;
     let numCorrect = this.state.numCorrect;
@@ -116,6 +129,7 @@ export class QuizProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       setQuiz: this.setQuiz,
+      clearQuiz: this.clearQuiz,
       revealAnswer: this.revealAnswer,
       updateProgress: this.updateProgress,
     };

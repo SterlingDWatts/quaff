@@ -71,22 +71,23 @@ export function TopicSquare({
   unlocked = false,
 }) {
   return (
-    <Link
-      to={to}
-      className={["TopicSquare", className].join(" ")}
-      style={{ backgroundImage: "url(" + picture + ")" }}
-    >
-      <div className="TopicSquare__picture">
-        {!unlocked ? (
-          <FontAwesomeIcon
-            icon={faLock}
-            mask={faCircle}
-            size="7x"
-            transform="shrink-5"
-          />
-        ) : (
-          <></>
-        )}
+    <Link to={to} className={["TopicSquare", className].join(" ")}>
+      <div className="TopicSquare__picture_container">
+        <div
+          className="TopicSquare__picture"
+          style={{ backgroundImage: "url(" + picture + ")" }}
+        >
+          {!unlocked ? (
+            <FontAwesomeIcon
+              icon={faLock}
+              mask={faCircle}
+              size="7x"
+              transform="shrink-5"
+            />
+          ) : (
+            <></>
+          )}
+        </div>
         <div className="TopicSquare__container">{label}</div>
       </div>
     </Link>
