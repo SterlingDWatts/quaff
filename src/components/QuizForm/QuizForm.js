@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheck,
+  faTimes,
+  faArrowRight,
+  faCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { faHandPointUp } from "@fortawesome/free-regular-svg-icons";
 import QuizContext from "../../contexts/QuizContext";
 import "./QuizForm.css";
 
@@ -26,7 +32,6 @@ class QuizForm extends Component {
       const icon = this.renderIcon(answer);
       return (
         <div className="QuizForm__label_group" key={answer.id}>
-          {icon}
           <input
             type="radio"
             name="answer"
@@ -35,7 +40,10 @@ class QuizForm extends Component {
             required
             disabled={this.context.showAnswer}
           />
-          <label htmlFor={`ans_${answer.id}`}>{answer.answer}</label>
+          <label htmlFor={`ans_${answer.id}`}>
+            {answer.answer}
+            {icon}
+          </label>
         </div>
       );
     });
@@ -49,6 +57,16 @@ class QuizForm extends Component {
     } else {
       this.context.updateProgress();
     }
+  };
+
+  renderButton = (showAnswer) => {
+    const icon = showAnswer ? faArrowRight : faHandPointUp;
+    return (
+      <span className="fa-layers fa-fw">
+        <FontAwesomeIcon icon={faCircle} />
+        <FontAwesomeIcon icon={icon} transform="shrink-6" color="white" />
+      </span>
+    );
   };
 
   render() {
@@ -67,7 +85,7 @@ class QuizForm extends Component {
             <legend className="QuizForm__question">{question.question}</legend>
             <div>{answers}</div>
             <button className="QuizForm__button" type="submit">
-              {showAnswer ? "Next" : "Submit"}
+              {this.renderButton(showAnswer)}
             </button>
           </div>
         </fieldset>

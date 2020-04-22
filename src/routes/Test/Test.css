@@ -2,4 +2,20 @@
   height: 100%;
   overflow-y: scroll;
   position: relative;
+  background-image: linear-gradient(
+      rgba(227, 207, 223, 0.75),
+      rgba(227, 207, 223, 0.75)
+    ),
+    url("https://sterlingdwatts.github.io/quaff_quizz/images/background2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.Test__answer h3 {
+  font-size: 24px;
+  text-align: center;
+  line-height: 1;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.5);
 }

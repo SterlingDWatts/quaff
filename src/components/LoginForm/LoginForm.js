@@ -14,7 +14,9 @@ class LoginForm extends Component {
   render() {
     return (
       <form className="LoginForm">
-        <h2>Login</h2>
+        <header>
+          <h1>Login</h1>
+        </header>
         <div className="hint">
           <Required /> required fields
         </div>

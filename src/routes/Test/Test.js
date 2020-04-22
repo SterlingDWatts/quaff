@@ -25,7 +25,7 @@ class Test extends Component {
 
   renderAnswer = () => {
     const { answerId, selectedId, quiz, progress } = this.context;
-    const correct = selectedId === answerId ? "Correct" : "Incorrect";
+    const correct = selectedId === answerId ? "Correct!" : "Incorrect";
     return (
       <div className="Test__answer">
         <h3>{correct}</h3>

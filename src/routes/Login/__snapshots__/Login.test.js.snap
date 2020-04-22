@@ -7,9 +7,11 @@ exports[`Login Component renders the UI as expected 1`] = `
   <form
     className="LoginForm"
   >
-    <h2>
-      Login
-    </h2>
+    <header>
+      <h1>
+        Login
+      </h1>
+    </header>
     <div
       className="hint"
     >

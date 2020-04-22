@@ -3,5 +3,15 @@
 exports[`Results Component renders the UI as expected 1`] = `
 <div
   className="ResultsDisplay"
-/>
+>
+   
+  <div>
+    <p>
+      You got 
+      NaN
+      % correct
+    </p>
+  </div>
+   
+</div>
 `;

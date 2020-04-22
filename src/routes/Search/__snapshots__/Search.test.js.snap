@@ -4,40 +4,6 @@ exports[`Search Component renders the UI as expected 1`] = `
 <div
   className="Search"
 >
-  <nav
-    className="SubNavBar"
-  >
-    <a
-      href="/learn"
-      onClick={[Function]}
-    >
-      <div
-        className="SubNavBarPill"
-      >
-        Learn
-      </div>
-    </a>
-    <a
-      href="/study"
-      onClick={[Function]}
-    >
-      <div
-        className="SubNavBarPill"
-      >
-        Study
-      </div>
-    </a>
-    <a
-      href="/search"
-      onClick={[Function]}
-    >
-      <div
-        className="SubNavBarPill"
-      >
-        Search
-      </div>
-    </a>
-  </nav>
   <div
     className="ExploreSquare "
   >

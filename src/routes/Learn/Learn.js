@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import SubNavBar from "../../components/SubNavBar/SubNavBar";
 import { ExploreSquare, TopicSquare } from "../../components/Utils/Utils";
 import QuizListContext from "../../contexts/QuizListContext";
 import "./Learn.css";
@@ -27,7 +26,6 @@ class Learn extends Component {
     const modules = this.renderModules();
     return (
       <div className="Learn">
-        <SubNavBar />
         <ExploreSquare>{modules && modules}</ExploreSquare>
       </div>
     );

@@ -31,8 +31,30 @@ class ResultsDisplay extends Component {
     }
   }
 
+  renderTestResults = (percentCorrect) => {
+    return (
+      <div>
+        <p>You got {Math.floor(percentCorrect * 100)}% correct</p>
+      </div>
+    );
+  };
+
+  renderQuizResults = (percentCorrect) => {
+    return (
+      <div>
+        <p>You got {Math.floor(percentCorrect * 100)}% correct</p>
+      </div>
+    );
+  };
+
   render() {
-    return <div className="ResultsDisplay"></div>;
+    const { numQuestions, numCorrect } = this.props.quiz;
+    const isTest = this.props.match.path.includes("test");
+    const percentCorrect = numCorrect / numQuestions;
+    const content = isTest
+      ? this.renderTestResults(percentCorrect)
+      : this.renderQuizResults(percentCorrect);
+    return <div className="ResultsDisplay"> {content} </div>;
   }
 }
 

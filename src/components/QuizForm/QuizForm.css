@@ -11,7 +11,18 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
+  line-height: 1;
+}
+
+.QuizForm legend {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.QuizForm__label_group + .QuizForm__label_group {
+  margin-top: 10px;
 }
 
 .QuizForm input {
@@ -19,6 +30,7 @@
 }
 
 .QuizForm__icon {
+  padding-left: 8px;
   display: inline-block;
   width: 16px;
   height: 16px;
@@ -30,4 +42,20 @@
 
 .QuizForm .fa-times {
   color: rgb(253, 151, 38);
+}
+
+.QuizForm button {
+  width: fit-content;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 60px;
+  color: #e30425;
+  position: absolute;
+  bottom: -50.4px;
+  right: 21.5px;
+  padding: 0;
+}
+
+.QuizForm .fa-circle {
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
 }

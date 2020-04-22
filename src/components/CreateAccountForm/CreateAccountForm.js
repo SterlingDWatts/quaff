@@ -46,11 +46,16 @@ class CreateAccountForm extends Component {
           <Input name="email" id="email" type="email" required />
           <ValidationError />
         </LabelGroup>
-        <LabelGroup className="CreateAccountForm__repeat_email">
-          <Label htmlFor="repeat_email">
-            Repeat Email <Required />
+        <LabelGroup className="CreateAccountForm__confirm_email">
+          <Label htmlFor="confirm_email">
+            Confirm Email <Required />
           </Label>
-          <Input name="repeat_email" id="repeat_email" type="email" required />
+          <Input
+            name="confirm_email"
+            id="confirm_email"
+            type="email"
+            required
+          />
           <ValidationError />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__password">
@@ -60,13 +65,13 @@ class CreateAccountForm extends Component {
           <Input name="password" id="password" type="password" required />
           <ValidationError />
         </LabelGroup>
-        <LabelGroup className="CreateAccountForm__repeat_password">
-          <Label htmlFor="repeat_password">
-            Repeat Password <Required />
+        <LabelGroup className="CreateAccountForm__confirm_password">
+          <Label htmlFor="confirm_password">
+            Confirm Password <Required />
           </Label>
           <Input
-            name="repeat_password"
-            id="repeat_password"
+            name="confirm_password"
+            id="confirm_password"
             type="password"
             required
           />

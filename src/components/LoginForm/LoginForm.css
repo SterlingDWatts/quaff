@@ -2,16 +2,19 @@
   margin: auto;
 }
 
-.LoginForm h2 {
-  margin: 32px 0px 0px;
+.LoginForm h1 {
   font-size: 32px;
   font-weight: 600;
   text-align: center;
+  line-height: 1;
 }
 
 .LoginForm .hint {
   margin: 0px 0px 32px;
   text-align: center;
+  line-height: 1;
+  font-size: 13px;
+  color: #808080;
 }
 
 .LoginForm__buttons {

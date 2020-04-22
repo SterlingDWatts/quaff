@@ -7,7 +7,7 @@ import {
   faTimes,
   faHome,
   faChalkboardTeacher,
-  faSearch,
+  faUserPlus,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLeanpub } from "@fortawesome/free-brands-svg-icons";
@@ -77,20 +77,6 @@ class NavBar extends Component {
           <Link
             className="SideNav__link"
             onClick={this.handleToggleSideNav}
-            to="/search"
-          >
-            <FontAwesomeIcon icon={faSearch} />
-          </Link>
-          <Link
-            className="SideNav__link"
-            to="/search"
-            onClick={this.handleToggleSideNav}
-          >
-            Search
-          </Link>
-          <Link
-            className="SideNav__link"
-            onClick={this.handleToggleSideNav}
             to="/login"
           >
             <FontAwesomeIcon icon={faUser} />
@@ -101,6 +87,20 @@ class NavBar extends Component {
             onClick={this.handleToggleSideNav}
           >
             Login
+          </Link>
+          <Link
+            className="SideNav__link"
+            onClick={this.handleToggleSideNav}
+            to="/create-account"
+          >
+            <FontAwesomeIcon icon={faUserPlus} />
+          </Link>
+          <Link
+            className="SideNav__link"
+            onClick={this.handleToggleSideNav}
+            to="/create-account"
+          >
+            Create Account
           </Link>
         </nav>
       </div>

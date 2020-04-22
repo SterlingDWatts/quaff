@@ -1,0 +1,50 @@
+.Module {
+  padding: 16px;
+}
+
+.Module header {
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 600;
+  margin: 65px 0;
+}
+
+.Module h2 {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 600;
+  margin: 30px 0;
+}
+
+.Module h3 {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.Module h4 {
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.Module p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  text-indent: 24px;
+}
+
+.Module em {
+  font-weight: 600;
+}
+
+.Module a {
+  padding: 8px 16px;
+  background-color: #e30425;
+  color: white;
+  text-decoration: none;
+  border-radius: 16px;
+}
