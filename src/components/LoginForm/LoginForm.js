@@ -11,6 +11,18 @@ import {
 import "./LoginForm.css";
 
 class LoginForm extends Component {
+  state = {
+    error: null,
+    username: {
+      value: "",
+      touched: false,
+    },
+    password: {
+      value: "",
+      touched: false,
+    },
+  };
+
   render() {
     return (
       <form className="LoginForm">

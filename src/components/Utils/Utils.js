@@ -22,8 +22,11 @@ export function LabelGroup({ className, ...props }) {
   return <div className={["LabelGroup", className].join(" ")} {...props} />;
 }
 
-export function Input({ className, ...props }) {
-  return <input className={["Input", className].join(" ")} {...props} />;
+export function Input({ error, className, ...props }) {
+  const classNames = !!error
+    ? ["Input", "Input--error", className]
+    : ["Input", className];
+  return <input className={classNames.join(" ")} {...props} />;
 }
 
 export function Button({ className, ...props }) {
@@ -38,7 +41,9 @@ export function ValidationError(props) {
   if (props.message && props.touched) {
     return (
       <div className="ValidationError">
-        <p>{props.message}</p>
+        <p>
+          <Required /> {props.message}
+        </p>
       </div>
     );
   }

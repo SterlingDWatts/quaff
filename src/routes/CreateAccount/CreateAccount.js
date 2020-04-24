@@ -3,10 +3,22 @@ import CreateAccountForm from "../../components/CreateAccountForm/CreateAccountF
 import "./CreateAccount.css";
 
 class CreateAccount extends Component {
+  static defaultProps = {
+    history: {
+      push: () => {},
+    },
+  };
+
+  handleRegistrationSuccess = () => {
+    this.props.history.push("/login");
+  };
+
   render() {
     return (
       <div className="CreateAccount">
-        <CreateAccountForm />
+        <CreateAccountForm
+          onRegistrationSuccess={this.handleRegistrationSuccess}
+        />
       </div>
     );
   }

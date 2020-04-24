@@ -101,3 +101,7 @@
 .SideNav--hidden .SideNav {
   left: -100vw;
 }
+
+.NavBar__links {
+  display: none;
+}
