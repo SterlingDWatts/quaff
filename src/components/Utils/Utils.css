@@ -46,10 +46,17 @@
 }
 
 .Input:focus,
-input:active {
+input.Input:active {
   border: 2px solid rgb(114, 13, 93);
   padding: 15px 12px;
   outline: none;
+}
+
+.Input--error:focus,
+input.Input--error:active,
+input.Input--error {
+  border: 2px solid rgb(253, 151, 38);
+  padding: 15px 12px;
 }
 
 .Button.form__button {
@@ -83,6 +90,18 @@ input:active {
 
 .Required {
   color: #e30425;
+}
+
+.NoError,
+.ValidationError {
+  height: 20px;
+}
+
+.ValidationError p {
+  text-indent: 16px;
+  color: grey;
+  font-size: 13px;
+  z-index: 0;
 }
 
 .ExploreSquare {

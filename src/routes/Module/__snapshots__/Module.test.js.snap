@@ -133,12 +133,20 @@ exports[`Module Component renders the UI as expected 1`] = `
     <p>
       Most growers will trim, or prune, shoots and canes each winter. If canes are not pruned, they will become cordons.
     </p>
-    <a
-      href="/test/-1"
-      onClick={[Function]}
+    <div
+      className="Module__buttons"
     >
-      Test
-    </a>
+      <a
+        href="/test/-1"
+        onClick={[Function]}
+      >
+        <button
+          className="Button form__button"
+        >
+          Test
+        </button>
+      </a>
+    </div>
   </div>
 </div>
 `;
