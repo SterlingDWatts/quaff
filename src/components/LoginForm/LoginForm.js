@@ -8,9 +8,15 @@ import {
   Required,
   ValidationError,
 } from "../Utils/Utils";
+import AuthApiService from "../../services/auth-api-service";
+import ValidationService from "../../services/validation-service";
 import "./LoginForm.css";
 
 class LoginForm extends Component {
+  static defaultProps = {
+    onLoginSuccess: () => {},
+  };
+
   state = {
     error: null,
     username: {
@@ -23,9 +29,61 @@ class LoginForm extends Component {
     },
   };
 
+  handleUsernameChange = (username) => {
+    this.setState({
+      username: {
+        value: username,
+        touched: true,
+      },
+    });
+  };
+
+  handlePasswordChange = (password) => {
+    this.setState({
+      password: {
+        value: password,
+        touched: true,
+      },
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { username, password } = e.target;
+    this.setState({
+      error: null,
+    });
+
+    AuthApiService.postLogin({
+      username: username.value,
+      password: password.value,
+    })
+      .then((res) => {
+        this.setState({
+          username: { touched: false, value: "" },
+          password: { touched: false, value: "" },
+        });
+        this.props.onLoginSuccess();
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
+  };
+
   render() {
+    const { error, username, password } = this.state;
+    const usernameError = ValidationService.validateUsername(username.value);
+    const usernameLabelError = ValidationService.validateUsernameLabel(
+      username.value,
+      username.touched
+    );
+    const passwordError = ValidationService.validatePassword(password.value);
+    const passwordLabelError = ValidationService.validatePasswordLabel(
+      password.value,
+      password.touched
+    );
     return (
-      <form className="LoginForm">
+      <form className="LoginForm" onSubmit={(e) => this.handleSubmit(e)}>
         <header>
           <h1>Login</h1>
         </header>
@@ -34,19 +92,32 @@ class LoginForm extends Component {
         </div>
         <LabelGroup className="LoginForm__username">
           <Label htmlFor="username">
-            Username <Required />
+            {usernameLabelError}Username <Required />
           </Label>
-          <Input name="username" id="username" type="text" />
-          <ValidationError />
+          <Input
+            error={usernameLabelError}
+            name="username"
+            id="username"
+            type="text"
+            onChange={(e) => this.handleUsernameChange(e.target.value)}
+          />
+          <ValidationError message={usernameError} touched={username.touched} />
         </LabelGroup>
         <LabelGroup className="LoginForm__password">
           <Label htmlFor="password">
-            Password <Required />
+            {passwordLabelError}Password <Required />
           </Label>
-          <Input name="password" id="password" type="password" />
+          <Input
+            error={passwordLabelError}
+            name="password"
+            id="password"
+            type="password"
+            onChange={(e) => this.handlePasswordChange(e.target.value)}
+          />
+          <ValidationError message={passwordError} touched={password.touched} />
         </LabelGroup>
         <div className="LoginForm--error">
-          <ValidationError />
+          <ValidationError message={error} touched={true} />
         </div>
         <div className="LoginForm__buttons">
           <Button type="submit" className="form__button">

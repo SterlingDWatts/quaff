@@ -3,6 +3,7 @@
 exports[`LoginForm Comoponent renders the UI as expected 1`] = `
 <form
   className="LoginForm"
+  onSubmit={[Function]}
 >
   <header>
     <h1>
@@ -37,6 +38,7 @@ exports[`LoginForm Comoponent renders the UI as expected 1`] = `
       className="Input "
       id="username"
       name="username"
+      onChange={[Function]}
       type="text"
     />
     <div
@@ -63,8 +65,14 @@ exports[`LoginForm Comoponent renders the UI as expected 1`] = `
       className="Input "
       id="password"
       name="password"
+      onChange={[Function]}
       type="password"
     />
+    <div
+      className="NoError"
+    >
+       
+    </div>
   </div>
   <div
     className="LoginForm--error"

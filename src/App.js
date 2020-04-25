@@ -14,16 +14,46 @@ import Footer from "./components/Footer/Footer";
 import QuizListContext from "./contexts/QuizListContext";
 import quizList from "./quiz-list";
 import topicList from "./topic-list";
+import IdleService from "./services/idle-service";
+import TokenService from "./services/token-service";
+import AuthApiService from "./services/auth-api-service";
 import "./App.css";
 
 class App extends Component {
+  state = { hasError: false };
+
+  static getDerivedStateFromError(error) {
+    console.error(error);
+    return { hasError: true };
+  }
+
   static contextType = QuizListContext;
 
   componentDidMount() {
+    IdleService.setIdleCallback(this.logoutFromIdle);
+    if (TokenService.hasAuthToken()) {
+      IdleService.registerIdleResets();
+      TokenService.queueCallbackBeforeExpiry(() => {
+        AuthApiService.postRefreshToken();
+      });
+    }
+
     this.context.clearError();
     this.context.setQuizList(quizList);
     this.context.setTopicList(topicList);
   }
+
+  componentWillUnmount() {
+    IdleService.unRegisterIdleResets();
+    TokenService.clearCallbackBeforeExpiry();
+  }
+
+  logoutFromIdle = () => {
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
+    this.forceUpdate();
+  };
 
   render() {
     return (
