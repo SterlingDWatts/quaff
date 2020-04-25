@@ -11,12 +11,103 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLeanpub } from "@fortawesome/free-brands-svg-icons";
+import TokenService from "../../services/token-service";
+import IdleService from "../../services/idle-service";
 import "./NavBar.css";
 
 class NavBar extends Component {
   state = {
     showSideNav: false,
+    prevScrollPos: window.pageYOffset,
+    visible: true,
   };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleLogout = () => {
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
+  };
+
+  handleScroll = () => {
+    const { prevScrollPos } = this.state;
+
+    const currentScrollPos = window.pageYOffset;
+    const visible = prevScrollPos > currentScrollPos;
+
+    this.setState({
+      prevScrollPos: currentScrollPos,
+      visible,
+    });
+  };
+
+  handleLogoutSideNav = () => {
+    this.handleLogout();
+    this.handleToggleSideNav();
+  };
+
+  renderSideNavLogout() {
+    return (
+      <>
+        <Link
+          className="SideNav__link"
+          onClick={this.handleLogoutSideNav}
+          to="/"
+        >
+          <FontAwesomeIcon icon={faUser} />
+        </Link>
+        <Link
+          className="SideNav__link"
+          to="/"
+          onClick={this.handleLogoutSideNav}
+        >
+          Logout
+        </Link>
+      </>
+    );
+  }
+
+  renderSideNavLogin() {
+    return (
+      <>
+        <Link
+          className="SideNav__link"
+          onClick={this.handleToggleSideNav}
+          to="/login"
+        >
+          <FontAwesomeIcon icon={faUser} />
+        </Link>
+        <Link
+          className="SideNav__link"
+          to="/login"
+          onClick={this.handleToggleSideNav}
+        >
+          Login
+        </Link>
+        <Link
+          className="SideNav__link"
+          onClick={this.handleToggleSideNav}
+          to="/create-account"
+        >
+          <FontAwesomeIcon icon={faUserPlus} />
+        </Link>
+        <Link
+          className="SideNav__link"
+          onClick={this.handleToggleSideNav}
+          to="/create-account"
+        >
+          Create Account
+        </Link>
+      </>
+    );
+  }
 
   renderSideNav = () => {
     return (
@@ -74,34 +165,9 @@ class NavBar extends Component {
           >
             Study
           </Link>
-          <Link
-            className="SideNav__link"
-            onClick={this.handleToggleSideNav}
-            to="/login"
-          >
-            <FontAwesomeIcon icon={faUser} />
-          </Link>
-          <Link
-            className="SideNav__link"
-            to="/login"
-            onClick={this.handleToggleSideNav}
-          >
-            Login
-          </Link>
-          <Link
-            className="SideNav__link"
-            onClick={this.handleToggleSideNav}
-            to="/create-account"
-          >
-            <FontAwesomeIcon icon={faUserPlus} />
-          </Link>
-          <Link
-            className="SideNav__link"
-            onClick={this.handleToggleSideNav}
-            to="/create-account"
-          >
-            Create Account
-          </Link>
+          {TokenService.hasAuthToken()
+            ? this.renderSideNavLogout()
+            : this.renderSideNavLogin()}
         </nav>
       </div>
     );
