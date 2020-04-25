@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLock, faCircle } from "@fortawesome/free-solid-svg-icons";
+import classnames from "classnames";
 import "./Utils.css";
 
 export function QuaffSquare({ className, ...props }) {
@@ -79,21 +78,18 @@ export function TopicSquare({
     <Link to={to} className={["TopicSquare", className].join(" ")}>
       <div className="TopicSquare__picture_container">
         <div
-          className="TopicSquare__picture"
+          className={classnames("TopicSquare__picture", {
+            "TopicSquare__picture--locked": !unlocked,
+          })}
           style={{ backgroundImage: "url(" + picture + ")" }}
+        ></div>
+        <div
+          className={classnames("TopicSquare__container", {
+            "TopicSquare__container--locked": !unlocked,
+          })}
         >
-          {!unlocked ? (
-            <FontAwesomeIcon
-              icon={faLock}
-              mask={faCircle}
-              size="7x"
-              transform="shrink-5"
-            />
-          ) : (
-            <></>
-          )}
+          {label}
         </div>
-        <div className="TopicSquare__container">{label}</div>
       </div>
     </Link>
   );

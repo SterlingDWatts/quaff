@@ -134,6 +134,7 @@ input.Input--error {
   overflow: hidden;
   color: #e30425;
   font-family: "Lekton", sans-serif;
+  font-weight: 600;
   position: relative;
 }
 
@@ -160,6 +161,10 @@ input.Input--error {
   background-size: cover;
 }
 
+.TopicSquare__picture--locked {
+  filter: grayscale(100%);
+}
+
 .TopicSquare__container {
   position: absolute;
   bottom: 0;
@@ -171,6 +176,6 @@ input.Input--error {
   background-color: white;
 }
 
-.TopicSquare .fa-lock {
-  color: #e30425;
+.TopicSquare__container--locked {
+  color: grey;
 }
