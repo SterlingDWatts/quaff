@@ -104,6 +104,20 @@ input.Input--error {
   z-index: 0;
 }
 
+.password-requirements p {
+  text-indent: 16px;
+  color: grey;
+  font-size: 13px;
+}
+
+.password-requirements p.invalid {
+  color: rgb(253, 151, 38);
+}
+
+.password-requirements p.valid {
+  color: rgb(103, 201, 90);
+}
+
 .ExploreSquare {
   background-color: rgb(78, 13, 58);
   height: 100%;

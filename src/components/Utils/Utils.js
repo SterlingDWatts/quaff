@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classnames from "classnames";
+import ValidationService from "../../services/validation-service";
 import "./Utils.css";
 
 export function QuaffSquare({ className, ...props }) {
@@ -47,6 +48,55 @@ export function ValidationError(props) {
     );
   }
   return <div className="NoError"> </div>;
+}
+
+export function PasswordValidationError({ password, touched }) {
+  return (
+    <div className="password-requirements">
+      <p
+        className={ValidationService.validateMissingPassword(password, touched)}
+      >
+        <Required /> Password required
+      </p>
+      <p className={ValidationService.validatePasswordSpace(password, touched)}>
+        <Required /> Cannot contain a space
+      </p>
+      <p
+        className={ValidationService.validatePasswordLowerCase(
+          password,
+          touched
+        )}
+      >
+        <Required /> Requires a lower case character
+      </p>
+      <p
+        className={ValidationService.validatePasswordUpperCase(
+          password,
+          touched
+        )}
+      >
+        <Required /> Requires an upper case character
+      </p>
+      <p
+        className={ValidationService.validatePasswordNumber(password, touched)}
+      >
+        <Required /> Requires a number
+      </p>
+      <p
+        className={ValidationService.validatePasswordSpecialChar(
+          password,
+          touched
+        )}
+      >
+        <Required /> Requires a special character
+      </p>
+      <p
+        className={ValidationService.validatePasswordLength(password, touched)}
+      >
+        <Required /> Requires 8-72 characters
+      </p>
+    </div>
+  );
 }
 
 export function Required({ className, ...props }) {

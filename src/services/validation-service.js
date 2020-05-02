@@ -5,11 +5,11 @@ const PASSWORD_REGEX = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&])[\S]+/;
 
 const ValidationService = {
   validateFirstName(firstName) {
-    if (firstName.length === 0) {
+    if (!!firstName && firstName.length === 0) {
       return "First Name is required";
-    } else if (firstName.startsWith(" ")) {
+    } else if (!!firstName && firstName.startsWith(" ")) {
       return "Cannot start with a space";
-    } else if (firstName.endsWith(" ")) {
+    } else if (!!firstName && firstName.endsWith(" ")) {
       return "Cannot end with a space";
     } else if (!NAME_REGEX.test(firstName)) {
       return "Requires only letters, -, and '";
@@ -138,6 +138,55 @@ const ValidationService = {
   validateConfirmPasswordLabel(confirmPassword, password, touched) {
     if (touched && confirmPassword !== password) {
       return "Invalid ";
+    }
+  },
+  validateMissingPassword(password, touched) {
+    if (touched && password.length === 0) {
+      return "invalid";
+    } else if (touched && password.length > 0) {
+      return "valid";
+    }
+  },
+  validatePasswordSpace(password, touched) {
+    if (password.includes(" ") && touched) {
+      return "invalid";
+    } else if (!password.includes(" ") && touched) {
+      return "valid";
+    }
+  },
+  validatePasswordUpperCase(password, touched) {
+    if (!/(?=.*[A-Z])/.test(password) && touched) {
+      return "invalid";
+    } else if (/(?=.*[A-Z])/.test(password) && touched) {
+      return "valid";
+    }
+  },
+  validatePasswordLowerCase(password, touched) {
+    if (!/(?=.*[a-z])/.test(password) && touched) {
+      return "invalid";
+    } else if (/(?=.*[a-z])/.test(password) && touched) {
+      return "valid";
+    }
+  },
+  validatePasswordNumber(password, touched) {
+    if (!/(?=.*[0-9])/.test(password) && touched) {
+      return "invalid";
+    } else if (/(?=.*[0-9])/.test(password) && touched) {
+      return "valid";
+    }
+  },
+  validatePasswordSpecialChar(password, touched) {
+    if (!/(?=.*[!@#$%^&])/.test(password) && touched) {
+      return "invalid";
+    } else if (/(?=.*[!@#$%^&])/.test(password) && touched) {
+      return "valid";
+    }
+  },
+  validatePasswordLength(password, touched) {
+    if ((password.length < 8 || password.length > 72) && touched) {
+      return "invalid";
+    } else if (password.length >= 8 && password.length <= 72 && touched) {
+      return "valid";
     }
   },
 };

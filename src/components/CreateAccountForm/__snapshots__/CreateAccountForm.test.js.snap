@@ -184,9 +184,64 @@ exports[`CreateAccountForm Comonent renders the UI as expected 1`] = `
       type="password"
     />
     <div
-      className="NoError"
+      className="password-requirements"
     >
-       
+      <p>
+        <span
+          className="Required "
+        >
+          *
+        </span>
+         Password required
+      </p>
+      <p>
+        <span
+          className="Required "
+        >
+          *
+        </span>
+         Cannot contain a space
+      </p>
+      <p>
+        <span
+          className="Required "
+        >
+          *
+        </span>
+         Requires a lower case character
+      </p>
+      <p>
+        <span
+          className="Required "
+        >
+          *
+        </span>
+         Requires an upper case character
+      </p>
+      <p>
+        <span
+          className="Required "
+        >
+          *
+        </span>
+         Requires a number
+      </p>
+      <p>
+        <span
+          className="Required "
+        >
+          *
+        </span>
+         Requires a special character
+      </p>
+      <p>
+        <span
+          className="Required "
+        >
+          *
+        </span>
+         Requires 8-72 characters
+      </p>
     </div>
   </div>
   <div
@@ -231,6 +286,7 @@ exports[`CreateAccountForm Comonent renders the UI as expected 1`] = `
   >
     <button
       className="Button form__button"
+      disabled="Requires only letters, -, and '"
       type="submit"
     >
       Create Account

@@ -36,3 +36,8 @@
 .CreateAccountForm--error {
   margin-bottom: 8px;
 }
+
+.CreateAccountForm p.red {
+  text-align: center;
+  color: rgb(253, 151, 38);
+}

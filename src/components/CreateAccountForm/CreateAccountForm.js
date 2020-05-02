@@ -7,6 +7,7 @@ import {
   Button,
   Required,
   ValidationError,
+  PasswordValidationError,
 } from "../Utils/Utils";
 import AuthApiService from "../../services/auth-api-service";
 import ValidationService from "../../services/validation-service";
@@ -268,7 +269,10 @@ class CreateAccountForm extends Component {
             required
             onChange={(e) => this.handlePasswordChange(e.target.value)}
           />
-          <ValidationError message={passwordError} touched={password.touched} />
+          <PasswordValidationError
+            password={password.value}
+            touched={password.touched}
+          />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__confirm_password">
           <Label htmlFor="confirm_password">
@@ -291,7 +295,19 @@ class CreateAccountForm extends Component {
           <ValidationError />
         </div>
         <div className="CreateAccountForm__buttons">
-          <Button type="submit" className="form__button">
+          <Button
+            type="submit"
+            className="form__button"
+            disabled={
+              firstNameError ||
+              lastNameError ||
+              usernameError ||
+              emailError ||
+              confirmEmailError ||
+              passwordError ||
+              confirmPasswordError
+            }
+          >
             Create Account
           </Button>
         </div>
