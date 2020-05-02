@@ -13,6 +13,9 @@ class Study extends Component {
     ModulesApiService.getTopics()
       .then((topics) => {
         this.context.setTopicList(topics);
+        ModulesApiService.getModules()
+          .then(this.context.setQuizList)
+          .catch(this.context.setError);
       })
       .catch(this.context.setError);
   }
