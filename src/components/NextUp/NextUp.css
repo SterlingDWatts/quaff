@@ -37,3 +37,18 @@
 .NextUp__container--locked {
   filter: grayscale(100%);
 }
+
+@media screen and (min-width: 500px) {
+  .NextUp a {
+    width: fit-content;
+  }
+
+  .NextUp__container {
+    width: 500px;
+    margin: 0 auto 16px;
+  }
+
+  .NextUp__header {
+    left: calc((100vw - 500px) / 2);
+  }
+}

@@ -9,6 +9,7 @@
 
 .QuizForm fieldset > div {
   height: 100%;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,4 +71,10 @@
 
 .QuizForm .fa-fw {
   width: 1em;
+}
+
+@media screen and (min-width: 500px) {
+  .QuizForm {
+    padding: 24px 24px 30px;
+  }
 }

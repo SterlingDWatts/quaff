@@ -179,3 +179,21 @@ input.Input--error {
 .TopicSquare__container--locked {
   color: grey;
 }
+
+@media screen and (min-width: 500px) {
+  .QuaffSquare {
+    width: 500px;
+    padding-top: initial;
+    height: 500px;
+    margin: 24px auto;
+  }
+
+  .ExploreSquare__border {
+    padding: 24px;
+  }
+
+  .ExploreSquare__container {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 24px;
+  }
+}
