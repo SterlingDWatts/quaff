@@ -1,6 +1,6 @@
-import config from "../config.js";
-import TokenService from "./token-service.js";
-import IdleService from "./idle-service.js";
+import config from "../config";
+import TokenService from "./token-service";
+import IdleService from "./idle-service";
 
 const AuthApiService = {
   postUser(user) {
@@ -27,7 +27,7 @@ const AuthApiService = {
       )
       .then((res) => {
         TokenService.saveAuthToken(res.authToken);
-        IdleService.registerIdleResets();
+        IdleService.registerIdleTimerResets();
         TokenService.queueCallbackBeforeExpiry(() => {
           AuthApiService.postRefreshToken();
         });

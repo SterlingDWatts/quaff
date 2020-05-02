@@ -1,6 +1,6 @@
 .QuizForm {
   height: 100%;
-  padding: 16px;
+  padding: 16px 16px 30px;
 }
 
 .QuizForm fieldset {
@@ -18,15 +18,15 @@
 
 .QuizForm legend {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .QuizForm__label_group + .QuizForm__label_group {
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 .QuizForm input {
-  margin: 3px 3px 0 0;
+  margin: 0 3px 0 0;
 }
 
 .QuizForm__icon {
@@ -34,6 +34,8 @@
   display: inline-block;
   width: 16px;
   height: 16px;
+  position: absolute;
+  left: 0;
 }
 
 .QuizForm .fa-check {
@@ -45,17 +47,27 @@
 }
 
 .QuizForm button {
-  width: fit-content;
+  width: 60px;
+  height: 60px;
   border: none;
+  border-radius: 30px;
   background-color: rgba(0, 0, 0, 0);
-  font-size: 60px;
-  color: #e30425;
+  font-size: 37.5px;
+  background-color: #e30425;
   position: absolute;
-  bottom: -50.4px;
-  right: 21.5px;
+  bottom: -64.4px;
+  right: 0px;
   padding: 0;
+  box-shadow: 0 1px 10px 3px rgba(0, 0, 0, 0.15),
+    0 1px 4px 1px rgba(0, 0, 0, 0.15);
 }
 
-.QuizForm .fa-circle {
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+.QuizForm button:active,
+.QuizForm button:focus,
+.QuizForm button:hover {
+  outline: none;
+}
+
+.QuizForm .fa-fw {
+  width: 1em;
 }

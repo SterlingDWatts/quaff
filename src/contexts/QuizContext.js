@@ -2,6 +2,7 @@ import React, { createContext, Component } from "react";
 
 const QuizContext = createContext({
   quiz: [],
+  views: [],
   progress: 0,
   numCorrect: 0,
   numQuestions: 0,
@@ -23,6 +24,7 @@ export class QuizProvider extends Component {
   state = {
     error: null,
     quiz: [],
+    views: [],
     progress: 0,
     numCorrect: 0,
     numQuestions: 0,
@@ -96,19 +98,18 @@ export class QuizProvider extends Component {
   };
 
   updateProgress = () => {
-    let updatedQuiz = this.state.quiz;
-    const question = updatedQuiz[this.state.progress];
-    question.seenCount++;
-    if (this.state.selectedId === this.state.answerId) {
-      question.correctCount++;
-    }
+    const view = {
+      questionId: this.state.quiz[this.state.progress].id,
+      chosenAnswerId: this.state.selectedId,
+    };
+    const views = [...this.state.views, view];
     const progress = this.state.progress + 1;
     let answerId = -1;
     if (progress < this.state.numQuestions) {
       answerId = this.setAnswerId(this.state.quiz[progress].answers);
     }
     this.setState({
-      quiz: updatedQuiz,
+      views,
       answerId,
       progress,
       selectedId: null,
@@ -120,6 +121,7 @@ export class QuizProvider extends Component {
     const value = {
       error: this.state.error,
       quiz: this.state.quiz,
+      views: this.state.views,
       showAnswer: this.state.showAnswer,
       progress: this.state.progress,
       answerId: this.state.answerId,

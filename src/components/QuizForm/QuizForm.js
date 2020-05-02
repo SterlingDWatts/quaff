@@ -4,7 +4,6 @@ import {
   faCheck,
   faTimes,
   faArrowRight,
-  faCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { faHandPointUp } from "@fortawesome/free-regular-svg-icons";
 import QuizContext from "../../contexts/QuizContext";
@@ -42,7 +41,7 @@ class QuizForm extends Component {
           />
           <label htmlFor={`ans_${answer.id}`}>
             {icon}
-            {answer.answer}
+            {answer.content}
           </label>
         </div>
       );
@@ -61,12 +60,7 @@ class QuizForm extends Component {
 
   renderButton = (showAnswer) => {
     const icon = showAnswer ? faArrowRight : faHandPointUp;
-    return (
-      <span className="fa-layers fa-fw">
-        <FontAwesomeIcon icon={faCircle} />
-        <FontAwesomeIcon icon={icon} transform="shrink-6" color="white" />
-      </span>
-    );
+    return <FontAwesomeIcon icon={icon} color="white" />;
   };
 
   render() {
@@ -82,8 +76,8 @@ class QuizForm extends Component {
       content = (
         <fieldset>
           <div>
-            <legend className="QuizForm__question">{question.question}</legend>
-            <div>{answers}</div>
+            <legend className="QuizForm__question">{question.content}</legend>
+            {answers}
             <button className="QuizForm__button" type="submit">
               {this.renderButton(showAnswer)}
             </button>

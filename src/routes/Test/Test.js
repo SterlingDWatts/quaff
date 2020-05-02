@@ -4,7 +4,7 @@ import QuizForm from "../../components/QuizForm/QuizForm";
 import Results from "../../components/Results/Results";
 import NextUp from "../../components/NextUp/NextUp";
 import QuizContext from "../../contexts/QuizContext";
-import questionList from "../../question-list";
+import ModulesApiService from "../../services/modules-api-service";
 import "./Test.css";
 
 class Test extends Component {
@@ -16,11 +16,18 @@ class Test extends Component {
 
   componentDidMount() {
     const moduleId = Number(this.props.match.params.testId);
+    this.context.clearError();
+    ModulesApiService.getModule(moduleId)
+      .then((quiz) => {
+        this.context.setQuiz(quiz.questions);
+      })
+      .catch(this.context.setError);
+    /*
     const quiz = questionList.filter(
       (question) => question.moduleId === moduleId
     );
-    this.context.clearError();
     this.context.setQuiz(quiz);
+    */
   }
 
   componentWillUnmount() {

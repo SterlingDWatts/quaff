@@ -1,23 +1,51 @@
 import React, { Component } from "react";
 import { ExploreSquare, TopicSquare } from "../../components/Utils/Utils";
 import QuizListContext from "../../contexts/QuizListContext";
+import ModulesApiService from "../../services/modules-api-service";
 import "./Study.css";
 
 class Study extends Component {
   static contextType = QuizListContext;
 
+  componentDidMount() {
+    this.context.clearError();
+    ModulesApiService.getTopics()
+      .then((topics) => {
+        this.context.setTopicList(topics);
+      })
+      .catch(this.context.setError);
+  }
+
   renderTopics = () => {
-    const topics = this.context.topicList.map((topic) => {
-      return (
+    const topics = [];
+    this.context.topicList.forEach((topic) => {
+      const unlocked = topic.seen != null;
+      const address = unlocked ? `/study/${topic.id}` : "/learn";
+      topics.push(
         <TopicSquare
           key={topic.id}
-          to={`/study/${topic.id}`}
+          to={address}
           label={topic.name}
           picture={topic.picture}
-          unlocked={true}
+          unlocked={unlocked}
         />
       );
     });
+
+    if (topics.length < 6) {
+      const remainder = 6 - topics.length;
+      for (let i = 0; i < remainder; i++) {
+        topics.push(
+          <TopicSquare
+            key={topics.length * 10}
+            to={"/learn"}
+            picture={"https://i.imgur.com/h6jaH4c.jpg"}
+            label={"Coming soon"}
+            unlocked={false}
+          />
+        );
+      }
+    }
     return topics;
   };
 

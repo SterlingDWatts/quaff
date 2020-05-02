@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import classnames from "classnames";
 import QuizListContext from "../../contexts/QuizListContext";
 import "./NextUp.css";
 
@@ -7,17 +8,14 @@ class NextUp extends Component {
   static contextType = QuizListContext;
 
   renderNextModule = () => {
-    let nextModule = this.context.quizList.findIndex(
-      (quiz) => quiz.unlocked === false
-    );
-    nextModule = nextModule ? nextModule - 1 : this.context.quizList.length - 1;
-    nextModule = this.context.quizList[nextModule];
+    let nextModule = this.context.quizList.find((quiz) => quiz.next === true);
     return (
       <NextUpItem
         id={nextModule.id}
         label={nextModule.name}
         type={"Learn"}
         picture={nextModule.picture}
+        unlocked={true}
       />
     );
   };
@@ -28,6 +26,7 @@ class NextUp extends Component {
     );
     topicList = topicList.slice(0, 3);
     return topicList.map((topic) => {
+      const unlocked = topic.seen != null;
       return (
         <NextUpItem
           key={topic.id}
@@ -35,6 +34,7 @@ class NextUp extends Component {
           label={topic.name}
           type={"Study"}
           picture={topic.picture}
+          unlocked={unlocked}
         />
       );
     });
@@ -82,13 +82,18 @@ class NextUp extends Component {
   }
 }
 
-function NextUpItem({ id, label, picture, type }) {
+function NextUpItem({ id, label, picture, type, unlocked }) {
+  const link = unlocked ? `/${type.toLowerCase()}/${id}` : "learn";
   return (
-    <Link to={`/${type.toLowerCase()}/${id}`}>
+    <Link to={link}>
       <div className="NextUp__header">{type}</div>
       <div
-        className="NextUp__container"
-        style={{ backgroundImage: `url(${picture})` }}
+        className={classnames("NextUp__container", {
+          "NextUp__container--locked": !unlocked,
+        })}
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url(${picture})`,
+        }}
       >
         {label}
       </div>

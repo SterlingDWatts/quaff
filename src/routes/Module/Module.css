@@ -41,6 +41,15 @@
   font-weight: 600;
 }
 
+.Module sub {
+  vertical-align: sub;
+  font-size: 10px;
+}
+
+.Module img {
+  width: 100%;
+}
+
 .Module__buttons {
   display: flex;
   justify-content: center;

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import ModulesApiService from "../../services/modules-api-service";
+import TokenService from "../../services/token-service";
 import "./ResultsDisplay.css";
 
 class ResultsDisplay extends Component {
@@ -14,20 +16,22 @@ class ResultsDisplay extends Component {
     },
   };
   componentDidMount() {
-    const { quiz, quizList } = this.props;
+    const { quiz, quizList, match } = this.props;
     const score = quiz.numCorrect / quiz.numQuestions;
     const isTest = this.props.match.path.includes("test");
 
-    if (score >= 0.8 && isTest) {
-      const moduleId = Number(this.props.match.params.testId);
-      const currentModule = quizList.quizList.find(
-        (quiz) => quiz.id === moduleId
-      );
-      const nextModuleId = currentModule.next;
-      quizList.unlockModule(nextModuleId);
-    } else if (!isTest) {
-      const topicId = Number(this.props.match.params.topicId);
-      quizList.updateMastery(topicId, score);
+    if (isTest && TokenService.hasAuthToken()) {
+      ModulesApiService.insertTest(match.params.testId, quiz.views, score)
+        .then((quiz) => {
+          quizList.setQuizList(quiz);
+        })
+        .catch(quizList.setError);
+    } else if (TokenService.hasAuthToken()) {
+      ModulesApiService.insertViews(quiz.views)
+        .then((topics) => {
+          quizList.setTopicList(topics);
+        })
+        .catch(quizList.setError);
     }
   }
 

@@ -7,18 +7,18 @@ let _notIdleEvents = [
   "scroll",
   "touchstart",
 ];
-let _ONE_HOUR_IN_MS = 120 * 60 * 1000;
+let _ONE_HOUR_IN_MS = 60 * 60 * 1000;
 
 const IdleService = {
   setIdleCallback(idleCallback) {
     _idleCallback = idleCallback;
   },
   resetIdleTimer(ev) {
-    console.info("event", ev.type);
+    console.info("event:", ev.type);
     clearTimeout(_timeoutId);
     _timeoutId = setTimeout(_idleCallback, _ONE_HOUR_IN_MS);
   },
-  registerIdleResets() {
+  registerIdleTimerResets() {
     _notIdleEvents.forEach((event) =>
       document.addEventListener(event, IdleService.resetIdleTimer, true)
     );

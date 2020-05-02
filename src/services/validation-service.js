@@ -47,6 +47,8 @@ const ValidationService = {
       return "Cannot start with a space";
     } else if (username.endsWith(" ")) {
       return "Cannot end with a space";
+    } else if (username.includes(" ")) {
+      return "Cannot include a space";
     } else if (!USERNAME_REGEX.test(username)) {
       return "Letters, numbers, ., -, and _ only";
     }
@@ -60,6 +62,7 @@ const ValidationService = {
         username.lenght > 72 ||
         username.startsWith(" ") ||
         username.endsWith(" ") ||
+        username.includes(" ") ||
         !USERNAME_REGEX.test(username))
     ) {
       return "Invalid ";
@@ -96,6 +99,8 @@ const ValidationService = {
       return "Cannot start with a space";
     } else if (password.endsWith(" ")) {
       return "Cannot end with a space";
+    } else if (password.includes(" ")) {
+      return "Cannot include a space";
     } else if (!/(?=.*[A-Z])/.test(password)) {
       return "Requires an upper case character";
     } else if (!/(?=.*[a-z])/.test(password)) {
@@ -119,6 +124,7 @@ const ValidationService = {
         password.length > 72 ||
         password.startsWith(" ") ||
         password.endsWith(" ") ||
+        password.includes(" ") ||
         !PASSWORD_REGEX.test(password))
     ) {
       return "Invalid ";

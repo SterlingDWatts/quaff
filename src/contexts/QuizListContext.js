@@ -9,8 +9,6 @@ const QuizListContext = createContext({
   setQuizList: () => {},
   unlockModule: () => {},
   setTopicList: () => {},
-  addTopic: () => {},
-  updateMastery: () => {},
 });
 
 export default QuizListContext;
@@ -35,28 +33,17 @@ export class QuizListProvider extends Component {
     this.setState({ quizList });
   };
 
-  unlockModule = (moduleId) => {
-    const updatedQuizList = this.state.quizList.map((quiz) => {
-      return quiz.id === moduleId ? { ...quiz, unlocked: true } : quiz;
-    });
-    this.setState({ quizList: updatedQuizList });
-  };
-
   setTopicList = (topicList) => {
-    this.setState({ topicList });
-  };
-
-  addTopic = (topic) => {
-    this.setState({ topicList: [...this.state.topicList, topic] });
-  };
-
-  updateMastery = (topicId, masteryPercent) => {
-    const updatedTopicList = this.state.topicList.map((topic) => {
-      return topic.id === topicId
-        ? { ...topic, mastery: masteryPercent }
-        : topic;
+    const sortedTopics = topicList.slice();
+    sortedTopics.sort((a, b) => {
+      const aCorrect = a.correct != null ? Number(a.correct) : 0;
+      const aMastery = a.seen ? aCorrect / Number(a.seen) : 1.1;
+      const bCorrect = b.correct != null ? Number(b.correct) : 0;
+      const bMastery = b.seen != null ? bCorrect / Number(b.seen) : 1.1;
+      return aMastery - bMastery;
     });
-    this.setState({ topicList: updatedTopicList });
+
+    this.setState({ topicList: sortedTopics });
   };
 
   render() {
@@ -67,10 +54,7 @@ export class QuizListProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       setQuizList: this.setQuizList,
-      unlockModule: this.unlockModule,
       setTopicList: this.setTopicList,
-      addTopic: this.addTopic,
-      updateMastery: this.updateMastery,
     };
     return (
       <QuizListContext.Provider value={value}>
