@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { ExploreSquare, TopicSquare } from "../../components/Utils/Utils";
 import QuizListContext from "../../contexts/QuizListContext";
 import ModulesApiService from "../../services/modules-api-service";
@@ -21,6 +22,10 @@ class Study extends Component {
     this.context.topicList.forEach((topic) => {
       const unlocked = topic.seen != null;
       const address = unlocked ? `/study/${topic.id}` : "/learn";
+      let mastery = 0;
+      if (topic.correct != null && topic.seen != null) {
+        mastery = Math.floor((topic.correct / topic.seen) * 100);
+      }
       topics.push(
         <TopicSquare
           key={topic.id}
@@ -28,6 +33,7 @@ class Study extends Component {
           label={topic.name}
           picture={topic.picture}
           unlocked={unlocked}
+          mastery={unlocked && mastery}
         />
       );
     });
@@ -53,7 +59,13 @@ class Study extends Component {
     const topics = this.renderTopics();
     return (
       <div className="Study">
-        <ExploreSquare>{topics && topics}</ExploreSquare>
+        <ExploreSquare>
+          <div className="Study--info-text">
+            Master knowledge previosly viewed. Visit{" "}
+            <Link to="/learn">Learn</Link> to unlock more topics!
+          </div>
+          {topics && topics}
+        </ExploreSquare>
       </div>
     );
   }

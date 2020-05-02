@@ -17,6 +17,7 @@
   position: absolute;
   padding: 8px 16px;
   border-bottom-right-radius: 8px;
+  z-index: 5;
 }
 
 .NextUp__container {
@@ -39,16 +40,12 @@
 }
 
 @media screen and (min-width: 500px) {
-  .NextUp a {
-    width: fit-content;
+  .NextUp {
+    width: 500px;
+    margin: 0 auto;
   }
 
   .NextUp__container {
-    width: 500px;
-    margin: 0 auto 16px;
-  }
-
-  .NextUp__header {
-    left: calc((100vw - 500px) / 2);
+    margin-bottom: 16px;
   }
 }

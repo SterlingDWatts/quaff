@@ -73,10 +73,25 @@ export function TopicSquare({
   picture,
   className,
   unlocked = false,
+  max_score,
+  next = false,
+  mastery,
 }) {
+  let topLabelContents;
+  if (next) {
+    topLabelContents = "Next";
+  } else if (!!max_score) {
+    topLabelContents = `${max_score}%`;
+  } else if (!!mastery) {
+    topLabelContents = `${mastery}%`;
+  }
+  const topLabel = (
+    <div className="TopicSquare__top_label">{topLabelContents}</div>
+  );
   return (
     <Link to={to} className={["TopicSquare", className].join(" ")}>
       <div className="TopicSquare__picture_container">
+        {unlocked && topLabel}
         <div
           className={classnames("TopicSquare__picture", {
             "TopicSquare__picture--locked": !unlocked,

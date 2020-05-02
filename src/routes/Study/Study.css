@@ -1,3 +1,25 @@
 .Study {
   height: 100%;
 }
+
+.Study--info-text {
+  grid-column-end: span 4;
+  line-height: 1;
+  color: grey;
+}
+
+.Study--info-text a {
+  color: #2d8cfb;
+}
+
+@media screen and (min-width: 500px) {
+  .Study--info-text {
+    grid-column-end: span 6;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .Study--info-text {
+    grid-column-end: span 8;
+  }
+}

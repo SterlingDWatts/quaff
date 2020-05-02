@@ -1,3 +1,32 @@
 .Learn {
   height: 100%;
 }
+
+.Learn--info-text {
+  grid-column-end: span 4;
+  line-height: 1;
+  color: grey;
+}
+
+.Learn .TopicSquare__top_label,
+.Learn .TopicSquare__container {
+  color: white;
+  background-color: #720d5d;
+}
+
+.Learn .TopicSquare__container--locked {
+  color: grey;
+  background-color: white;
+}
+
+@media screen and (min-width: 500px) {
+  .Learn--info-text {
+    grid-column-end: span 6;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .Learn--info-text {
+    grid-column-end: span 8;
+  }
+}

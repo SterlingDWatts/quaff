@@ -31,6 +31,7 @@ class Learn extends Component {
           label={mod.name}
           picture={mod.picture}
           unlocked={unlocked}
+          next={mod.next}
           max_score={unlocked && Math.floor(parseFloat(mod.max_score) * 100)}
         />
       );
@@ -57,7 +58,12 @@ class Learn extends Component {
     const modules = this.renderModules();
     return (
       <div className="Learn">
-        <ExploreSquare>{modules && modules}</ExploreSquare>
+        <ExploreSquare>
+          <div className="Learn--info-text">
+            Pass modules with at least 75% to unlock additional content
+          </div>
+          {modules && modules}
+        </ExploreSquare>
       </div>
     );
   }
