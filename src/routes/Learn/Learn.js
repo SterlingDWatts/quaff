@@ -60,6 +60,9 @@ class Learn extends Component {
       <div className="Learn">
         <ExploreSquare>
           <div className="Learn--info-text">
+            <h1>Learn</h1>
+          </div>
+          <div className="Learn--info-text">
             Pass modules with at least 75% to unlock additional content.
           </div>
           {modules && modules}

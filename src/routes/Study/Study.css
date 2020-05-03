@@ -6,6 +6,15 @@
   grid-column-end: span 4;
   line-height: 1;
   color: grey;
+  font-family: "Lekton", sans-serif;
+}
+
+.Study--info-text h1 {
+  font-size: 24px;
+  text-align: center;
+  color: #4e0d3a;
+  font-weight: 600;
+  font-family: "Merriweather", serif;
 }
 
 .Study--info-text a {

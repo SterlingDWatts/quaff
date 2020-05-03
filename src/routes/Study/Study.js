@@ -64,6 +64,9 @@ class Study extends Component {
       <div className="Study">
         <ExploreSquare>
           <div className="Study--info-text">
+            <h1>Study</h1>
+          </div>
+          <div className="Study--info-text">
             Master knowledge previously viewed. Visit{" "}
             <Link to="/learn">Learn</Link> to unlock more topics!
           </div>
