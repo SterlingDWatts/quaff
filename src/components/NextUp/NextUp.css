@@ -7,6 +7,19 @@
   text-decoration: none;
 }
 
+.NextUp a:hover,
+.NextUp a:active,
+.NextUp a:focus {
+  color: #e30425;
+}
+
+.NextUp a:hover .NextUp__header,
+.NextUp a:active .NextUp__header,
+.NextUp a:focus .NextUp__header {
+  background-color: #e30425;
+  color: white;
+}
+
 .NextUp__header {
   color: #e30425;
   background-color: white;
@@ -26,7 +39,7 @@
   flex-direction: column;
   justify-content: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
-    url(https://picsum.photos/800/200?random=1);
+    url(https://i.imgur.com/h6jaH4c.jpg);
   background-position: center;
   background-size: cover;
   font-size: 48px;

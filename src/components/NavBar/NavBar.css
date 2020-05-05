@@ -25,6 +25,7 @@
 .NavBar a {
   color: white;
   text-decoration: none;
+  margin-left: 16px;
 }
 
 .NavBar--marquee {
@@ -47,4 +48,31 @@
 
 .NavBarPill--active {
   border-bottom: 4px solid #e30425;
+}
+
+.NavBar__logo_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.NavBar button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 24px;
+}
+
+.NavBar__subnav {
+  background-color: #4e0d3a;
+  line-height: 1;
+  font-size: 24px;
+  padding: 16px 0;
+}
+
+.NavBar__subnav .NavBar--no-pill + .NavBar--no-pill {
+  margin-top: 16px;
 }

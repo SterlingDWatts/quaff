@@ -10,6 +10,7 @@ import {
 } from "../Utils/Utils";
 import AuthApiService from "../../services/auth-api-service";
 import ValidationService from "../../services/validation-service";
+import ModulesApiService from "../../services/modules-api-service";
 import "./LoginForm.css";
 
 class LoginForm extends Component {
@@ -64,6 +65,14 @@ class LoginForm extends Component {
           password: { touched: false, value: "" },
         });
         this.props.onLoginSuccess();
+        if (window.localStorage.getItem("test")) {
+          const test = JSON.parse(window.localStorage.getItem("test"));
+          ModulesApiService.insertTest(test.id, test.views, test.score)
+            .then((quiz) => {
+              window.localStorage.removeItem("test");
+            })
+            .catch();
+        }
       })
       .catch((res) => {
         this.setState({ error: res.error });
