@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import TokenService from "../../services/token-service";
 import "./NavBar.css";
 
@@ -62,12 +62,13 @@ class NavBar extends Component {
   };
 
   render() {
+    const icon = this.state.showSubNav ? faTimes : faBars;
     return (
       <nav className="NavBar">
         <div className="NavBar__container">
           <div className="NavBar__logo_div">
             <button onClick={(e) => this.togglesubNav()}>
-              <FontAwesomeIcon icon={faBars} />
+              <FontAwesomeIcon icon={icon} />
             </button>
             <Link className="NavBar--no-pill NavBar--marquee" to="/">
               Q
