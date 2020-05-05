@@ -54,7 +54,11 @@ class NavBar extends Component {
     const accountLinks = TokenService.hasAuthToken()
       ? this.renderLogout()
       : this.renderLogin();
-    return <div className="NavBar__subnav">{accountLinks}</div>;
+    return (
+      <div className="NavBar__subnav">
+        <div className="NavBar__subnav_container">{accountLinks}</div>
+      </div>
+    );
   };
 
   render() {

@@ -19,13 +19,16 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+
+.NavBar__container a {
+  margin-left: 24px;
 }
 
 .NavBar a {
   color: white;
   text-decoration: none;
-  margin-left: 16px;
 }
 
 .NavBar--marquee {
@@ -68,9 +71,15 @@
 
 .NavBar__subnav {
   background-color: #4e0d3a;
+}
+
+.NavBar__subnav_container {
   line-height: 1;
   font-size: 24px;
-  padding: 16px 0;
+  padding: 16px 16px;
+  width: 100%;
+  max-width: 944px;
+  margin: 0 auto;
 }
 
 .NavBar__subnav .NavBar--no-pill + .NavBar--no-pill {
