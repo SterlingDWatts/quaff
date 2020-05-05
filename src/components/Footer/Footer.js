@@ -6,11 +6,16 @@ class Footer extends Component {
   static contextType = QuizContext;
 
   renderProgress = () => {
-    const { progress, numQuestions, numCorrect } = this.context;
+    const { progress, numQuestions, numCorrect, showAnswer } = this.context;
+    const correctedProgress = showAnswer ? progress + 1 : progress;
+    const correctPercent =
+      numCorrect > 0 ? Math.floor((numCorrect / correctedProgress) * 100) : 0;
     return (
       <div className="Footer__progress">
-        <div>Complete: {`${progress}/${numQuestions}`}</div>
-        <div>Correct: {`${numCorrect}/${numQuestions}`}</div>
+        <div>
+          {progress}/{numQuestions}
+        </div>
+        <div>{correctPercent}%</div>
       </div>
     );
   };

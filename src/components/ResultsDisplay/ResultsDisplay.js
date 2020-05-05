@@ -24,29 +24,45 @@ class ResultsDisplay extends Component {
       ModulesApiService.insertTest(match.params.testId, quiz.views, score)
         .then((quiz) => {
           quizList.setQuizList(quiz);
+          ModulesApiService.getTopics()
+            .then(quizList.setTopicList)
+            .catch(quizList.setError);
         })
         .catch(quizList.setError);
     } else if (TokenService.hasAuthToken()) {
       ModulesApiService.insertViews(quiz.views)
         .then((topics) => {
           quizList.setTopicList(topics);
+          ModulesApiService.getModules()
+            .then(quizList.setQuizList)
+            .catch(quizList.setError);
         })
         .catch(quizList.setError);
     }
   }
 
   renderTestResults = (percentCorrect) => {
+    const preMessage = percentCorrect >= 0.75 ? "Great Job!" : "Sorry.";
+    const postMessage =
+      percentCorrect >= 0.75 ? "You have unlocked the next module!" : "";
     return (
       <div>
-        <p>You got {Math.floor(percentCorrect * 100)}% correct</p>
+        <p>{preMessage}</p>
+        <p>You got {Math.floor(percentCorrect * 100)}% correct.</p>
+        <p>{postMessage}</p>
       </div>
     );
   };
 
   renderQuizResults = (percentCorrect) => {
+    const preMessage = percentCorrect >= 0.75 ? "Great Job!" : "Sorry.";
+    const postMessage =
+      percentCorrect >= 0.75 ? "Why not take the next Module?" : "";
     return (
       <div>
-        <p>You got {Math.floor(percentCorrect * 100)}% correct</p>
+        <p>{preMessage}</p>
+        <p>You got {Math.floor(percentCorrect * 100)}% correct.</p>
+        <p>{postMessage}</p>
       </div>
     );
   };

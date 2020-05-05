@@ -7,9 +7,15 @@ exports[`ResultsDisplay Component renders the UI as expected 1`] = `
    
   <div>
     <p>
+      Great Job!
+    </p>
+    <p>
       You got 
       100
-      % correct
+      % correct.
+    </p>
+    <p>
+      Why not take the next Module?
     </p>
   </div>
    

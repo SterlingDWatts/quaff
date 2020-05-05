@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 import { Button } from "../../components/Utils/Utils";
 import ModA from "../../components/ModuleContents/ModA";
 import ModB from "../../components/ModuleContents/ModB";
+import ModC from "../../components/ModuleContents/ModC";
 import "./Module.css";
 
 class Module extends Component {
@@ -18,7 +19,7 @@ class Module extends Component {
       <div>
         <Route path="/learn/1" component={ModA} />
         <Route path="/learn/2" component={ModB} />
-        <Route path="/learn/3" component={ModB} />
+        <Route path="/learn/3" component={ModC} />
         <div className="Module__buttons">
           <Link to={`/test/${this.props.match.params.moduleId}`}>
             <Button className="form__button">Test</Button>

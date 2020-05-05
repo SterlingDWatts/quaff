@@ -23,15 +23,24 @@
 }
 
 .LoginForm__other_links {
+  font-size: 13px;
   margin-top: 16px;
   text-align: center;
-  font-size: 13px;
+  color: grey;
 }
 
 .LoginForm__other_links a {
   color: #2d8cfb;
+  font-weight: 600;
 }
 
 .LoginForm--error {
   margin-bottom: 8px;
+}
+
+.LoginForm--error p {
+  font-size: 16px;
+  color: rgb(253, 151, 38);
+  line-height: 1;
+  font-weight: 600;
 }

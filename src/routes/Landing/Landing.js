@@ -24,9 +24,12 @@ class Landing extends Component {
     return (
       <div className="Landing">
         <QuaffSquare>
-          Quaff
-          <br />
-          Quizz
+          <h1>
+            Quaff
+            <br />
+            Quizz
+          </h1>
+          <h4>For the inquisitive oenophile</h4>
         </QuaffSquare>
         <NextUp />
       </div>

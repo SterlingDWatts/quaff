@@ -10,9 +10,14 @@ exports[`Landing Component renders the UI as expected 1`] = `
     <div
       className="QuaffSquare__container"
     >
-      Quaff
-      <br />
-      Quizz
+      <h1>
+        Quaff
+        <br />
+        Quizz
+      </h1>
+      <h4>
+        For the inquisitive oenophile
+      </h4>
     </div>
   </div>
   <div

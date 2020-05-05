@@ -7,9 +7,15 @@ exports[`Results Component renders the UI as expected 1`] = `
    
   <div>
     <p>
+      Sorry.
+    </p>
+    <p>
       You got 
       NaN
-      % correct
+      % correct.
+    </p>
+    <p>
+      
     </p>
   </div>
    

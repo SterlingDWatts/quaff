@@ -3,3 +3,12 @@
   overflow-y: scroll;
   position: relative;
 }
+
+.Quiz__answer h3 {
+  font-size: 24px;
+  text-align: center;
+  line-height: 1;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.5);
+}

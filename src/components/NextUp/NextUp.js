@@ -9,15 +9,18 @@ class NextUp extends Component {
 
   renderNextModule = () => {
     let nextModule = this.context.quizList.find((quiz) => quiz.next === true);
-    return (
-      <NextUpItem
-        id={nextModule.id}
-        label={nextModule.name}
-        type={"Learn"}
-        picture={nextModule.picture}
-        unlocked={true}
-      />
-    );
+    if (nextModule) {
+      return (
+        <NextUpItem
+          id={nextModule.id}
+          label={nextModule.name}
+          type={"Learn"}
+          address={"learn"}
+          picture={nextModule.picture}
+          unlocked={true}
+        />
+      );
+    }
   };
 
   renderStudyTopics = () => {
@@ -33,6 +36,7 @@ class NextUp extends Component {
           id={topic.id}
           label={topic.name}
           type={"Study"}
+          address={"quiz"}
           picture={topic.picture}
           unlocked={unlocked}
         />
@@ -82,10 +86,14 @@ class NextUp extends Component {
   }
 }
 
-function NextUpItem({ id, label, picture, type, unlocked }) {
-  const link = unlocked ? `/${type.toLowerCase()}/${id}` : "learn";
+function ScrollToTop() {
+  window.scrollTo(0, 0);
+}
+
+function NextUpItem({ id, label, picture, type, unlocked, address }) {
+  const link = unlocked ? `/${address.toLowerCase()}/${id}` : "learn";
   return (
-    <Link to={link}>
+    <Link to={link} onClick={(e) => ScrollToTop()}>
       <div className="NextUp__header">{type}</div>
       <div
         className={classnames("NextUp__container", {

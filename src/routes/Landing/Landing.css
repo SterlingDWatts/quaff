@@ -7,8 +7,12 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  font-size: 60px;
   font-weight: 600;
-  font-family: "Merriweather", serif;
   line-height: 1;
+}
+
+.Landing h1 {
+  font-size: 60px;
+  font-family: "Merriweather", serif;
+  margin-bottom: 8px;
 }

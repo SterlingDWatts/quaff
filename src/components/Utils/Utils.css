@@ -124,15 +124,22 @@ input.Input--error {
 }
 
 .ExploreSquare__border {
-  padding: 16px 16px;
+  padding: 16px 0;
   width: 100%;
   height: 100%;
   background-color: white;
   border-radius: 16px;
-  overflow-y: scroll;
 }
 
 .ExploreSquare__container {
+  width: 100%;
+  height: 100%;
+  padding: 0 16px 2px;
+  overflow-y: scroll;
+}
+
+.ExploreSquare__grid {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
@@ -185,9 +192,13 @@ input.Input--error {
   left: 0;
   right: 0;
   line-height: 1;
-  padding: 16px;
+  padding: 8px;
+  height: 48px;
   text-align: center;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .TopicSquare__container--locked {
@@ -212,11 +223,20 @@ input.Input--error {
     margin: 24px auto;
   }
 
+  .UnderSquare {
+    width: 500px;
+    margin: 0 auto;
+  }
+
   .ExploreSquare__border {
-    padding: 24px;
+    padding: 24px 0;
   }
 
   .ExploreSquare__container {
+    padding: 0 24px 2px;
+  }
+
+  .ExploreSquare__grid {
     grid-template-columns: repeat(6, 1fr);
     gap: 24px;
   }
@@ -225,8 +245,10 @@ input.Input--error {
 @media screen and (min-width: 1000px) {
   .ExploreSquare__container {
     max-width: 944px;
-    padding: 0 16px;
     margin: 0 auto;
+  }
+
+  .ExploreSquare__grid {
     grid-template-columns: repeat(8, 1fr);
   }
 }

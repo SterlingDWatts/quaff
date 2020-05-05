@@ -24,7 +24,7 @@ class Study extends Component {
     const topics = [];
     this.context.topicList.forEach((topic) => {
       const unlocked = topic.seen != null;
-      const address = unlocked ? `/study/${topic.id}` : "/learn";
+      const address = unlocked ? `/quiz/${topic.id}` : "/learn";
       let mastery = 0;
       if (topic.correct != null && topic.seen != null) {
         mastery = Math.floor((topic.correct / topic.seen) * 100);
@@ -64,11 +64,8 @@ class Study extends Component {
       <div className="Study">
         <ExploreSquare>
           <div className="Study--info-text">
-            <h1>Study</h1>
-          </div>
-          <div className="Study--info-text">
-            Master knowledge previously viewed. Visit{" "}
-            <Link to="/learn">Learn</Link> to unlock more topics!
+            Improve previously viewed topics. Visit{" "}
+            <Link to="/learn">Learn</Link> to unlock more!
           </div>
           {topics && topics}
         </ExploreSquare>

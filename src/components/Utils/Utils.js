@@ -111,7 +111,9 @@ export function ExploreSquare({ className, ...props }) {
   return (
     <div className={["ExploreSquare", className].join(" ")} {...props}>
       <div className="ExploreSquare__border">
-        <div className="ExploreSquare__container">{props.children}</div>
+        <div className="ExploreSquare__container">
+          <div className="ExploreSquare__grid">{props.children}</div>
+        </div>
       </div>
     </div>
   );

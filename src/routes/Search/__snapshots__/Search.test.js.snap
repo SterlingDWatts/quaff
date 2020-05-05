@@ -12,7 +12,11 @@ exports[`Search Component renders the UI as expected 1`] = `
     >
       <div
         className="ExploreSquare__container"
-      />
+      >
+        <div
+          className="ExploreSquare__grid"
+        />
+      </div>
     </div>
   </div>
 </div>

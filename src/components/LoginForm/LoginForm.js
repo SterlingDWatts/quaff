@@ -125,7 +125,7 @@ class LoginForm extends Component {
           </Button>
         </div>
         <div className="LoginForm__other_links">
-          Don't have an account yet?{" "}
+          Don't have an account?{" "}
           <Link to="/create-account">Create Account</Link>
         </div>
       </form>

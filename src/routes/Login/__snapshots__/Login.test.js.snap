@@ -99,7 +99,7 @@ exports[`Login Component renders the UI as expected 1`] = `
     <div
       className="LoginForm__other_links"
     >
-      Don't have an account yet?
+      Don't have an account?
        
       <a
         href="/create-account"

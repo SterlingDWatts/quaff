@@ -13,9 +13,7 @@
 .NavBar__container {
   line-height: 1;
   font-size: 24px;
-  font-weight: 600;
-  font-family: "Merriweather", serif;
-  padding: 16px;
+  padding: 0 16px;
   width: 100%;
   max-width: 944px;
   margin: 0 auto;
@@ -24,84 +22,29 @@
   justify-content: space-between;
 }
 
-.NavBar__hamburger {
-  background-color: rgb(0, 0, 0, 0);
-  border: none;
-  padding: 0;
-  color: white;
-  margin-right: 16px;
-}
-
 .NavBar a {
   color: white;
   text-decoration: none;
 }
 
-.SideNav__overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgb(0, 0, 0, 0.5);
-  z-index: 20;
-}
-
-@keyframes shadow {
-  0% {
-    left: 0;
-    right: 0;
-    background-color: rgb(0, 0, 0, 0.5);
-  }
-
-  1% {
-    left: -100vw;
-    right: 100vw;
-    background-color: rgb(0, 0, 0, 0.5);
-  }
-
-  50% {
-    left: -100vw;
-    right: 100vw;
-    background-color: rgb(0, 0, 0, 0.25);
-  }
-
-  100% {
-    left: -100vw;
-    right: 100vw;
-    background-color: rgb(0, 0, 0, 0);
-  }
-}
-
-.SideNav__overlay.SideNav--hidden {
-  animation-name: shadow;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-}
-
-.SideNav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 22px;
-  transition-property: left;
-  transition-duration: 0.25s;
-  transition-timing-function: linear;
-  bottom: 0;
-  width: 85%;
-  background-color: #4e0d3a;
-  padding: 44px 16px 16px 44px;
-  display: grid;
-  grid-template-columns: 50px 170px;
-  grid-template-rows: repeat(6, 60px);
+.NavBar--marquee {
   font-family: "Merriweather", serif;
+  font-weight: 600;
 }
 
-.SideNav--hidden .SideNav {
-  left: -100vw;
+.NavBar--no-pill {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.NavBar__links {
-  display: none;
+.NavBarPill,
+.NavBarPill--active {
+  padding: 12.1px 0;
+  border-bottom: 4px solid #4e0d3a;
+  border-top: 4px solid #4e0d3a;
+}
+
+.NavBarPill--active {
+  border-bottom: 4px solid #e30425;
 }

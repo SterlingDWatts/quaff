@@ -11,9 +11,6 @@ import Login from "./routes/Login/Login";
 import CreateAccount from "./routes/CreateAccount/CreateAccount";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import IdleService from "./services/idle-service";
-import TokenService from "./services/token-service";
-import AuthApiService from "./services/auth-api-service";
 import "./App.css";
 
 class App extends Component {
@@ -24,28 +21,6 @@ class App extends Component {
     return { hasError: true };
   }
 
-  componentDidMount() {
-    IdleService.setIdleCallback(this.logoutFromIdle);
-    if (TokenService.hasAuthToken()) {
-      IdleService.registerIdleTimerResets();
-      TokenService.queueCallbackBeforeExpiry(() => {
-        AuthApiService.postRefreshToken();
-      });
-    }
-  }
-
-  componentWillUnmount() {
-    IdleService.unRegisterIdleResets();
-    TokenService.clearCallbackBeforeExpiry();
-  }
-
-  logoutFromIdle = () => {
-    TokenService.clearAuthToken();
-    TokenService.clearCallbackBeforeExpiry();
-    IdleService.unRegisterIdleResets();
-    this.forceUpdate();
-  };
-
   render() {
     return (
       <div className="App">
@@ -55,7 +30,7 @@ class App extends Component {
           <Route exact path="/learn" component={Learn} />
           <Route exact path="/study" component={Study} />
           <Route exact path="/search" component={Search} />
-          <Route path="/study/:topicId" component={Quiz} />
+          <Route path="/quiz/:topicId" component={Quiz} />
           <Route path="/learn/:moduleId" component={Module} />
           <Route path="/test/:testId" component={Test} />
           <Route path="/login" component={Login} />
