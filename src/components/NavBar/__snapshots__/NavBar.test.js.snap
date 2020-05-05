@@ -10,27 +10,6 @@ exports[`NavBar Comoponent renders the UI as expected 1`] = `
     <div
       className="NavBar__logo_div"
     >
-      <button
-        onClick={[Function]}
-      >
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-bars fa-w-14 "
-          data-icon="bars"
-          data-prefix="fas"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 448 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </button>
       <a
         className="NavBar--no-pill NavBar--marquee"
         href="/"
@@ -38,26 +17,33 @@ exports[`NavBar Comoponent renders the UI as expected 1`] = `
       >
         Q
       </a>
+      <a
+        href="/learn"
+        onClick={[Function]}
+      >
+        <div
+          className="NavBarPill"
+        >
+          Learn
+        </div>
+      </a>
+      <a
+        href="/study"
+        onClick={[Function]}
+      >
+        <div
+          className="NavBarPill"
+        >
+          Study
+        </div>
+      </a>
     </div>
     <a
-      href="/learn"
+      className="NavBar--no-pill NavBar--account-link"
+      href="/login"
       onClick={[Function]}
     >
-      <div
-        className="NavBarPill"
-      >
-        Learn
-      </div>
-    </a>
-    <a
-      href="/study"
-      onClick={[Function]}
-    >
-      <div
-        className="NavBarPill"
-      >
-        Study
-      </div>
+      Login
     </a>
   </div>
 </nav>

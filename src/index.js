@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { QuizListProvider } from "./contexts/QuizListContext";
 import { QuizProvider } from "./contexts/QuizContext";
+import { LoginProvider } from "./contexts/LoginContext";
 import "./index.css";
 
 ReactDOM.render(
@@ -11,7 +12,9 @@ ReactDOM.render(
     <BrowserRouter>
       <QuizListProvider>
         <QuizProvider>
-          <App />
+          <LoginProvider>
+            <App />
+          </LoginProvider>
         </QuizProvider>
       </QuizListProvider>
     </BrowserRouter>

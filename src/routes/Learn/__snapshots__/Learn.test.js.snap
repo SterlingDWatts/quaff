@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Learn Component render the UI as expected 1`] = `
+<div
+  className="Learn"
+>
+  <div
+    className="ExploreSquare "
+  >
+    <div
+      className="ExploreSquare__border"
+    >
+      <div
+        className="ExploreSquare__container"
+      >
+        <div
+          className="ExploreSquare__grid"
+        >
+          <div
+            className="Learn--info-text"
+          >
+            Pass modules with at least 75% to unlock additional content.
+          </div>
+          <a
+            className="TopicSquare "
+            href="/learn"
+            onClick={[Function]}
+          >
+            <div
+              className="TopicSquare__picture_container"
+            >
+              <div
+                className="TopicSquare__picture TopicSquare__picture--locked"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                  }
+                }
+              />
+              <div
+                className="TopicSquare__container TopicSquare__container--locked"
+              >
+                Coming soon
+              </div>
+            </div>
+          </a>
+          <a
+            className="TopicSquare "
+            href="/learn"
+            onClick={[Function]}
+          >
+            <div
+              className="TopicSquare__picture_container"
+            >
+              <div
+                className="TopicSquare__picture TopicSquare__picture--locked"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                  }
+                }
+              />
+              <div
+                className="TopicSquare__container TopicSquare__container--locked"
+              >
+                Coming soon
+              </div>
+            </div>
+          </a>
+          <a
+            className="TopicSquare "
+            href="/learn"
+            onClick={[Function]}
+          >
+            <div
+              className="TopicSquare__picture_container"
+            >
+              <div
+                className="TopicSquare__picture TopicSquare__picture--locked"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                  }
+                }
+              />
+              <div
+                className="TopicSquare__container TopicSquare__container--locked"
+              >
+                Coming soon
+              </div>
+            </div>
+          </a>
+          <a
+            className="TopicSquare "
+            href="/learn"
+            onClick={[Function]}
+          >
+            <div
+              className="TopicSquare__picture_container"
+            >
+              <div
+                className="TopicSquare__picture TopicSquare__picture--locked"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                  }
+                }
+              />
+              <div
+                className="TopicSquare__container TopicSquare__container--locked"
+              >
+                Coming soon
+              </div>
+            </div>
+          </a>
+          <a
+            className="TopicSquare "
+            href="/learn"
+            onClick={[Function]}
+          >
+            <div
+              className="TopicSquare__picture_container"
+            >
+              <div
+                className="TopicSquare__picture TopicSquare__picture--locked"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                  }
+                }
+              />
+              <div
+                className="TopicSquare__container TopicSquare__container--locked"
+              >
+                Coming soon
+              </div>
+            </div>
+          </a>
+          <a
+            className="TopicSquare "
+            href="/learn"
+            onClick={[Function]}
+          >
+            <div
+              className="TopicSquare__picture_container"
+            >
+              <div
+                className="TopicSquare__picture TopicSquare__picture--locked"
+                style={
+                  Object {
+                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                  }
+                }
+              />
+              <div
+                className="TopicSquare__container TopicSquare__container--locked"
+              >
+                Coming soon
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

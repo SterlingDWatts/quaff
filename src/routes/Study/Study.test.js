@@ -15,4 +15,15 @@ describe("Study Component", () => {
     );
     ReactDOM.unmountComponentAtNode(div);
   });
+
+  it("renders the UI as expected", () => {
+    const tree = renderer
+      .create(
+        <BrowserRouter>
+          <Study />
+        </BrowserRouter>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

@@ -1,29 +1,25 @@
 import React, { Component } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import LoginContext from "../../contexts/LoginContext";
 import TokenService from "../../services/token-service";
 import "./NavBar.css";
 
 class NavBar extends Component {
-  state = {
-    showSubNav: false,
-  };
-
-  togglesubNav = () => {
-    this.setState({
-      showSubNav: !this.state.showSubNav,
-    });
-  };
+  static contextType = LoginContext;
 
   handleLogout = () => {
     TokenService.clearAuthToken();
-    this.togglesubNav();
+    window.localStorage.removeItem("test");
+    this.context.logout();
   };
 
   renderLogout = () => {
     return (
-      <Link className="NavBar--no-pill" to="/" onClick={this.handleLogout}>
+      <Link
+        className="NavBar--no-pill NavBar--account-link"
+        to="/"
+        onClick={this.handleLogout}
+      >
         Logout
       </Link>
     );
@@ -31,53 +27,28 @@ class NavBar extends Component {
 
   renderLogin = () => {
     return (
-      <>
-        <Link
-          className="NavBar--no-pill"
-          to="/login"
-          onClick={this.togglesubNav}
-        >
-          Login
-        </Link>
-        <Link
-          className="NavBar--no-pill"
-          to="/login"
-          onClick={this.togglesubNav}
-        >
-          Create Account
-        </Link>
-      </>
-    );
-  };
-
-  renderSubNav = () => {
-    const accountLinks = TokenService.hasAuthToken()
-      ? this.renderLogout()
-      : this.renderLogin();
-    return (
-      <div className="NavBar__subnav">
-        <div className="NavBar__subnav_container">{accountLinks}</div>
-      </div>
+      <Link className="NavBar--no-pill NavBar--account-link" to="/login">
+        Login
+      </Link>
     );
   };
 
   render() {
-    const icon = this.state.showSubNav ? faTimes : faBars;
+    const accountLink = this.context.loggedIn
+      ? this.renderLogout()
+      : this.renderLogin();
     return (
       <nav className="NavBar">
         <div className="NavBar__container">
           <div className="NavBar__logo_div">
-            <button onClick={(e) => this.togglesubNav()}>
-              <FontAwesomeIcon icon={icon} />
-            </button>
             <Link className="NavBar--no-pill NavBar--marquee" to="/">
               Q
             </Link>
+            <NavBarPill to="/learn" label="Learn" />
+            <NavBarPill to="/study" label="Study" />
           </div>
-          <NavBarPill to="/learn" label="Learn" />
-          <NavBarPill to="/study" label="Study" />
+          {accountLink}
         </div>
-        {this.state.showSubNav && this.renderSubNav()}
       </nav>
     );
   }

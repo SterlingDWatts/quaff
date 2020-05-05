@@ -11,12 +11,15 @@ import {
 import AuthApiService from "../../services/auth-api-service";
 import ValidationService from "../../services/validation-service";
 import ModulesApiService from "../../services/modules-api-service";
+import LoginContext from "../../contexts/LoginContext";
 import "./LoginForm.css";
 
 class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => {},
   };
+
+  static contextType = LoginContext;
 
   state = {
     error: null,
@@ -64,6 +67,7 @@ class LoginForm extends Component {
           username: { touched: false, value: "" },
           password: { touched: false, value: "" },
         });
+        this.context.login();
         this.props.onLoginSuccess();
         if (window.localStorage.getItem("test")) {
           const test = JSON.parse(window.localStorage.getItem("test"));

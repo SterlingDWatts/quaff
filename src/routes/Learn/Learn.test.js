@@ -15,4 +15,15 @@ describe("Learn Component", () => {
     );
     ReactDOM.unmountComponentAtNode(div);
   });
+
+  it("render the UI as expected", () => {
+    const tree = renderer
+      .create(
+        <BrowserRouter>
+          <Learn />
+        </BrowserRouter>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
