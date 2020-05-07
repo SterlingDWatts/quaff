@@ -14,7 +14,7 @@ Learn wine through short digestible modules followed by tests. Get a high enough
 
 #### Home Page
 
-![Home Page](https://quaff.now.sh/QuaffLanding.png)
+![Home Page](https://quaff.now.sh/QuaffLanding.PNG)
 
 #### Unlocking Content
 
