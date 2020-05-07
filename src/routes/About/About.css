@@ -1,0 +1,42 @@
+.About {
+  padding: 16px;
+  max-width: 944px;
+  margin: 0 auto;
+}
+
+.About header {
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 600;
+  margin: 65px 0;
+}
+
+.About h2 {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 600;
+  margin: 30px 0 0;
+}
+
+.About p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  text-indent: 24px;
+}
+
+.About em {
+  font-weight: 600;
+  color: #4e0d3a;
+}
+
+.About img {
+  width: 100%;
+}
+
+img.About--comparisons {
+  width: 75%;
+}
+
+.About__caption {
+  margin-bottom: 24px;
+}

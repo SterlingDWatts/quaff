@@ -44,8 +44,20 @@ const AuthApiService = {
         return res;
       })
       .catch((err) => {
-        console.log("refresh token request error");
         console.error(err);
+      });
+  },
+  getDemo() {
+    return fetch(`${config.API_ENDPOINT}/auth/demo`, {
+      method: "GET",
+      headers: {},
+    })
+      .then((res) =>
+        !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+      )
+      .then((res) => {
+        TokenService.saveAuthToken(res.authToken);
+        return res;
       });
   },
 };

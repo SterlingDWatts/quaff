@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { ExploreSquare, TopicSquare } from "../../components/Utils/Utils";
 import QuizListContext from "../../contexts/QuizListContext";
 import ModulesApiService from "../../services/modules-api-service";
+import TokenService from "../../services/token-service";
 import "./Learn.css";
 
 class Learn extends Component {
@@ -60,7 +62,15 @@ class Learn extends Component {
       <div className="Learn">
         <ExploreSquare>
           <div className="Learn--info-text">
-            Pass modules with at least 75% to unlock additional content.
+            {TokenService.hasAuthToken() ? (
+              "Pass modules with at least 75% to unlock additional content."
+            ) : (
+              <>
+                <Link to="/login">Login</Link> to unlock additional content.{" "}
+                <Link to="/create-account">Create an account</Link> if you don't
+                have one.
+              </>
+            )}
           </div>
           {modules && modules}
         </ExploreSquare>

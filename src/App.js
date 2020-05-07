@@ -9,6 +9,7 @@ import Module from "./routes/Module/Module";
 import Test from "./routes/Test/Test";
 import Login from "./routes/Login/Login";
 import CreateAccount from "./routes/CreateAccount/CreateAccount";
+import About from "./routes/About/About";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
@@ -35,6 +36,7 @@ class App extends Component {
           <Route path="/test/:testId" component={Test} />
           <Route path="/login" component={Login} />
           <Route path="/create-account" component={CreateAccount} />
+          <Route path="/about" component={About} />
         </Switch>
         <Footer />
       </div>

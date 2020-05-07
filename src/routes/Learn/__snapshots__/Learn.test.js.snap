@@ -19,7 +19,20 @@ exports[`Learn Component render the UI as expected 1`] = `
           <div
             className="Learn--info-text"
           >
-            Pass modules with at least 75% to unlock additional content.
+            <a
+              href="/login"
+              onClick={[Function]}
+            >
+              Login
+            </a>
+             to unlock additional content. 
+            <a
+              href="/create-account"
+              onClick={[Function]}
+            >
+              Create an account
+            </a>
+             if you don't have one.
           </div>
           <a
             className="TopicSquare "

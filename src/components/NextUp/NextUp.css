@@ -7,12 +7,6 @@
   text-decoration: none;
 }
 
-.NextUp a:hover,
-.NextUp a:active,
-.NextUp a:focus {
-  color: #e30425;
-}
-
 .NextUp a:hover .NextUp__header,
 .NextUp a:active .NextUp__header,
 .NextUp a:focus .NextUp__header {
@@ -46,6 +40,13 @@
   font-weight: 600;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
   line-height: 1;
+}
+
+.NextUp__container:hover,
+.NextUp__container:active,
+.NextUp__container:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  color: rgba(250, 250, 250, 0.5);
 }
 
 .NextUp__container--locked {
