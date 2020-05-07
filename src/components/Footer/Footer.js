@@ -13,7 +13,7 @@ class Footer extends Component {
     return (
       <div className="Footer__progress">
         <div>
-          {progress}/{numQuestions}
+          {progress < numQuestions ? progress + 1 : numQuestions}/{numQuestions}
         </div>
         <div>{correctPercent}%</div>
       </div>
