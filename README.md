@@ -6,7 +6,7 @@
 
 - [Screenshots](#screenshots)
 - [Technology](#technology)
-- [Demo](#demo)
+- [Live Site](#demo)
 
 Learn wine through short digestible modules followed by tests. Get a high enough score and unlock the next module! As modules are unlocked the questions are added into the study section filtered by topic to make it easy to cement the knowledge.
 
@@ -14,15 +14,18 @@ Learn wine through short digestible modules followed by tests. Get a high enough
 
 #### Home Page
 
-#### Learn Page
+![Home Page](https://quaff.now.sh/QuaffLanding.png)
 
-#### Study Page
+#### Unlocking Content
 
-#### Learn Module Page
+![First Topic](https://quaff.now.sh/Unlock1.png)
+Taking Vine Needs unlocks Viticulture and adds it’s questions to that topic.
 
-#### Learn Test/Study Quiz Page
+![Second Topic](https://quaff.now.sh/Unlock2.png)
+Taking Climate v. Weather unlocks Climate and adds it’s questions to that topic as well as Viticulture because climate is a subtopic of viticulture.
 
-#### Restults Page
+![Third Topic](https://quaff.now.sh/Unlock3.png)
+Taking Grape Selection unlocks Grapes and adds it’s questions to that topic as well as it’s parent topic, Viticulture.
 
 ## <a name="technology"></a>Technology
 
@@ -30,6 +33,6 @@ Learn wine through short digestible modules followed by tests. Get a high enough
 - JavaScript
 - React
 
-## <a name="demo"></a>Demo
+## <a name="demo"></a>Live Site
 
 [Quaff Quizz](https://quaff.now.sh/)
