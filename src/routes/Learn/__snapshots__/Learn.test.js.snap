@@ -25,7 +25,8 @@ exports[`Learn Component render the UI as expected 1`] = `
             >
               Login
             </a>
-             to unlock additional content. 
+             to unlock additional content.
+             
             <a
               href="/create-account"
               onClick={[Function]}
