@@ -10,13 +10,20 @@ exports[`NextUp Component renders the UI as expected 1`] = `
     <div
       className="NextUp__header"
     >
-      Learn
+      <div
+        className="NextUp__header-loading"
+      />
     </div>
     <div
       className="NextUp__container"
     >
-      Loading
+      <div
+        className="NextUp--loading"
+      />
     </div>
+    <div
+      className="NextUp__placeholder"
+    />
   </div>
   <div
     className="NextUp__study-loading"
@@ -24,13 +31,20 @@ exports[`NextUp Component renders the UI as expected 1`] = `
     <div
       className="NextUp__header"
     >
-      Learn
+      <div
+        className="NextUp__header-loading"
+      />
     </div>
     <div
       className="NextUp__container"
     >
-      Loading
+      <div
+        className="NextUp--loading"
+      />
     </div>
+    <div
+      className="NextUp__placeholder"
+    />
   </div>
   <div
     className="NextUp__study-loading"
@@ -38,13 +52,20 @@ exports[`NextUp Component renders the UI as expected 1`] = `
     <div
       className="NextUp__header"
     >
-      Learn
+      <div
+        className="NextUp__header-loading"
+      />
     </div>
     <div
       className="NextUp__container"
     >
-      Loading
+      <div
+        className="NextUp--loading"
+      />
     </div>
+    <div
+      className="NextUp__placeholder"
+    />
   </div>
   <div
     className="NextUp__study-loading"
@@ -52,13 +73,20 @@ exports[`NextUp Component renders the UI as expected 1`] = `
     <div
       className="NextUp__header"
     >
-      Learn
+      <div
+        className="NextUp__header-loading"
+      />
     </div>
     <div
       className="NextUp__container"
     >
-      Loading
+      <div
+        className="NextUp--loading"
+      />
     </div>
+    <div
+      className="NextUp__placeholder"
+    />
   </div>
 </div>
 `;

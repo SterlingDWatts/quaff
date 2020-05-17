@@ -27,8 +27,6 @@
   padding: 8px 16px;
   border-bottom-right-radius: 8px;
   z-index: 5;
-  border-bottom: 2px solid #f2f4f5;
-  border-right: 2px solid #f2f4f5;
 }
 
 .NextUp__container {
@@ -44,7 +42,17 @@
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
   line-height: 1;
   color: white;
+}
+
+.NextUp__learn-loading .NextUp__container,
+.NextUp__study-loading .NextUp__container {
   border: 2px solid #f2f4f5;
+}
+
+.NextUp__learn-loading .NextUp__header,
+.NextUp__study-loading .NextUp__header {
+  border-bottom: 2px solid #f2f4f5;
+  border-right: 2px solid #f2f4f5;
 }
 
 .NextUp--loading {
