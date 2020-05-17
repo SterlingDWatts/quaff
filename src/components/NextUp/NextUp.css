@@ -46,19 +46,19 @@
 
 .NextUp__learn-loading .NextUp__container,
 .NextUp__study-loading .NextUp__container {
-  border: 2px solid #f2f4f5;
+  border: 2px solid rgb(210, 210, 210);
 }
 
 .NextUp__learn-loading .NextUp__header,
 .NextUp__study-loading .NextUp__header {
-  border-bottom: 2px solid #f2f4f5;
-  border-right: 2px solid #f2f4f5;
+  border-bottom: 2px solid rgb(210, 210, 210);
+  border-right: 2px solid rgb(210, 210, 210);
 }
 
 .NextUp--loading {
   height: 48px;
   width: 175px;
-  background-color: rgb(242, 244, 245);
+  background-color: rgb(210, 210, 210);
   margin: auto;
 }
 
@@ -78,12 +78,14 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: -150px;
+  left: 0;
   background: linear-gradient(
-    to top right,
-    transparent 0%,
+    to bottom right,
+    rgb(0, 0, 0, 0),
+    rgb(0, 0, 0, 0),
     white 50%,
-    transparent 100%
+    rgb(0, 0, 0, 0),
+    rgb(0, 0, 0, 0)
   );
   animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   z-index: 6;
@@ -92,7 +94,7 @@
 .NextUp__header-loading {
   width: 56px;
   height: 16px;
-  background-color: rgb(242, 244, 245);
+  background-color: rgb(210, 210, 210);
 }
 
 .NextUp__container:hover,
