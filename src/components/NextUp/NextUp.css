@@ -1,5 +1,7 @@
 .NextUp {
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .NextUp a {
@@ -25,6 +27,8 @@
   padding: 8px 16px;
   border-bottom-right-radius: 8px;
   z-index: 5;
+  border-bottom: 2px solid #f2f4f5;
+  border-right: 2px solid #f2f4f5;
 }
 
 .NextUp__container {
@@ -32,14 +36,55 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
-    url(https://i.imgur.com/h6jaH4c.jpg);
+  background-color: white;
   background-position: center;
   background-size: cover;
   font-size: 48px;
   font-weight: 600;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
   line-height: 1;
+  color: white;
+  border: 2px solid #f2f4f5;
+}
+
+.NextUp--loading {
+  height: 48px;
+  width: 175px;
+  background-color: rgb(242, 244, 245);
+  margin: auto;
+}
+
+@keyframes load {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.NextUp__placeholder::before {
+  content: " ";
+  display: block;
+  width: 150px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -150px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    white 50%,
+    transparent 100%
+  );
+  animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 6;
+}
+
+.NextUp__header-loading {
+  width: 56px;
+  height: 16px;
+  background-color: rgb(242, 244, 245);
 }
 
 .NextUp__container:hover,

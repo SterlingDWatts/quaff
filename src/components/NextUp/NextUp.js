@@ -48,20 +48,40 @@ class NextUp extends Component {
     return (
       <>
         <div className="NextUp__learn-loading">
-          <div className="NextUp__header">Learn</div>
-          <div className="NextUp__container">Loading</div>
+          <div className="NextUp__header">
+            <div className="NextUp__header-loading"></div>
+          </div>
+          <div className="NextUp__container">
+            <div className="NextUp--loading"></div>
+          </div>
+          <div className="NextUp__placeholder"></div>
         </div>
         <div className="NextUp__study-loading">
-          <div className="NextUp__header">Learn</div>
-          <div className="NextUp__container">Loading</div>
+          <div className="NextUp__header">
+            <div className="NextUp__header-loading"></div>
+          </div>
+          <div className="NextUp__container">
+            <div className="NextUp--loading"></div>
+          </div>
+          <div className="NextUp__placeholder"></div>
         </div>
         <div className="NextUp__study-loading">
-          <div className="NextUp__header">Learn</div>
-          <div className="NextUp__container">Loading</div>
+          <div className="NextUp__header">
+            <div className="NextUp__header-loading"></div>
+          </div>
+          <div className="NextUp__container">
+            <div className="NextUp--loading"></div>
+          </div>
+          <div className="NextUp__placeholder"></div>
         </div>
         <div className="NextUp__study-loading">
-          <div className="NextUp__header">Learn</div>
-          <div className="NextUp__container">Loading</div>
+          <div className="NextUp__header">
+            <div className="NextUp__header-loading"></div>
+          </div>
+          <div className="NextUp__container">
+            <div className="NextUp--loading"></div>
+          </div>
+          <div className="NextUp__placeholder"></div>
         </div>
       </>
     );
@@ -71,7 +91,8 @@ class NextUp extends Component {
     const { error, topicList } = this.context;
     let content;
     if (error) {
-      content = <p className="NextUp--error">There was an error</p>;
+      content = this.renderLoading();
+      // content = <p className="NextUp--error">There was an error</p>;
     } else if (topicList.length < 1) {
       content = this.renderLoading();
     } else {
