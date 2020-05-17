@@ -56,8 +56,32 @@ class Learn extends Component {
     return modules;
   };
 
+  renderLoadingModules = () => {
+    const modules = [];
+    for (let i = 0; i < 6; i++) {
+      modules.push(
+        <div className="Learn--loading" key={i}>
+          <div className="Learn--loading-picture-container">
+            <div className="Learn--loading-picture"></div>
+          </div>
+          <div className="Learn--loading-title-container">
+            <div className="Learn--loading-title"></div>
+          </div>
+          <div className="Learn--loading-gradient"></div>
+        </div>
+      );
+    }
+    return modules;
+  };
+
   render() {
-    const modules = this.renderModules();
+    const { error, quizList } = this.context;
+    let modules;
+    if (!error && quizList.length < 1) {
+      modules = this.renderLoadingModules();
+    } else {
+      modules = this.renderModules();
+    }
     return (
       <div className="Learn">
         <ExploreSquare>
