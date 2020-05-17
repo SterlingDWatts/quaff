@@ -35,144 +35,132 @@ exports[`Learn Component render the UI as expected 1`] = `
             </a>
              if you don't have one.
           </div>
-          <a
-            className="TopicSquare "
-            href="/learn"
-            onClick={[Function]}
+          <div
+            className="Learn--loading"
           >
             <div
-              className="TopicSquare__picture_container"
+              className="Learn--loading-picture-container"
             >
               <div
-                className="TopicSquare__picture TopicSquare__picture--locked"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
-                  }
-                }
+                className="Learn--loading-picture"
               />
-              <div
-                className="TopicSquare__container TopicSquare__container--locked"
-              >
-                Coming soon
-              </div>
             </div>
-          </a>
-          <a
-            className="TopicSquare "
-            href="/learn"
-            onClick={[Function]}
+            <div
+              className="Learn--loading-title-container"
+            >
+              <div
+                className="Learn--loading-title"
+              />
+            </div>
+            <div
+              className="Learn--loading-gradient"
+            />
+          </div>
+          <div
+            className="Learn--loading"
           >
             <div
-              className="TopicSquare__picture_container"
+              className="Learn--loading-picture-container"
             >
               <div
-                className="TopicSquare__picture TopicSquare__picture--locked"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
-                  }
-                }
+                className="Learn--loading-picture"
               />
-              <div
-                className="TopicSquare__container TopicSquare__container--locked"
-              >
-                Coming soon
-              </div>
             </div>
-          </a>
-          <a
-            className="TopicSquare "
-            href="/learn"
-            onClick={[Function]}
+            <div
+              className="Learn--loading-title-container"
+            >
+              <div
+                className="Learn--loading-title"
+              />
+            </div>
+            <div
+              className="Learn--loading-gradient"
+            />
+          </div>
+          <div
+            className="Learn--loading"
           >
             <div
-              className="TopicSquare__picture_container"
+              className="Learn--loading-picture-container"
             >
               <div
-                className="TopicSquare__picture TopicSquare__picture--locked"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
-                  }
-                }
+                className="Learn--loading-picture"
               />
-              <div
-                className="TopicSquare__container TopicSquare__container--locked"
-              >
-                Coming soon
-              </div>
             </div>
-          </a>
-          <a
-            className="TopicSquare "
-            href="/learn"
-            onClick={[Function]}
+            <div
+              className="Learn--loading-title-container"
+            >
+              <div
+                className="Learn--loading-title"
+              />
+            </div>
+            <div
+              className="Learn--loading-gradient"
+            />
+          </div>
+          <div
+            className="Learn--loading"
           >
             <div
-              className="TopicSquare__picture_container"
+              className="Learn--loading-picture-container"
             >
               <div
-                className="TopicSquare__picture TopicSquare__picture--locked"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
-                  }
-                }
+                className="Learn--loading-picture"
               />
-              <div
-                className="TopicSquare__container TopicSquare__container--locked"
-              >
-                Coming soon
-              </div>
             </div>
-          </a>
-          <a
-            className="TopicSquare "
-            href="/learn"
-            onClick={[Function]}
+            <div
+              className="Learn--loading-title-container"
+            >
+              <div
+                className="Learn--loading-title"
+              />
+            </div>
+            <div
+              className="Learn--loading-gradient"
+            />
+          </div>
+          <div
+            className="Learn--loading"
           >
             <div
-              className="TopicSquare__picture_container"
+              className="Learn--loading-picture-container"
             >
               <div
-                className="TopicSquare__picture TopicSquare__picture--locked"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
-                  }
-                }
+                className="Learn--loading-picture"
               />
-              <div
-                className="TopicSquare__container TopicSquare__container--locked"
-              >
-                Coming soon
-              </div>
             </div>
-          </a>
-          <a
-            className="TopicSquare "
-            href="/learn"
-            onClick={[Function]}
+            <div
+              className="Learn--loading-title-container"
+            >
+              <div
+                className="Learn--loading-title"
+              />
+            </div>
+            <div
+              className="Learn--loading-gradient"
+            />
+          </div>
+          <div
+            className="Learn--loading"
           >
             <div
-              className="TopicSquare__picture_container"
+              className="Learn--loading-picture-container"
             >
               <div
-                className="TopicSquare__picture TopicSquare__picture--locked"
-                style={
-                  Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
-                  }
-                }
+                className="Learn--loading-picture"
               />
-              <div
-                className="TopicSquare__container TopicSquare__container--locked"
-              >
-                Coming soon
-              </div>
             </div>
-          </a>
+            <div
+              className="Learn--loading-title-container"
+            >
+              <div
+                className="Learn--loading-title"
+              />
+            </div>
+            <div
+              className="Learn--loading-gradient"
+            />
+          </div>
         </div>
       </div>
     </div>

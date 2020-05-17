@@ -46,19 +46,19 @@
 
 .NextUp__learn-loading .NextUp__container,
 .NextUp__study-loading .NextUp__container {
-  border: 2px solid rgb(210, 210, 210, 0.5);
+  border: 2px solid rgba(190, 190, 190, 0.5);
 }
 
 .NextUp__learn-loading .NextUp__header,
 .NextUp__study-loading .NextUp__header {
-  border-bottom: 2px solid rgb(210, 210, 210, 0.5);
-  border-right: 2px solid rgb(210, 210, 210, 0.5);
+  border-bottom: 2px solid rgba(190, 190, 190, 0.5);
+  border-right: 2px solid rgba(190, 190, 190, 0.5);
 }
 
 .NextUp--loading {
   height: 48px;
   width: 175px;
-  background-color: rgb(210, 210, 210, 0.5);
+  background-color: rgba(190, 190, 190, 0.5);
   margin: auto;
 }
 
@@ -94,7 +94,7 @@
 .NextUp__header-loading {
   width: 56px;
   height: 16px;
-  background-color: rgb(210, 210, 210, 0.5);
+  background-color: rgba(190, 190, 190, 0.5);
 }
 
 .NextUp__container:hover,
