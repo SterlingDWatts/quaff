@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Clouds from "./clouds-widescreen.jpg";
 
 export default function ModB({ classname, ...props }) {
   return (
@@ -7,10 +8,7 @@ export default function ModB({ classname, ...props }) {
       <header>
         <h1>Climate v. Weather</h1>
       </header>
-      <img
-        src="https://i.imgur.com/wVjNuTY.jpg"
-        alt="Colorado mountaintop with clouds"
-      />
+      <img src={Clouds} alt="Colorado mountaintop with clouds" />
       <h2>Climate</h2>
       <p>
         Climate describes the weather conditions that can be expected in a year,

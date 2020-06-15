@@ -1,4 +1,5 @@
 import React from "react";
+import Grapes from "./grapes-wide.jpg";
 
 export default function ModB({ classname, ...props }) {
   return (
@@ -6,7 +7,7 @@ export default function ModB({ classname, ...props }) {
       <header>
         <h1>Grape Selection</h1>
       </header>
-      <img src="https://i.imgur.com/NfErGgT.jpg" alt="Grapes on a vine" />
+      <img src={Grapes} alt="Grapes on a vine" />
       <p>
         Grapes naturally have all the ingredients needed to become wine. The
         pulp contains sugar, water, and acid. Sugar is converted into alcohol

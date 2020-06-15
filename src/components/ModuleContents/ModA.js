@@ -1,4 +1,5 @@
 import React from "react";
+import Quintessa from "./mod-one-header.jpg";
 
 export default function ModA({ classname, ...props }) {
   return (
@@ -6,7 +7,7 @@ export default function ModA({ classname, ...props }) {
       <header>
         <h1>Vine Needs</h1>
       </header>
-      <img src="https://i.imgur.com/ewcgfod.jpg" alt="Quintessa vineyards" />
+      <img src={Quintessa} alt="Quintessa vineyards" />
       <p>
         Wine starts in the vineyard. Great wine cannot be made without great
         grapes. There are several factors that affect the quality of the grapes.
