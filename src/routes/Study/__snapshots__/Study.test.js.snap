@@ -41,7 +41,7 @@ exports[`Study Component renders the UI as expected 1`] = `
                 className="TopicSquare__picture TopicSquare__picture--locked"
                 style={
                   Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                    "backgroundImage": "url(wine-glass.jpg)",
                   }
                 }
               />
@@ -64,7 +64,7 @@ exports[`Study Component renders the UI as expected 1`] = `
                 className="TopicSquare__picture TopicSquare__picture--locked"
                 style={
                   Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                    "backgroundImage": "url(wine-glass.jpg)",
                   }
                 }
               />
@@ -87,7 +87,7 @@ exports[`Study Component renders the UI as expected 1`] = `
                 className="TopicSquare__picture TopicSquare__picture--locked"
                 style={
                   Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                    "backgroundImage": "url(wine-glass.jpg)",
                   }
                 }
               />
@@ -110,7 +110,7 @@ exports[`Study Component renders the UI as expected 1`] = `
                 className="TopicSquare__picture TopicSquare__picture--locked"
                 style={
                   Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                    "backgroundImage": "url(wine-glass.jpg)",
                   }
                 }
               />
@@ -133,7 +133,7 @@ exports[`Study Component renders the UI as expected 1`] = `
                 className="TopicSquare__picture TopicSquare__picture--locked"
                 style={
                   Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                    "backgroundImage": "url(wine-glass.jpg)",
                   }
                 }
               />
@@ -156,7 +156,7 @@ exports[`Study Component renders the UI as expected 1`] = `
                 className="TopicSquare__picture TopicSquare__picture--locked"
                 style={
                   Object {
-                    "backgroundImage": "url(https://i.imgur.com/h6jaH4c.jpg)",
+                    "backgroundImage": "url(wine-glass.jpg)",
                   }
                 }
               />

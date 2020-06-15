@@ -18,13 +18,13 @@ Learn wine through short digestible modules followed by tests. Get a high enough
 
 #### Unlocking Content
 
-![First Topic](https://quaff.now.sh/Unlock1.png)
+![First Topic](https://quaff.now.sh/static/media/Unlock1.321e346e.png)
 Taking Vine Needs unlocks Viticulture and adds it’s questions to that topic.
 
-![Second Topic](https://quaff.now.sh/Unlock2.png)
+![Second Topic](https://quaff.now.sh/static/media/Unlock2.102d007b.png)
 Taking Climate v. Weather unlocks Climate and adds it’s questions to that topic as well as Viticulture because climate is a subtopic of viticulture.
 
-![Third Topic](https://quaff.now.sh/Unlock3.png)
+![Third Topic](https://quaff.now.sh/static/media/Unlock3.5f28a584.png)
 Taking Grape Selection unlocks Grapes and adds it’s questions to that topic as well as it’s parent topic, Viticulture.
 
 ## <a name="technology"></a>Technology

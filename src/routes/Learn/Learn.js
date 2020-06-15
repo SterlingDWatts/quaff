@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { ExploreSquare, TopicSquare } from "../../components/Utils/Utils";
+import Wineglass from "./wine-glass.jpg";
 import QuizListContext from "../../contexts/QuizListContext";
 import ModulesApiService from "../../services/modules-api-service";
 import TokenService from "../../services/token-service";
@@ -46,7 +47,7 @@ class Learn extends Component {
           <TopicSquare
             key={modules.length * 10}
             to={"/learn"}
-            picture={"https://i.imgur.com/h6jaH4c.jpg"}
+            picture={Wineglass}
             label={"Coming soon"}
             unlocked={false}
           />
