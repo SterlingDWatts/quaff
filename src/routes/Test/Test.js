@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { QuaffSquare, UnderSquare } from "../../components/Utils/Utils";
+import { QuaffSquare } from "../../components/Utils/Utils";
 import QuizForm from "../../components/QuizForm/QuizForm";
 import Results from "../../components/Results/Results";
 import NextUp from "../../components/NextUp/NextUp";
@@ -22,12 +22,6 @@ class Test extends Component {
         this.context.setQuiz(quiz.questions);
       })
       .catch(this.context.setError);
-    /*
-    const quiz = questionList.filter(
-      (question) => question.moduleId === moduleId
-    );
-    this.context.setQuiz(quiz);
-    */
   }
 
   componentWillUnmount() {
@@ -51,26 +45,35 @@ class Test extends Component {
     if (error) {
       squareContent = <div className="Test--error">There was an error</div>;
     } else if (numQuestions < 1) {
-      squareContent = <div className="Test--loading"></div>;
+      squareContent = (
+        <div className="Test--loading">
+          <div className="Test--loading-top">
+            <div className="Test--loading-guage"></div>
+            <div className="Test--loading-question"></div>
+          </div>
+          <div className="Test--loading-bottom">
+            <div className="Test--loading-answer"></div>
+            <div className="Test--loading-answer"></div>
+            <div className="Test--loading-answer"></div>
+            <div className="Test--loading-answer"></div>
+            <div className="Test--loading-button"></div>
+          </div>
+          <div className="Test--loading-placeholder"></div>
+        </div>
+      );
     } else if (progress < numQuestions) {
       squareContent = <QuizForm />;
     } else {
-      squareContent = <Results />;
-    }
-    let underSquare;
-    if (error) {
-      underSquare = <div></div>;
-    } else if (progress < numQuestions && numQuestions > 1) {
-      underSquare = (
-        <UnderSquare>{showAnswer && this.renderAnswer()}</UnderSquare>
+      squareContent = (
+        <QuaffSquare>
+          <Results />
+        </QuaffSquare>
       );
-    } else {
-      underSquare = <NextUp />;
     }
     return (
       <div className="Test">
-        <QuaffSquare>{squareContent}</QuaffSquare>
-        {underSquare}
+        {squareContent}
+        {!!showAnswer && progress === numQuestions && <NextUp />}
       </div>
     );
   }

@@ -1,6 +1,5 @@
 .QuizForm {
   height: 100%;
-  padding: 16px 16px 30px;
 }
 
 .QuizForm fieldset {
@@ -12,31 +11,76 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
+  justify-content: space-between;
   line-height: 1;
 }
 
-.QuizForm legend {
+.QuizForm--bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.QuizForm__question {
   font-size: 24px;
-  margin-bottom: 24px;
+  margin: 0px 16px 20px;
+  display: flex;
+  text-align: left;
+}
+
+.QuizForm__label_group {
+  position: relative;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  margin: 0 16px;
 }
 
 .QuizForm__label_group + .QuizForm__label_group {
-  margin-top: 16px;
+  margin-top: 20px;
+}
+
+.QuizForm label {
+  padding: 16px;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+  color: black;
+}
+
+.QuizForm input[type="radio"]:focus + label {
+  border: 2px solid #720d5d;
+  padding: 15px;
+}
+
+.QuizForm label.QuizForm__label--selected {
+  border: 2px solid rgb(253, 151, 38);
+  padding: 15px;
+}
+
+.QuizForm label.QuizForm__label--correct {
+  border: 2px solid rgb(103, 201, 90);
+  padding: 15px;
 }
 
 .QuizForm input {
-  margin: 0 3px 0 0;
+  margin: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
 }
 
 .QuizForm__icon {
-  padding-right: 8px;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  left: 0;
+  display: none;
+}
+
+.QuizForm__button {
+  margin: 20px auto;
+  align-self: flex-end;
 }
 
 .QuizForm .fa-check {
@@ -47,34 +91,359 @@
   color: rgb(253, 151, 38);
 }
 
-.QuizForm button {
-  width: 60px;
-  height: 60px;
-  border: none;
-  border-radius: 30px;
-  background-color: rgba(0, 0, 0, 0);
-  font-size: 37.5px;
-  background-color: #e30425;
-  position: absolute;
-  bottom: -64.4px;
-  right: 0px;
-  padding: 0;
-  box-shadow: 0 1px 10px 3px rgba(0, 0, 0, 0.15),
-    0 1px 4px 1px rgba(0, 0, 0, 0.15);
-}
-
-.QuizForm button:active,
-.QuizForm button:focus,
-.QuizForm button:hover {
-  outline: none;
-}
-
 .QuizForm .fa-fw {
   width: 1em;
 }
 
+.QuizForm--guage {
+  height: 24px;
+  width: calc(100% - 32px);
+  margin: 20px 16px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  position: relative;
+  overflow: hidden;
+}
+
+.QuizForm--guage-border {
+  border-radius: 16px;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@keyframes goal {
+  0% {
+    width: 0px;
+    border: none;
+  }
+  90% {
+    width: 75%;
+  }
+  100% {
+    border-right: 1px solid #720d5d;
+  }
+}
+
+.QuizForm--goal {
+  height: 100%;
+  position: relative;
+  width: 75%;
+  animation: goal 1s linear 1;
+  border-right: 1px solid #720d5d;
+}
+
+.QuizForm--goal-star.fa-star {
+  position: absolute;
+  top: 4px;
+  right: -9px;
+  font-size: 16px;
+  color: #720d5d;
+  transition-property: color;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+  transition-delay: 0.5s;
+  z-index: 3;
+}
+
+@keyframes success {
+  0% {
+    color: #720d5d;
+    font-size: 16px;
+    top: 4px;
+    right: -9px;
+    transform: rotate(0deg);
+  }
+  100% {
+    color: yellow;
+    font-size: 24px;
+    top: 0;
+    right: -13px;
+    transform: rotate(360deg);
+  }
+}
+
+.QuizForm--goal-star.fa-star.QuizForm--goal-star-achieved {
+  animation: success 0.5s linear 0.75s 1;
+  color: yellow;
+}
+
+.QuizForm--progress {
+  width: 0%;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgb(200, 200, 200);
+  border-bottom-right-radius: 16px;
+  border-top-right-radius: 16px;
+  z-index: 1;
+}
+
+.QuizForm--correct {
+  width: 0%;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-delay: 0.25s;
+  transition-timing-function: linear;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #5d1049 0%, #720d5d 100%);
+  border-bottom-right-radius: 16px;
+  border-top-right-radius: 16px;
+  z-index: 2;
+}
+
+@media screen and (max-width: 370px) {
+  .QuizForm__question {
+    font-size: 20px;
+  }
+
+  .QuizForm label.QuizForm__label {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .QuizForm input[type="radio"]:focus + label {
+    border: 2px solid #720d5d;
+    padding: 7px;
+  }
+
+  .QuizForm label.QuizForm__label--selected {
+    border: 2px solid rgb(253, 151, 38);
+    padding: 7px;
+  }
+
+  .QuizForm label.QuizForm__label--correct {
+    border: 2px solid rgb(103, 201, 90);
+    padding: 7px;
+  }
+
+  .QuizForm--guage {
+    margin: 16px;
+  }
+
+  .QuizForm__question {
+    margin: 0 16px 16px;
+  }
+
+  .QuizForm__label_group + .QuizForm__label_group {
+    margin-top: 16px;
+  }
+
+  .QuizForm__button {
+    margin: 16px auto;
+  }
+}
+
 @media screen and (min-width: 500px) {
+  .QuizForm--guage {
+    margin: 56px 24px;
+    height: 48px;
+    border-radius: 24px;
+    width: calc(100% - 48px);
+  }
+
+  .QuizForm__question {
+    margin: 0 24px 24px;
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .QuizForm__label_group {
+    margin: 0;
+    height: 106px;
+  }
+
+  .QuizForm__label_group + .QuizForm__label_group {
+    margin-top: 0;
+  }
+
+  .QuizForm label {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+  }
+
+  .Button.form__button.QuizForm__button {
+    margin: 0 auto;
+    font-size: 24px;
+    height: 72px;
+    border-radius: 16px;
+  }
+
+  .QuizForm--bottom {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr auto;
+    row-gap: 24px;
+    padding: 0 24px 56px;
+  }
+
+  .QuizForm--goal-star.fa-star {
+    top: 6px;
+    right: -20.5px;
+    font-size: 36px;
+    color: #720d5d;
+    transition-property: color;
+    transition-duration: 0.1s;
+    transition-timing-function: linear;
+    transition-delay: 0.5s;
+    z-index: 3;
+  }
+
+  .QuizForm--progress {
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+  }
+
+  .QuizForm--correct {
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+  }
+
+  @keyframes success {
+    0% {
+      font-size: 24px;
+      top: 6px;
+      right: -20.5px;
+    }
+    100% {
+      font-size: 48px;
+      top: 0;
+      right: -32.5px;
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@media screen and (min-width: 1050px) {
   .QuizForm {
-    padding: 24px 24px 30px;
+    width: 500px;
+    height: 500px;
+    background-color: #5d1049;
+    color: white;
+    margin: calc((100vh - 612.2px) / 2) auto;
+  }
+
+  .QuizForm--guage {
+    height: 24px;
+    width: calc(100% - 32px);
+    margin: 16px;
+    border-radius: 16px;
+  }
+
+  .QuizForm--guage-border {
+    border: none;
+  }
+
+  .QuizForm--goal-star.fa-star {
+    top: 4px;
+    right: -9px;
+    font-size: 16px;
+  }
+
+  @keyframes success {
+    0% {
+      font-size: 16px;
+      top: 4px;
+      right: -9px;
+    }
+    100% {
+      font-size: 24px;
+      top: 0;
+      right: -13px;
+      transform: rotate(360deg);
+    }
+  }
+
+  .QuizForm__question {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 16px 16px;
+  }
+
+  .QuizForm--bottom {
+    grid-template-rows: auto auto auto auto auto;
+    padding: 0 16px 16px;
+    row-gap: 20px;
+  }
+
+  .QuizForm__label_group {
+    height: fit-content;
+  }
+
+  .QuizForm label {
+    padding: 0;
+    border: none;
+    background-color: #5d1049;
+    color: white;
+    box-shadow: none;
+    display: inline;
+    text-align: left;
+    font-size: 20px;
+  }
+
+  .QuizForm input {
+    margin: 0 8px 0 0;
+    opacity: 100;
+    height: 20px;
+    width: 8px;
+    outline: none;
+  }
+
+  .QuizForm input[type="radio"]:checked {
+    background-color: black;
+  }
+
+  .QuizForm input[type="radio"]:focus + label {
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+  }
+
+  .QuizForm label.QuizForm__label--selected {
+    border: none;
+    padding: 0;
+    text-decoration: line-through;
+    text-decoration-color: rgb(253, 151, 38);
+  }
+
+  .QuizForm label.QuizForm__label--correct {
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    text-decoration-color: rgb(103, 201, 90);
+  }
+
+  .QuizForm__icon {
+    padding-right: 8px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+  }
+
+  .Button.form__button.QuizForm__button {
+    font-size: 20px;
+    height: 52.4px;
+    background: linear-gradient(
+      90deg,
+      rgb(255, 255, 255) 0%,
+      rgb(255, 255, 255) 100%
+    );
+    color: #5d1049;
   }
 }

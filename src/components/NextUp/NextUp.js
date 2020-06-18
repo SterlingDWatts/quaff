@@ -114,7 +114,7 @@ function ScrollToTop() {
 function NextUpItem({ id, label, picture, type, unlocked, address }) {
   const link = unlocked ? `/${address.toLowerCase()}/${id}` : "learn";
   return (
-    <Link to={link} onClick={(e) => ScrollToTop()}>
+    <Link className="NextUp__link" to={link} onClick={(e) => ScrollToTop()}>
       <div className="NextUp__header">{type}</div>
       <div
         className={classnames("NextUp__container", {

@@ -1,5 +1,6 @@
 .Footer {
-  background-color: #4e0d3a;
+  background-color: rgb(78, 13, 58);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .Footer__container {
@@ -9,13 +10,4 @@
   font-size: 24px;
   min-height: 56px;
   margin: auto;
-}
-
-.Footer__progress {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  line-height: 1;
-  color: white;
 }

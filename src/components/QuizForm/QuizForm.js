@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheck,
-  faTimes,
-  faArrowRight,
-} from "@fortawesome/free-solid-svg-icons";
-import { faHandPointUp } from "@fortawesome/free-regular-svg-icons";
+import { faCheck, faTimes, faStar } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "../Utils/Utils";
+import classnames from "classnames";
 import QuizContext from "../../contexts/QuizContext";
 import "./QuizForm.css";
 
@@ -39,7 +36,15 @@ class QuizForm extends Component {
             required
             disabled={this.context.showAnswer}
           />
-          <label htmlFor={`ans_${answer.id}`}>
+          <label
+            htmlFor={`ans_${answer.id}`}
+            className={classnames("QuizForm__label", {
+              "QuizForm__label--selected":
+                answer.id === this.context.selectedId,
+              "QuizForm__label--correct":
+                answer.correct && this.context.showAnswer,
+            })}
+          >
             {icon}
             {answer.content}
           </label>
@@ -59,12 +64,22 @@ class QuizForm extends Component {
   };
 
   renderButton = (showAnswer) => {
-    const icon = showAnswer ? faArrowRight : faHandPointUp;
-    return <FontAwesomeIcon icon={icon} color="white" />;
+    const buttonText = showAnswer ? "Next" : "Check Answer";
+    return buttonText;
   };
 
   render() {
-    const { quiz, progress, showAnswer, error } = this.context;
+    const {
+      quiz,
+      numQuestions,
+      progress,
+      showAnswer,
+      error,
+      numCorrect,
+    } = this.context;
+    const correctedProgress = showAnswer ? progress + 1 : progress;
+    const correctPercent =
+      numCorrect > 0 ? Math.floor((numCorrect / numQuestions) * 100) : 0;
     let content;
     if (error) {
       content = <div className="QuizForm--error">Error</div>;
@@ -76,11 +91,41 @@ class QuizForm extends Component {
       content = (
         <fieldset>
           <div>
-            <legend className="QuizForm__question">{question.content}</legend>
-            {answers}
-            <button className="QuizForm__button" type="submit">
-              {this.renderButton(showAnswer)}
-            </button>
+            <div className="QuizForm--top">
+              <div className="QuizForm--guage">
+                <div className="QuizForm--guage-border"></div>
+                <div className="QuizForm--goal">
+                  <FontAwesomeIcon
+                    className={classnames("QuizForm--goal-star", {
+                      "QuizForm--goal-star-achieved": correctPercent >= 75,
+                    })}
+                    icon={faStar}
+                  />
+                </div>
+                <div
+                  className="QuizForm--progress"
+                  style={{
+                    width: `${Math.floor(
+                      (correctedProgress / numQuestions) * 100
+                    )}%`,
+                  }}
+                ></div>
+                <div
+                  className="QuizForm--correct"
+                  style={{ width: `${correctPercent}%` }}
+                ></div>
+              </div>
+              <legend className="QuizForm__question">
+                {progress < numQuestions ? progress + 1 : numQuestions}.{" "}
+                {question.content}
+              </legend>
+            </div>
+            <div className="QuizForm--bottom">
+              {answers}
+              <Button className="QuizForm__button form__button" type="submit">
+                {this.renderButton(showAnswer)}
+              </Button>
+            </div>
           </div>
         </fieldset>
       );

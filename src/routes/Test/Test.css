@@ -2,13 +2,6 @@
   height: 100%;
   overflow-y: scroll;
   position: relative;
-  background-image: linear-gradient(
-      rgba(227, 207, 223, 0.75),
-      rgba(227, 207, 223, 0.75)
-    ),
-    url("https://sterlingdwatts.github.io/quaff_quizz/images/background2.jpg");
-  background-position: center;
-  background-size: cover;
 }
 
 .Test__answer h3 {
@@ -20,8 +13,70 @@
   border-bottom: 2px solid rgba(128, 128, 128, 0.5);
 }
 
-@media screen and (min-width: 500px) {
-  .Test {
-    background-image: none;
+.Test--loading {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.Test--loading-guage {
+  height: 24px;
+  width: calc(100% - 32px);
+  margin: 20px 16px;
+  border-radius: 16px;
+  background-color: rgba(190, 190, 190, 0.5);
+}
+
+.Test--loading-question {
+  height: 24px;
+  margin: 0px 16px 20px;
+  background-color: rgba(190, 190, 190, 0.5);
+}
+
+.Test--loading-answer {
+  background-color: rgba(190, 190, 190, 0.5);
+  margin: 0 16px;
+  height: 52px;
+}
+
+.Test--loading-answer + .Test--loading-answer {
+  margin-top: 20px;
+}
+
+.Test--loading-button {
+  width: 288px;
+  height: 52.4px;
+  margin: 20px auto;
+  background-color: rgba(190, 190, 190, 0.5);
+}
+
+@keyframes load {
+  from {
+    left: -250px;
   }
+  to {
+    left: 100%;
+  }
+}
+
+.Test--loading-placeholder::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -250px;
+  width: 250px;
+  background: linear-gradient(
+    to bottom right,
+    rgb(0, 0, 0, 0),
+    rgb(0, 0, 0, 0),
+    rgb(255, 255, 255, 0.5) 50%,
+    rgb(0, 0, 0, 0),
+    rgb(0, 0, 0, 0)
+  );
+  animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }

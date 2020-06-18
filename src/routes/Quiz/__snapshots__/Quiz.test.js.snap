@@ -5,103 +5,40 @@ exports[`Quiz Component renders the UI as expected 1`] = `
   className="Quiz"
 >
   <div
-    className="QuaffSquare "
+    className="Test--loading"
   >
     <div
-      className="QuaffSquare__container"
+      className="Test--loading-top"
     >
       <div
-        className="Quiz--loading"
+        className="Test--loading-guage"
       />
-    </div>
-  </div>
-  <div
-    className="NextUp"
-  >
-    <div
-      className="NextUp__learn-loading"
-    >
       <div
-        className="NextUp__header"
-      >
-        <div
-          className="NextUp__header-loading"
-        />
-      </div>
-      <div
-        className="NextUp__container"
-      >
-        <div
-          className="NextUp--loading"
-        />
-      </div>
-      <div
-        className="NextUp__placeholder"
+        className="Test--loading-question"
       />
     </div>
     <div
-      className="NextUp__study-loading"
+      className="Test--loading-bottom"
     >
       <div
-        className="NextUp__header"
-      >
-        <div
-          className="NextUp__header-loading"
-        />
-      </div>
+        className="Test--loading-answer"
+      />
       <div
-        className="NextUp__container"
-      >
-        <div
-          className="NextUp--loading"
-        />
-      </div>
+        className="Test--loading-answer"
+      />
       <div
-        className="NextUp__placeholder"
+        className="Test--loading-answer"
+      />
+      <div
+        className="Test--loading-answer"
+      />
+      <div
+        className="Test--loading-button"
       />
     </div>
     <div
-      className="NextUp__study-loading"
-    >
-      <div
-        className="NextUp__header"
-      >
-        <div
-          className="NextUp__header-loading"
-        />
-      </div>
-      <div
-        className="NextUp__container"
-      >
-        <div
-          className="NextUp--loading"
-        />
-      </div>
-      <div
-        className="NextUp__placeholder"
-      />
-    </div>
-    <div
-      className="NextUp__study-loading"
-    >
-      <div
-        className="NextUp__header"
-      >
-        <div
-          className="NextUp__header-loading"
-        />
-      </div>
-      <div
-        className="NextUp__container"
-      >
-        <div
-          className="NextUp--loading"
-        />
-      </div>
-      <div
-        className="NextUp__placeholder"
-      />
-    </div>
+      className="Test--loading-placeholder"
+    />
   </div>
 </div>
 `;
