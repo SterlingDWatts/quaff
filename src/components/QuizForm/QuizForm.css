@@ -53,16 +53,22 @@
 }
 
 .QuizForm input[type="radio"]:focus + label {
+  background-color: rgba(114, 13, 94, 0.25);
+}
+
+.QuizForm input[type="radio"]:checked + label {
   border: 2px solid #720d5d;
   padding: 15px;
 }
 
-.QuizForm label.QuizForm__label--selected {
+.QuizForm label.QuizForm__label--selected,
+.QuizForm input[type="radio"]:checked + label.QuizForm__label--selected {
   border: 2px solid rgb(253, 151, 38);
   padding: 15px;
 }
 
-.QuizForm label.QuizForm__label--correct {
+.QuizForm label.QuizForm__label--correct,
+.QuizForm input[type="radio"]:checked + label.QuizForm__label--correct {
   border: 2px solid rgb(103, 201, 90);
   padding: 15px;
 }
@@ -411,6 +417,13 @@
     border: none;
     padding: 0;
     text-decoration: underline;
+  }
+
+  .QuizForm input[type="radio"]:checked + label,
+  .QuizForm input[type="radio"]:checked + label.QuizForm__label--selected,
+  .QuizForm input[type="radio"]:checked + label.QuizForm__label--correct {
+    border: none;
+    padding: 0;
   }
 
   .QuizForm label.QuizForm__label--selected {
