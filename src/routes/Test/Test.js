@@ -65,17 +65,15 @@ class Test extends Component {
       squareContent = <QuizForm />;
     } else {
       squareContent = (
-        <QuaffSquare>
-          <Results />
-        </QuaffSquare>
+        <>
+          <QuaffSquare>
+            <Results />
+          </QuaffSquare>
+          <NextUp />
+        </>
       );
     }
-    return (
-      <div className="Test">
-        {squareContent}
-        {!!showAnswer && progress === numQuestions && <NextUp />}
-      </div>
-    );
+    return <div className="Test">{squareContent}</div>;
   }
 }
 

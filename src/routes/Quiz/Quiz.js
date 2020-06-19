@@ -70,17 +70,15 @@ class Quiz extends Component {
       squareContent = <QuizForm />;
     } else {
       squareContent = (
-        <QuaffSquare>
-          <Results />
-        </QuaffSquare>
+        <>
+          <QuaffSquare>
+            <Results />
+          </QuaffSquare>
+          <NextUp />
+        </>
       );
     }
-    return (
-      <div className="Quiz">
-        {squareContent}
-        {!!showAnswer && progress === numQuestions && <NextUp />}
-      </div>
-    );
+    return <div className="Quiz">{squareContent}</div>;
   }
 }
 

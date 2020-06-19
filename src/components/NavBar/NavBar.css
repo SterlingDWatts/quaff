@@ -8,7 +8,6 @@
   overflow: visible;
   z-index: 10;
   height: 56.2px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .NavBar__container {
@@ -75,6 +74,12 @@ a.NavBar--marquee {
   color: white;
   text-align: center;
   outline: none;
+}
+
+@media screen and (max-width: 370px) {
+  .NavBar__container a {
+    margin-left: 14px;
+  }
 }
 
 @media screen and (min-width: 1050px) {

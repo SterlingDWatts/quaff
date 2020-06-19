@@ -10,6 +10,7 @@ import {
   faUser,
   faUserTimes,
   faWineBottle,
+  faSearch,
 } from "@fortawesome/pro-regular-svg-icons";
 import "./SubNav.css";
 
@@ -86,6 +87,10 @@ class SubNav extends Component {
               <FontAwesomeIcon icon={faChalkboardTeacher} />
             </Link>
             <Link to="/study">Study</Link>
+            <Link to="/search" className="SubNav__icon_link">
+              <FontAwesomeIcon icon={faSearch} />
+            </Link>
+            <Link to="/search">Search</Link>
           </div>
           <div className="SubNav__other_container">
             <Link to="/about" className="SubNav__icon_link">
