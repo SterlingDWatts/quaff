@@ -14,6 +14,7 @@ exports[`Module Component renders the UI as expected 1`] = `
       >
         <button
           className="Button form__button"
+          onClick={[Function]}
         >
           Test
         </button>

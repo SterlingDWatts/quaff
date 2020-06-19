@@ -14,6 +14,11 @@ class Module extends Component {
       },
     },
   };
+
+  handleScrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   renderModule = () => {
     return (
       <div>
@@ -22,7 +27,12 @@ class Module extends Component {
         <Route path="/learn/3" component={ModC} />
         <div className="Module__buttons">
           <Link to={`/test/${this.props.match.params.moduleId}`}>
-            <Button className="form__button">Test</Button>
+            <Button
+              className="form__button"
+              onClick={(e) => this.handleScrollToTop()}
+            >
+              Test
+            </Button>
           </Link>
         </div>
       </div>
