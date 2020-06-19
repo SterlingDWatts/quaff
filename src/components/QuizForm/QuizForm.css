@@ -149,7 +149,9 @@
   top: 4px;
   right: -9px;
   font-size: 16px;
-  color: #720d5d;
+  --fa-secondary-color: #720d5d;
+  --fa-secondary-opacity: 100;
+  --fa-primary-color: white;
   transition-property: color;
   transition-duration: 0.1s;
   transition-timing-function: linear;
@@ -159,14 +161,16 @@
 
 @keyframes success {
   0% {
-    color: #720d5d;
+    --fa-secondary-color: #720d5d;
+    --fa-primary-color: white;
     font-size: 16px;
     top: 4px;
     right: -9px;
     transform: rotate(0deg);
   }
   100% {
-    color: yellow;
+    --fa-secondary-color: yellow;
+    --fa-primary-color: yellow;
     font-size: 24px;
     top: 0;
     right: -13px;
@@ -176,7 +180,8 @@
 
 .QuizForm--goal-star.fa-star.QuizForm--goal-star-achieved {
   animation: success 0.5s linear 0.75s 1;
-  color: yellow;
+  --fa-secondary-color: #720d5d;
+  --fa-primary-color: yellow;
 }
 
 .QuizForm--progress {
@@ -301,12 +306,15 @@
     top: 6px;
     right: -20.5px;
     font-size: 36px;
-    color: #720d5d;
     transition-property: color;
     transition-duration: 0.1s;
     transition-timing-function: linear;
     transition-delay: 0.5s;
     z-index: 3;
+  }
+
+  .QuizForm--goal-star.fa-star .fa-secondary {
+    color: #720d5d;
   }
 
   .QuizForm--progress {

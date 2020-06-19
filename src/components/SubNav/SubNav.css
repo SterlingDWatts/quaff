@@ -1,0 +1,83 @@
+.SubNav__shadow {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0);
+  transition-property: background-color;
+  transition-duration: 0.25s;
+  transition-timing-function: linear;
+}
+
+.SubNav__shadow--display {
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.SubNav {
+  position: fixed;
+  top: 0;
+  left: -80%;
+  bottom: 0;
+  width: 80%;
+  line-height: 1;
+  background-color: #5d1049;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition-property: left;
+  transition-duration: 0.25s;
+  transition-timing-function: linear;
+}
+
+.SubNav--display {
+  left: 0;
+}
+
+.SubNav__Marquee__container {
+  padding: 24px;
+  width: 100%;
+  background-color: #4e0d3a;
+  font-family: "Merriweather", serif;
+}
+
+.SubNav__Marquee {
+  font-size: 24px;
+}
+
+.SubNav__main_container,
+.SubNav__other_container,
+.SubNav__account_container {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 20px auto;
+  grid-template-rows: auto;
+  column-gap: 24px;
+  row-gap: 24px;
+  border-bottom: 1px solid #4e0d3a;
+}
+
+.SubNav__icon_link {
+  justify-self: center;
+}
+
+@media screen and (min-width: 500px) {
+  .SubNav {
+    width: 50%;
+    left: -50%;
+  }
+
+  .SubNav--display {
+    left: 0;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .SubNav {
+    width: 25%;
+    left: -25%;
+  }
+
+  .SubNav--display {
+    left: 0;
+  }
+}

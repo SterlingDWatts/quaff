@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes } from "@fortawesome/pro-regular-svg-icons";
+import { faStar } from "@fortawesome/pro-duotone-svg-icons";
 import { Button } from "../Utils/Utils";
 import classnames from "classnames";
 import QuizContext from "../../contexts/QuizContext";

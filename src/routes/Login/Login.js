@@ -12,7 +12,7 @@ class Login extends Component {
 
   handleLoginSuccess = () => {
     const { location, history } = this.props;
-    const destination = (location.sate || {}).from || "/";
+    const destination = (location.state || {}).from || "/";
     history.push(destination);
   };
 

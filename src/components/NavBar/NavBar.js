@@ -1,11 +1,24 @@
 import React, { Component } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/pro-regular-svg-icons";
+import SubNav from "../SubNav/SubNav";
 import LoginContext from "../../contexts/LoginContext";
 import TokenService from "../../services/token-service";
 import "./NavBar.css";
 
 class NavBar extends Component {
+  state = {
+    showSubNav: false,
+  };
+
   static contextType = LoginContext;
+
+  handleToggleSubNav = () => {
+    this.setState({
+      showSubNav: !this.state.showSubNav,
+    });
+  };
 
   handleLogout = () => {
     TokenService.clearAuthToken();
@@ -41,6 +54,12 @@ class NavBar extends Component {
       <nav className="NavBar">
         <div className="NavBar__container">
           <div className="NavBar__logo_div">
+            <button type="button" className="NavBar__hamburger">
+              <FontAwesomeIcon
+                icon={faBars}
+                onClick={this.handleToggleSubNav}
+              />
+            </button>
             <Link className="NavBar--no-pill NavBar--marquee" to="/">
               Q
             </Link>
@@ -49,6 +68,11 @@ class NavBar extends Component {
           </div>
           {accountLink}
         </div>
+        <SubNav
+          toggleShowSubNav={this.handleToggleSubNav}
+          showSubNav={this.state.showSubNav}
+          onLogout={this.handleLogout}
+        />
       </nav>
     );
   }

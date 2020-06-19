@@ -1,78 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavBar Comoponent renders the UI as expected 1`] = `
-<nav
-  className="NavBar"
->
-  <div
-    className="NavBar__container"
-  >
-    <div
-      className="NavBar__logo_div"
-    >
-      <button
-        className="NavBar__hamburger"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-bars fa-w-14 "
-          data-icon="bars"
-          data-prefix="far"
-          focusable="false"
-          onClick={[Function]}
-          role="img"
-          style={Object {}}
-          viewBox="0 0 448 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </button>
-      <a
-        className="NavBar--no-pill NavBar--marquee"
-        href="/"
-        onClick={[Function]}
-      >
-        Q
-      </a>
-      <a
-        href="/learn"
-        onClick={[Function]}
-      >
-        <div
-          className="NavBarPill"
-        >
-          Learn
-        </div>
-      </a>
-      <a
-        href="/study"
-        onClick={[Function]}
-      >
-        <div
-          className="NavBarPill"
-        >
-          Study
-        </div>
-      </a>
-    </div>
-    <a
-      className="NavBar--no-pill NavBar--account-link"
-      href="/login"
-      onClick={[Function]}
-    >
-      Login
-    </a>
-  </div>
+exports[`SubNav Component renders the UI as expected 1`] = `
+Array [
   <div
     className="SubNav__shadow"
     onClick={[Function]}
-  />
+  />,
   <nav
     className="SubNav"
     onClick={[Function]}
@@ -245,6 +178,6 @@ exports[`NavBar Comoponent renders the UI as expected 1`] = `
         Create Account
       </a>
     </div>
-  </nav>
-</nav>
+  </nav>,
+]
 `;
