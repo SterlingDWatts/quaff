@@ -40,7 +40,7 @@ class Test extends Component {
   };
 
   render() {
-    const { error, progress, numQuestions, showAnswer } = this.context;
+    const { error, progress, numQuestions } = this.context;
     let squareContent;
     if (error) {
       squareContent = <div className="Test--error">There was an error</div>;

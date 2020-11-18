@@ -10,7 +10,6 @@ import {
   faUser,
   faUserTimes,
   faWineBottle,
-  faSearch,
 } from "@fortawesome/pro-regular-svg-icons";
 import "./SubNav.css";
 

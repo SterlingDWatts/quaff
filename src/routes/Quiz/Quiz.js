@@ -45,7 +45,7 @@ class Quiz extends Component {
   };
 
   render() {
-    const { error, progress, numQuestions, showAnswer } = this.context;
+    const { error, progress, numQuestions } = this.context;
     let squareContent;
     if (error) {
       squareContent = <div className="Quiz--error">There was an error</div>;
