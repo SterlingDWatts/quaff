@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import Landing from "./routes/Landing/Landing";
 import Learn from "./routes/Learn/Learn";
 import Study from "./routes/Study/Study";
-import Search from "./routes/Search/Search";
 import Quiz from "./routes/Quiz/Quiz";
 import Module from "./routes/Module/Module";
 import Test from "./routes/Test/Test";
@@ -30,7 +29,6 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <Route exact path="/learn" component={Learn} />
           <Route exact path="/study" component={Study} />
-          <Route exact path="/search" component={Search} />
           <Route path="/quiz/:topicId" component={Quiz} />
           <Route path="/learn/:moduleId" component={Module} />
           <Route path="/test/:testId" component={Test} />

@@ -65,7 +65,6 @@ class NavBar extends Component {
             </Link>
             <NavBarPill to="/learn" label="Learn" />
             <NavBarPill to="/study" label="Study" />
-            <NavBarPill to="/search" label="Search" />
           </div>
           {accountLink}
         </div>
