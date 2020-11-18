@@ -47,9 +47,8 @@ class NavBar extends Component {
   };
 
   render() {
-    const accountLink = this.context.loggedIn
-      ? this.renderLogout()
-      : this.renderLogin();
+    const { loggedIn } = this.context;
+    const accountLink = loggedIn ? this.renderLogout() : this.renderLogin();
     return (
       <nav className="NavBar">
         <div className="NavBar__container">
