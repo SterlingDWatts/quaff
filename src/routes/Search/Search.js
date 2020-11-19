@@ -41,9 +41,9 @@ class Search extends Component {
       const lowerCaseSearch = this.state.search.value.toLowerCase();
       return lowerCaseTerm.includes(lowerCaseSearch);
     });
-    const terms = filteredTerms.map((term) => {
+    const terms = filteredTerms.map((term, idx) => {
       return (
-        <div className="Search--term">
+        <div className="Search--term" key={idx}>
           <div>{term.term}</div>
         </div>
       );

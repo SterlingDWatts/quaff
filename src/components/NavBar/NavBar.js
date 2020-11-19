@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/pro-regular-svg-icons";
@@ -7,38 +7,33 @@ import LoginContext from "../../contexts/LoginContext";
 import TokenService from "../../services/token-service";
 import "./NavBar.css";
 
-class NavBar extends Component {
-  state = {
-    showSubNav: false,
+const NavBar = () => {
+  const [showSubNav, setShowSubNav] = useState(false);
+  const context = useContext(LoginContext);
+
+  const handleToggleSubNav = () => {
+    setShowSubNav(!showSubNav);
   };
 
-  static contextType = LoginContext;
-
-  handleToggleSubNav = () => {
-    this.setState({
-      showSubNav: !this.state.showSubNav,
-    });
-  };
-
-  handleLogout = () => {
+  const handleLogout = () => {
     TokenService.clearAuthToken();
     window.localStorage.removeItem("test");
-    this.context.logout();
+    context.logout();
   };
 
-  renderLogout = () => {
+  const renderLogout = () => {
     return (
       <Link
         className="NavBar--no-pill NavBar--account-link"
         to="/"
-        onClick={this.handleLogout}
+        onClick={handleLogout}
       >
         Logout
       </Link>
     );
   };
 
-  renderLogin = () => {
+  const renderLogin = () => {
     return (
       <Link className="NavBar--no-pill NavBar--account-link" to="/login">
         Login
@@ -46,39 +41,34 @@ class NavBar extends Component {
     );
   };
 
-  render() {
-    const { loggedIn } = this.context;
-    const accountLink = loggedIn ? this.renderLogout() : this.renderLogin();
-    return (
-      <nav className="NavBar">
-        <div className="NavBar__container">
-          <div className="NavBar__logo_div">
-            <button type="button" className="NavBar__hamburger">
-              <FontAwesomeIcon
-                icon={faBars}
-                onClick={this.handleToggleSubNav}
-              />
-            </button>
-            <Link className="NavBar--no-pill NavBar--marquee" to="/">
-              Q
-            </Link>
-            <NavBarPill to="/learn" label="Learn" />
-            <NavBarPill to="/study" label="Study" />
-          </div>
-          {accountLink}
+  const { loggedIn } = context;
+  const accountLink = loggedIn ? renderLogout() : renderLogin();
+  return (
+    <nav className="NavBar">
+      <div className="NavBar__container">
+        <div className="NavBar__logo_div">
+          <button type="button" className="NavBar__hamburger">
+            <FontAwesomeIcon icon={faBars} onClick={handleToggleSubNav} />
+          </button>
+          <Link className="NavBar--no-pill NavBar--marquee" to="/">
+            Q
+          </Link>
+          <NavBarPill to="/learn" label="Learn" />
+          <NavBarPill to="/study" label="Study" />
         </div>
-        <SubNav
-          toggleShowSubNav={this.handleToggleSubNav}
-          showSubNav={this.state.showSubNav}
-          onLogout={this.handleLogout}
-        />
-      </nav>
-    );
-  }
-}
+        {accountLink}
+      </div>
+      <SubNav
+        toggleShowSubNav={handleToggleSubNav}
+        showSubNav={showSubNav}
+        onLogout={handleLogout}
+      />
+    </nav>
+  );
+};
 
-function NavBarPill({ label, to }) {
-  let match = useRouteMatch({
+const NavBarPill = ({ label, to }) => {
+  const match = useRouteMatch({
     path: to,
     exact: false,
   });
@@ -88,6 +78,6 @@ function NavBarPill({ label, to }) {
       <div className={match ? "NavBarPill--active" : "NavBarPill"}>{label}</div>
     </Link>
   );
-}
+};
 
 export default NavBar;
