@@ -114,7 +114,8 @@
     margin: 0 auto;
   }
 
-  a.NextUp__link + a.NextUp__link .NextUp__container {
+  a.NextUp__link + a.NextUp__link .NextUp__container,
+  a.NextUp__link + a.NextUp__link .NextUp__header {
     margin-top: 16px;
   }
 }
