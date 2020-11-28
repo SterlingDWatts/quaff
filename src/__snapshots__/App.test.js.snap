@@ -73,18 +73,18 @@ exports[`App Component renders the UI as expected 1`] = `
       </a>
     </div>
     <div
-      className="SubNav__shadow"
+      className="SideNav__shadow"
       onClick={[Function]}
     />
     <nav
-      className="SubNav"
+      className="SideNav"
       onClick={[Function]}
     >
       <div
-        className="SubNav__Marquee__container"
+        className="SideNav__Marquee__container"
       >
         <a
-          className="SubNav__Marquee"
+          className="SideNav__Marquee"
           href="/"
           onClick={[Function]}
         >
@@ -92,10 +92,10 @@ exports[`App Component renders the UI as expected 1`] = `
         </a>
       </div>
       <div
-        className="SubNav__main_container"
+        className="SideNav__main_container"
       >
         <a
-          className="SubNav__icon_link"
+          className="SideNav__icon_link"
           href="/learn"
           onClick={[Function]}
         >
@@ -124,7 +124,7 @@ exports[`App Component renders the UI as expected 1`] = `
           Learn
         </a>
         <a
-          className="SubNav__icon_link"
+          className="SideNav__icon_link"
           href="/study"
           onClick={[Function]}
         >
@@ -154,10 +154,10 @@ exports[`App Component renders the UI as expected 1`] = `
         </a>
       </div>
       <div
-        className="SubNav__other_container"
+        className="SideNav__other_container"
       >
         <a
-          className="SubNav__icon_link"
+          className="SideNav__icon_link"
           href="/about"
           onClick={[Function]}
         >
@@ -187,10 +187,10 @@ exports[`App Component renders the UI as expected 1`] = `
         </a>
       </div>
       <div
-        className="SubNav__account_container"
+        className="SideNav__account_container"
       >
         <a
-          className="SubNav__icon_link"
+          className="SideNav__icon_link"
           href="/login"
           onClick={[Function]}
         >
@@ -219,7 +219,7 @@ exports[`App Component renders the UI as expected 1`] = `
           Login
         </a>
         <a
-          className="SubNav__icon_link"
+          className="SideNav__icon_link"
           href="/create-account"
           onClick={[Function]}
         >
