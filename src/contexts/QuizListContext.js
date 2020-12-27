@@ -33,17 +33,15 @@ export class QuizListProvider extends Component {
     this.setState({ quizList });
   };
 
-  setTopicList = (topicList) => {
-    const sortedTopics = topicList.slice();
-    sortedTopics.sort((a, b) => {
-      const aCorrect = a.correct != null ? Number(a.correct) : 0;
-      const aMastery = a.seen ? aCorrect / Number(a.seen) : 1.1;
-      const bCorrect = b.correct != null ? Number(b.correct) : 0;
-      const bMastery = b.seen != null ? bCorrect / Number(b.seen) : 1.1;
-      return aMastery - bMastery;
-    });
+  calculateMastery = ({ correct, seen }) => {
+    const numCorrectAnswers = correct ? Number(correct) : 0;
+    const correctPercent = seen ? (numCorrectAnswers / Number(seen)) * 100 : 101;
+    return correctPercent;
+  };
 
-    this.setState({ topicList: sortedTopics });
+  setTopicList = (topicList) => {
+    topicList.sort((a, b) => this.calculateMastery(a) - this.calculateMastery(b));
+    this.setState({ topicList });
   };
 
   render() {
@@ -56,10 +54,6 @@ export class QuizListProvider extends Component {
       setQuizList: this.setQuizList,
       setTopicList: this.setTopicList,
     };
-    return (
-      <QuizListContext.Provider value={value}>
-        {this.props.children}
-      </QuizListContext.Provider>
-    );
+    return <QuizListContext.Provider value={value}>{this.props.children}</QuizListContext.Provider>;
   }
 }

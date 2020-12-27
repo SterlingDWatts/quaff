@@ -2,18 +2,17 @@ import React, { useState, useContext } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/pro-regular-svg-icons";
-import SubNav from "../SubNav/SubNav";
+import SideNav from "../SideNav/SideNav";
 import LoginContext from "../../contexts/LoginContext";
 import TokenService from "../../services/token-service";
 import "./NavBar.css";
 
 const NavBar = () => {
-  const [showSubNav, setShowSubNav] = useState(false);
-
+  const [showSideNav, setShowSideNav] = useState(false);
   const context = useContext(LoginContext);
 
-  const handleToggleSubNav = () => {
-    setShowSubNav(!showSubNav);
+  const handleToggleSideNav = () => {
+    setShowSideNav(!showSideNav);
   };
 
   const handleLogout = () => {
@@ -24,11 +23,7 @@ const NavBar = () => {
 
   const renderLogout = () => {
     return (
-      <Link
-        className="NavBar--no-pill NavBar--account-link"
-        to="/"
-        onClick={handleLogout}
-      >
+      <Link className="NavBar--no-pill NavBar--account-link" to="/" onClick={handleLogout}>
         Logout
       </Link>
     );
@@ -49,7 +44,7 @@ const NavBar = () => {
       <div className="NavBar__container">
         <div className="NavBar__logo_div">
           <button type="button" className="NavBar__hamburger">
-            <FontAwesomeIcon icon={faBars} onClick={handleToggleSubNav} />
+            <FontAwesomeIcon icon={faBars} onClick={handleToggleSideNav} />
           </button>
           <Link className="NavBar--no-pill NavBar--marquee" to="/">
             Q
@@ -59,17 +54,13 @@ const NavBar = () => {
         </div>
         {accountLink}
       </div>
-      <SubNav
-        toggleShowSubNav={handleToggleSubNav}
-        showSubNav={showSubNav}
-        onLogout={handleLogout}
-      />
+      <SideNav toggleShowSideNav={handleToggleSideNav} showSideNav={showSideNav} onLogout={handleLogout} />
     </nav>
   );
 };
 
 const NavBarPill = ({ label, to }) => {
-  let match = useRouteMatch({
+  const match = useRouteMatch({
     path: to,
     exact: false,
   });

@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import { ExploreSquare } from "../../components/Utils/Utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSearch,
-  faArrowRight,
-  faArrowLeft,
-  faTimes,
-} from "@fortawesome/pro-regular-svg-icons";
+import { faSearch, faArrowRight, faArrowLeft, faTimes } from "@fortawesome/pro-regular-svg-icons";
 import SearchList from "./search-list";
 import "./Search.css";
 
@@ -41,9 +36,9 @@ class Search extends Component {
       const lowerCaseSearch = this.state.search.value.toLowerCase();
       return lowerCaseTerm.includes(lowerCaseSearch);
     });
-    const terms = filteredTerms.map((term) => {
+    const terms = filteredTerms.map((term, idx) => {
       return (
-        <div className="Search--term">
+        <div className="Search--term" key={idx}>
           <div>{term.term}</div>
         </div>
       );
@@ -89,17 +84,11 @@ class Search extends Component {
             />
             <button type="button" onClick={(e) => this.handleChangeSortOrder()}>
               A
-              <FontAwesomeIcon
-                icon={this.state.ascending ? faArrowRight : faArrowLeft}
-              />
-              Z
+              <FontAwesomeIcon icon={this.state.ascending ? faArrowRight : faArrowLeft} />Z
             </button>
             <FontAwesomeIcon icon={faSearch} />
             <button type="button" className="Search--clear-button">
-              <FontAwesomeIcon
-                icon={faTimes}
-                onClick={(e) => this.handleClearSearch()}
-              />
+              <FontAwesomeIcon icon={faTimes} onClick={(e) => this.handleClearSearch()} />
             </button>
           </div>
           {this.renderTerms()}
