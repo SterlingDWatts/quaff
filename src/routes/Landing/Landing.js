@@ -17,6 +17,7 @@ const Landing = () => {
         ModulesApiService.getTopics().then(setTopicList).catch(setError);
       })
       .catch(setError);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
