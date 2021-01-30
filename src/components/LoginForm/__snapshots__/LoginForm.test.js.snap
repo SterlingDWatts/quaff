@@ -13,97 +13,79 @@ exports[`LoginForm Comoponent renders the UI as expected 1`] = `
   <div
     className="hint"
   >
-    <span
-      className="Required "
-    >
-      *
-    </span>
+    <Required />
      required fields
   </div>
-  <div
-    className="LabelGroup LoginForm__username"
+  <LabelGroup
+    className="LoginForm__username"
   >
-    <label
-      className="Label "
+    <Label
       htmlFor="username"
     >
       Username 
-      <span
-        className="Required "
-      >
-        *
-      </span>
-    </label>
-    <input
-      className="Input "
+      <Required />
+    </Label>
+    <Input
       id="username"
       name="username"
       onChange={[Function]}
       type="text"
+      value=""
     />
-    <div
-      className="NoError"
-    >
-       
-    </div>
-  </div>
-  <div
-    className="LabelGroup LoginForm__password"
+    <ValidationError
+      message="Username is required"
+      touched={false}
+    />
+  </LabelGroup>
+  <LabelGroup
+    className="LoginForm__password"
   >
-    <label
-      className="Label "
+    <Label
       htmlFor="password"
     >
       Password 
-      <span
-        className="Required "
-      >
-        *
-      </span>
-    </label>
-    <input
-      className="Input "
+      <Required />
+    </Label>
+    <Input
       id="password"
       name="password"
       onChange={[Function]}
       type="password"
+      value=""
     />
-    <div
-      className="NoError"
-    >
-       
-    </div>
-  </div>
+    <ValidationError
+      message="Password is required"
+      touched={false}
+    />
+  </LabelGroup>
   <div
     className="LoginForm--error"
   >
-    <div
-      className="NoError"
-    >
-       
-    </div>
+    <ValidationError
+      message={null}
+      touched={true}
+    />
   </div>
   <div
     className="LoginForm__buttons"
   >
-    <button
-      className="Button form__button"
+    <Button
+      className="form__button"
+      disabled="Username is required"
       type="submit"
     >
       Login
-    </button>
+    </Button>
   </div>
   <div
     className="LoginForm__other_links"
   >
-    Don't have an account?
-     
-    <a
-      href="/create-account"
-      onClick={[Function]}
+    Don't have an account? 
+    <Link
+      to="/create-account"
     >
       Create Account
-    </a>
+    </Link>
   </div>
 </form>
 `;

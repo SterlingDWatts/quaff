@@ -40,10 +40,8 @@ class QuizForm extends Component {
           <label
             htmlFor={`ans_${answer.id}`}
             className={classnames("QuizForm__label", {
-              "QuizForm__label--selected":
-                answer.id === this.context.selectedId,
-              "QuizForm__label--correct":
-                answer.correct && this.context.showAnswer,
+              "QuizForm__label--selected": answer.id === this.context.selectedId,
+              "QuizForm__label--correct": answer.correct && this.context.showAnswer,
             })}
           >
             {icon}
@@ -70,17 +68,9 @@ class QuizForm extends Component {
   };
 
   render() {
-    const {
-      quiz,
-      numQuestions,
-      progress,
-      showAnswer,
-      error,
-      numCorrect,
-    } = this.context;
+    const { quiz, numQuestions, progress, showAnswer, error, numCorrect } = this.context;
     const correctedProgress = showAnswer ? progress + 1 : progress;
-    const correctPercent =
-      numCorrect > 0 ? Math.floor((numCorrect / numQuestions) * 100) : 0;
+    const correctPercent = numCorrect > 0 ? Math.floor((numCorrect / numQuestions) * 100) : 0;
     let content;
     if (error) {
       content = <div className="QuizForm--error">Error</div>;
@@ -106,19 +96,13 @@ class QuizForm extends Component {
                 <div
                   className="QuizForm--progress"
                   style={{
-                    width: `${Math.floor(
-                      (correctedProgress / numQuestions) * 100
-                    )}%`,
+                    width: `${Math.floor((correctedProgress / numQuestions) * 100)}%`,
                   }}
                 ></div>
-                <div
-                  className="QuizForm--correct"
-                  style={{ width: `${correctPercent}%` }}
-                ></div>
+                <div className="QuizForm--correct" style={{ width: `${correctPercent}%` }}></div>
               </div>
               <legend className="QuizForm__question">
-                {progress < numQuestions ? progress + 1 : numQuestions}.{" "}
-                {question.content}
+                {progress < numQuestions ? progress + 1 : numQuestions}. {question.content}
               </legend>
             </div>
             <div className="QuizForm--bottom">

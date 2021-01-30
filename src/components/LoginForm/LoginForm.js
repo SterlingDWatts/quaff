@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {
-  LabelGroup,
-  Label,
-  Input,
-  Button,
-  Required,
-  ValidationError,
-} from "../Utils/Utils";
+import { LabelGroup, Label, Input, Button, Required, ValidationError } from "../Utils/Utils";
 import AuthApiService from "../../services/auth-api-service";
 import ValidationService from "../../services/validation-service";
 import ModulesApiService from "../../services/modules-api-service";
@@ -33,22 +26,9 @@ class LoginForm extends Component {
     },
   };
 
-  handleUsernameChange = (username) => {
-    this.setState({
-      username: {
-        value: username,
-        touched: true,
-      },
-    });
-  };
-
-  handlePasswordChange = (password) => {
-    this.setState({
-      password: {
-        value: password,
-        touched: true,
-      },
-    });
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: { value, touched: true } });
   };
 
   handleSubmit = (e) => {
@@ -86,15 +66,9 @@ class LoginForm extends Component {
   render() {
     const { error, username, password } = this.state;
     const usernameError = ValidationService.validateUsername(username.value);
-    const usernameLabelError = ValidationService.validateUsernameLabel(
-      username.value,
-      username.touched
-    );
+    const usernameLabelError = ValidationService.validateUsernameLabel(username.value, username.touched);
     const passwordError = ValidationService.validatePassword(password.value);
-    const passwordLabelError = ValidationService.validatePasswordLabel(
-      password.value,
-      password.touched
-    );
+    const passwordLabelError = ValidationService.validatePasswordLabel(password.value, password.touched);
     return (
       <form className="LoginForm" onSubmit={(e) => this.handleSubmit(e)}>
         <header>
@@ -112,7 +86,8 @@ class LoginForm extends Component {
             name="username"
             id="username"
             type="text"
-            onChange={(e) => this.handleUsernameChange(e.target.value)}
+            value={this.state.username.value}
+            onChange={(e) => this.handleChange(e)}
           />
           <ValidationError message={usernameError} touched={username.touched} />
         </LabelGroup>
@@ -125,7 +100,8 @@ class LoginForm extends Component {
             name="password"
             id="password"
             type="password"
-            onChange={(e) => this.handlePasswordChange(e.target.value)}
+            value={this.state.password.value}
+            onChange={(e) => this.handleChange(e)}
           />
           <ValidationError message={passwordError} touched={password.touched} />
         </LabelGroup>
@@ -133,13 +109,12 @@ class LoginForm extends Component {
           <ValidationError message={error} touched={true} />
         </div>
         <div className="LoginForm__buttons">
-          <Button type="submit" className="form__button">
+          <Button type="submit" className="form__button" disabled={usernameError || passwordError}>
             Login
           </Button>
         </div>
         <div className="LoginForm__other_links">
-          Don't have an account?{" "}
-          <Link to="/create-account">Create Account</Link>
+          Don't have an account? <Link to="/create-account">Create Account</Link>
         </div>
       </form>
     );

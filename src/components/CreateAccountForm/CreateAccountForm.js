@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {
-  LabelGroup,
-  Label,
-  Input,
-  Button,
-  Required,
-  ValidationError,
-  PasswordValidationError,
-} from "../Utils/Utils";
+import { LabelGroup, Label, Input, Button, Required, ValidationError, PasswordValidationError } from "../Utils/Utils";
 import AuthApiService from "../../services/auth-api-service";
 import ValidationService from "../../services/validation-service";
 import "./CreateAccountForm.css";
@@ -50,42 +42,9 @@ class CreateAccountForm extends Component {
     },
   };
 
-  handleFirstNameChange = (firstName) => {
-    this.setState({
-      firstName: { value: firstName, touched: true },
-    });
-  };
-
-  handleLastNameChange = (lastName) => {
-    this.setState({ lastName: { value: lastName, touched: true } });
-  };
-
-  handleUsernameChange = (username) => {
-    this.setState({
-      username: { value: username, touched: true },
-    });
-  };
-
-  handleEmailChange = (email) => {
-    this.setState({
-      email: { value: email, touched: true },
-    });
-  };
-
-  handleConfirmEmailChange = (confirmEmail) => {
-    this.setState({ confirmEmail: { value: confirmEmail, touched: true } });
-  };
-
-  handlePasswordChange = (password) => {
-    this.setState({
-      password: { value: password, touched: true },
-    });
-  };
-
-  handleConfirmPasswordChange = (confirmPassword) => {
-    this.setState({
-      confirmPassword: { value: confirmPassword, touched: true },
-    });
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: { value, touched: true } });
   };
 
   handleSubmit = (e) => {
@@ -118,64 +77,31 @@ class CreateAccountForm extends Component {
   };
 
   render() {
-    const {
-      error,
-      firstName,
-      lastName,
-      username,
-      email,
-      confirmEmail,
-      password,
-      confirmPassword,
-    } = this.state;
+    const { error, firstName, lastName, username, email, confirmEmail, password, confirmPassword } = this.state;
     const firstNameError = ValidationService.validateFirstName(firstName.value);
-    const firstNameLabelError = ValidationService.validateNameLabel(
-      firstName.value,
-      firstName.touched
-    );
+    const firstNameLabelError = ValidationService.validateNameLabel(firstName.value, firstName.touched);
     const lastNameError = ValidationService.validateLastName(lastName.value);
-    const lastNameLabelError = ValidationService.validateNameLabel(
-      lastName.value,
-      lastName.touched
-    );
+    const lastNameLabelError = ValidationService.validateNameLabel(lastName.value, lastName.touched);
     const usernameError = ValidationService.validateUsername(username.value);
-    const usernameLabelError = ValidationService.validateUsernameLabel(
-      username.value,
-      username.touched
-    );
+    const usernameLabelError = ValidationService.validateUsernameLabel(username.value, username.touched);
     const emailError = ValidationService.validateEmail(email.value);
-    const emailLabelError = ValidationService.validateEmailLabel(
-      email.value,
-      email.touched
-    );
-    const confirmEmailError = ValidationService.validateConfirmEmail(
-      confirmEmail.value,
-      email.value
-    );
+    const emailLabelError = ValidationService.validateEmailLabel(email.value, email.touched);
+    const confirmEmailError = ValidationService.validateConfirmEmail(confirmEmail.value, email.value);
     const confirmEmailLabelError = ValidationService.validateConfirmEmailLabel(
       confirmEmail.value,
       email.value,
       confirmEmail.touched
     );
     const passwordError = ValidationService.validatePassword(password.value);
-    const passwordLabelError = ValidationService.validatePasswordLabel(
-      password.value,
-      password.touched
-    );
-    const confirmPasswordError = ValidationService.validateConfirmPassword(
-      confirmPassword.value,
-      password.value
-    );
+    const passwordLabelError = ValidationService.validatePasswordLabel(password.value, password.touched);
+    const confirmPasswordError = ValidationService.validateConfirmPassword(confirmPassword.value, password.value);
     const confirmPasswordLabelError = ValidationService.validateConfirmPasswordLabel(
       confirmPassword.value,
       password.value,
       confirmPassword.touched
     );
     return (
-      <form
-        className="CreateAccountForm"
-        onSubmit={(e) => this.handleSubmit(e)}
-      >
+      <form className="CreateAccountForm" onSubmit={(e) => this.handleSubmit(e)}>
         <h2>Create Account</h2>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="hint">
@@ -191,12 +117,9 @@ class CreateAccountForm extends Component {
             id="first_name"
             type="text"
             required
-            onChange={(e) => this.handleFirstNameChange(e.target.value)}
+            onChange={(e) => this.handleChange(e)}
           />
-          <ValidationError
-            message={firstNameError}
-            touched={firstName.touched}
-          />
+          <ValidationError message={firstNameError} touched={firstName.touched} />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__last_name">
           <Label htmlFor="last_name">
@@ -208,7 +131,7 @@ class CreateAccountForm extends Component {
             id="last_name"
             type="text"
             required
-            onChange={(e) => this.handleLastNameChange(e.target.value)}
+            onChange={(e) => this.handleChange(e)}
           />
           <ValidationError message={lastNameError} touched={lastName.touched} />
         </LabelGroup>
@@ -222,7 +145,7 @@ class CreateAccountForm extends Component {
             id="username"
             type="text"
             required
-            onChange={(e) => this.handleUsernameChange(e.target.value)}
+            onChange={(e) => this.handleChange(e)}
           />
           <ValidationError message={usernameError} touched={username.touched} />
         </LabelGroup>
@@ -236,7 +159,7 @@ class CreateAccountForm extends Component {
             id="email"
             type="email"
             required
-            onChange={(e) => this.handleEmailChange(e.target.value)}
+            onChange={(e) => this.handleChange(e)}
           />
           <ValidationError message={emailError} touched={email.touched} />
         </LabelGroup>
@@ -250,12 +173,9 @@ class CreateAccountForm extends Component {
             id="confirm_email"
             type="email"
             required
-            onChange={(e) => this.handleConfirmEmailChange(e.target.value)}
+            onChange={(e) => this.handleChange(e)}
           />
-          <ValidationError
-            message={confirmEmailError}
-            touched={confirmEmail.touched}
-          />
+          <ValidationError message={confirmEmailError} touched={confirmEmail.touched} />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__password">
           <Label htmlFor="password">
@@ -267,12 +187,9 @@ class CreateAccountForm extends Component {
             id="password"
             type="password"
             required
-            onChange={(e) => this.handlePasswordChange(e.target.value)}
+            onChange={(e) => this.handleChange(e)}
           />
-          <PasswordValidationError
-            password={password.value}
-            touched={password.touched}
-          />
+          <PasswordValidationError password={password.value} touched={password.touched} />
         </LabelGroup>
         <LabelGroup className="CreateAccountForm__confirm_password">
           <Label htmlFor="confirm_password">
@@ -284,12 +201,9 @@ class CreateAccountForm extends Component {
             id="confirm_password"
             type="password"
             required
-            onChange={(e) => this.handleConfirmPasswordChange(e.target.value)}
+            onChange={(e) => this.handleChange(e)}
           />
-          <ValidationError
-            message={confirmPasswordError}
-            touched={confirmPassword.touched}
-          />
+          <ValidationError message={confirmPasswordError} touched={confirmPassword.touched} />
         </LabelGroup>
         <div className="CreateAccountForm--error">
           <ValidationError />

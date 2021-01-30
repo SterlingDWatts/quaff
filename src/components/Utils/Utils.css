@@ -88,6 +88,11 @@ input.Input--error {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16), 0 2px 3px rgba(0, 0, 0, 0.23);
 }
 
+.Button.form__button:disabled {
+  background: #cfd6db;
+  color: #b9c4cb;
+}
+
 .Required {
   color: #e30425;
 }
@@ -155,8 +160,7 @@ input.Input--error {
   padding-top: calc(100% + 48px);
   position: relative;
   border-radius: 8px;
-  box-shadow: 0 1px 10px 3px rgba(0, 0, 0, 0.15),
-    0 1px 4px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 10px 3px rgba(0, 0, 0, 0.15), 0 1px 4px 1px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   color: #e30425;
   font-family: "Lekton", sans-serif;
