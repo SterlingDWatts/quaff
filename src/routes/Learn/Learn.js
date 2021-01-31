@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ExploreSquare, TopicSquare } from "../../components/Utils/Utils";
 import Wineglass from "./wine-glass.jpg";
@@ -7,24 +7,24 @@ import ModulesApiService from "../../services/modules-api-service";
 import TokenService from "../../services/token-service";
 import "./Learn.css";
 
-class Learn extends Component {
-  static contextType = QuizListContext;
+const Learn = () => {
+  const context = useContext(QuizListContext);
 
-  componentDidMount() {
-    this.context.clearError();
+  useEffect(() => {
+    const { clearError, setQuizList, setTopicList, setError } = context;
+    clearError();
     ModulesApiService.getModules()
       .then((res) => {
-        this.context.setQuizList(res);
-        ModulesApiService.getTopics()
-          .then(this.context.setTopicList)
-          .catch(this.context.setError);
+        setQuizList(res);
+        ModulesApiService.getTopics().then(setTopicList).catch(setError);
       })
-      .catch(this.context.setError);
-  }
+      .catch(setError);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  renderModules = () => {
+  const renderModules = () => {
     const modules = [];
-    this.context.quizList.forEach((mod) => {
+    context.quizList.forEach((mod) => {
       const unlocked = parseFloat(mod.max_score) >= 0.75 || mod.next === true;
       const address = unlocked ? mod.id : "";
       modules.push(
@@ -57,7 +57,7 @@ class Learn extends Component {
     return modules;
   };
 
-  renderLoadingModules = () => {
+  const renderLoadingModules = () => {
     const modules = [];
     for (let i = 0; i < 6; i++) {
       modules.push(
@@ -75,33 +75,30 @@ class Learn extends Component {
     return modules;
   };
 
-  render() {
-    const { error, quizList } = this.context;
-    let modules;
-    if (!error && quizList.length < 1) {
-      modules = this.renderLoadingModules();
-    } else {
-      modules = this.renderModules();
-    }
-    return (
-      <div className="Learn">
-        <ExploreSquare>
-          <div className="Learn--info-text">
-            {TokenService.hasAuthToken() ? (
-              "Pass modules with at least 75% to unlock additional content."
-            ) : (
-              <>
-                <Link to="/login">Login</Link> to unlock additional content.{" "}
-                <Link to="/create-account">Create an account</Link> if you don't
-                have one.
-              </>
-            )}
-          </div>
-          {modules && modules}
-        </ExploreSquare>
-      </div>
-    );
+  const { error, quizList } = context;
+  let modules;
+  if (!error && quizList.length < 1) {
+    modules = renderLoadingModules();
+  } else {
+    modules = renderModules();
   }
-}
+  return (
+    <div className="Learn">
+      <ExploreSquare>
+        <div className="Learn--info-text">
+          {TokenService.hasAuthToken() ? (
+            "Pass modules with at least 75% to unlock additional content."
+          ) : (
+            <>
+              <Link to="/login">Login</Link> to unlock additional content.{" "}
+              <Link to="/create-account">Create an account</Link> if you don't have one.
+            </>
+          )}
+        </div>
+        {modules && modules}
+      </ExploreSquare>
+    </div>
+  );
+};
 
 export default Learn;

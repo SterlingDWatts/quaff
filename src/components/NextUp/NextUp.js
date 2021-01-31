@@ -24,9 +24,7 @@ class NextUp extends Component {
   };
 
   renderStudyTopics = () => {
-    let topicList = this.context.topicList.sort(
-      (a, b) => a.mastery - b.mastery
-    );
+    let topicList = this.context.topicList.sort((a, b) => a.mastery - b.mastery);
     topicList = topicList.slice(0, 3);
     return topicList.map((topic) => {
       const unlocked = topic.seen != null;

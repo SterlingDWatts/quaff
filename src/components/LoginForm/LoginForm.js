@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { LabelGroup, Label, Input, Button, Required, ValidationError } from "../Utils/Utils";
 import AuthApiService from "../../services/auth-api-service";
@@ -7,48 +7,35 @@ import ModulesApiService from "../../services/modules-api-service";
 import LoginContext from "../../contexts/LoginContext";
 import "./LoginForm.css";
 
-class LoginForm extends Component {
-  static defaultProps = {
-    onLoginSuccess: () => {},
-  };
+const LoginForm = (props) => {
+  const [error, setError] = useState(null);
+  const [form, setForm] = useState({
+    username: { value: "", touched: false },
+    password: { value: "", touched: false },
+  });
+  const context = useContext(LoginContext);
 
-  static contextType = LoginContext;
-
-  state = {
-    error: null,
-    username: {
-      value: "",
-      touched: false,
-    },
-    password: {
-      value: "",
-      touched: false,
-    },
-  };
-
-  handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ [name]: { value, touched: true } });
+    setForm({ ...form, [name]: { value, touched: true } });
   };
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const { username, password } = e.target;
-    this.setState({
-      error: null,
-    });
+    setError(null);
 
     AuthApiService.postLogin({
       username: username.value,
       password: password.value,
     })
       .then((res) => {
-        this.setState({
+        setForm({
           username: { touched: false, value: "" },
           password: { touched: false, value: "" },
         });
-        this.context.login();
-        this.props.onLoginSuccess();
+        context.login();
+        props.onLoginSuccess();
         if (window.localStorage.getItem("test")) {
           const test = JSON.parse(window.localStorage.getItem("test"));
           ModulesApiService.insertTest(test.id, test.views, test.score)
@@ -59,66 +46,68 @@ class LoginForm extends Component {
         }
       })
       .catch((res) => {
-        this.setState({ error: res.error });
+        setError(res.error);
       });
   };
 
-  render() {
-    const { error, username, password } = this.state;
-    const usernameError = ValidationService.validateUsername(username.value);
-    const usernameLabelError = ValidationService.validateUsernameLabel(username.value, username.touched);
-    const passwordError = ValidationService.validatePassword(password.value);
-    const passwordLabelError = ValidationService.validatePasswordLabel(password.value, password.touched);
-    return (
-      <form className="LoginForm" onSubmit={(e) => this.handleSubmit(e)}>
-        <header>
-          <h1>Login</h1>
-        </header>
-        <div className="hint">
-          <Required /> required fields
-        </div>
-        <LabelGroup className="LoginForm__username">
-          <Label htmlFor="username">
-            {usernameLabelError}Username <Required />
-          </Label>
-          <Input
-            error={usernameLabelError}
-            name="username"
-            id="username"
-            type="text"
-            value={this.state.username.value}
-            onChange={(e) => this.handleChange(e)}
-          />
-          <ValidationError message={usernameError} touched={username.touched} />
-        </LabelGroup>
-        <LabelGroup className="LoginForm__password">
-          <Label htmlFor="password">
-            {passwordLabelError}Password <Required />
-          </Label>
-          <Input
-            error={passwordLabelError}
-            name="password"
-            id="password"
-            type="password"
-            value={this.state.password.value}
-            onChange={(e) => this.handleChange(e)}
-          />
-          <ValidationError message={passwordError} touched={password.touched} />
-        </LabelGroup>
-        <div className="LoginForm--error">
-          <ValidationError message={error} touched={true} />
-        </div>
-        <div className="LoginForm__buttons">
-          <Button type="submit" className="form__button" disabled={usernameError || passwordError}>
-            Login
-          </Button>
-        </div>
-        <div className="LoginForm__other_links">
-          Don't have an account? <Link to="/create-account">Create Account</Link>
-        </div>
-      </form>
-    );
-  }
-}
+  const { username, password } = form;
+  const usernameError = ValidationService.validateUsername(username.value);
+  const usernameLabelError = ValidationService.validateUsernameLabel(username.value, username.touched);
+  const passwordError = ValidationService.validatePassword(password.value);
+  const passwordLabelError = ValidationService.validatePasswordLabel(password.value, password.touched);
+  return (
+    <form className="LoginForm" onSubmit={handleSubmit}>
+      <header>
+        <h1>Login</h1>
+      </header>
+      <div className="hint">
+        <Required /> required fields
+      </div>
+      <LabelGroup className="LoginForm__username">
+        <Label htmlFor="username">
+          {usernameLabelError}Username <Required />
+        </Label>
+        <Input
+          error={usernameLabelError}
+          name="username"
+          id="username"
+          type="text"
+          value={username.value}
+          onChange={handleChange}
+        />
+        <ValidationError message={usernameError} touched={username.touched} />
+      </LabelGroup>
+      <LabelGroup className="LoginForm__password">
+        <Label htmlFor="password">
+          {passwordLabelError}Password <Required />
+        </Label>
+        <Input
+          error={passwordLabelError}
+          name="password"
+          id="password"
+          type="password"
+          value={password.value}
+          onChange={handleChange}
+        />
+        <ValidationError message={passwordError} touched={password.touched} />
+      </LabelGroup>
+      <div className="LoginForm--error">
+        <ValidationError message={error} touched={true} />
+      </div>
+      <div className="LoginForm__buttons">
+        <Button type="submit" className="form__button" disabled={usernameError || passwordError}>
+          Login
+        </Button>
+      </div>
+      <div className="LoginForm__other_links">
+        Don't have an account? <Link to="/create-account">Create Account</Link>
+      </div>
+    </form>
+  );
+};
+
+LoginForm.defaultProps = {
+  onLoginSuccess: () => {},
+};
 
 export default LoginForm;
